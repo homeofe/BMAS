@@ -39,3 +39,37 @@
 ### Next Actions
 
 See NEXT_ACTIONS.md - P1 (ground truth) and P2 (runner API) are the critical path.
+
+---
+
+## 2026-02-22 - Ground Truth Research + Docs Update
+
+**Phase:** Pre-experiment (ground truth pre-registration)
+**Agent:** Akido (main session)
+
+### What Was Done
+
+- Spawned two Sonar sub-agents for Domain A and B research
+- Both sub-agents failed to write files (produced simulation-style output instead of calling tools)
+- Akido took over: performed all web research directly using web_search + web_fetch
+- Wrote domain-A-ground-truth.md (10 prompts, verified against NVD, NIST FIPS, RFC 8446, OpenID specs, IETF, BSI)
+- Wrote domain-B-ground-truth.md (10 prompts, verified against GDPR full text, eIDAS 2.0, NIS2, BSI C5, ISO 27001, TISAX, SOC 2 AICPA)
+- Both files LOCKED as pre-registered ground truth before any model runs
+- Language check passed: zero German characters in all BMAS files
+- Updated STATUS.md, NEXT_ACTIONS.md, DASHBOARD.md to reflect completed steps
+- Committed and pushed: commit 25a5395
+
+### Verification Status
+
+Domain A: 8/10 fully verified, 2 partial (A01 CVSS discrepancy, A10 BSI PDF not accessed directly)
+Domain B: 9/10 fully verified, 1 partial (B09 EDPB guideline number needs confirmation)
+
+### Architecture Decisions
+
+- Ground truth pre-registration: done by Akido with web research, not by sub-agent
+  - Lesson: sub-agents in "run" mode with Sonar model may produce simulation output; for file-writing tasks, main session is more reliable
+- Manual review flags: documented explicitly in ground truth files; experiment runs blocked until Emre reviews 3 flagged items (or accepts them as-is for pilot)
+
+### Next Actions
+
+P2 (runner implementation) is in progress.
