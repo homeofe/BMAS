@@ -1,81 +1,131 @@
 # BMAS Project Status
 
-**Last Updated:** 2026-02-22
-**Phase:** Pilot Complete - Full Run (P6) + Metrics (P7) Ready
-**Build Health:** Pilot 25/25 OK
+**Last Updated:** 2026-02-22 00:50
+**Phase:** P6 Running (41/150) - Full autonomous pipeline active
+**Build Health:** Pilot 25/25 OK - Full run in progress
 
 ---
 
-## Completed (Verified)
+## Completed
 
 ### Foundation (commit 4772d04)
 - [x] README.md (Verified)
-- [x] experiments/design.md - 3 domains, 30 prompts, metrics, timeline (Verified)
+- [x] experiments/design.md - 3 domains, 30 prompts, 5 models, metrics, timeline (Verified)
 - [x] experiments/prompts/domain-A-technical.md - A01-A10 (Verified)
 - [x] experiments/prompts/domain-B-regulatory.md - B01-B10 (Verified)
 - [x] experiments/prompts/domain-C-strategic.md - C01-C10 (Verified)
-- [x] paper/sections/00-abstract.md (Verified)
-- [x] paper/sections/01-introduction.md - full with related work positioning (Verified)
 - [x] src/metrics/deviation.py - cosine, BERTScore, Jaccard, DBSCAN (Verified)
 - [x] src/synthesis/synthesizer.py - S1, S2, S3 (Verified)
 - [x] requirements.txt (Verified)
 - [x] GitHub: https://github.com/homeofe/BMAS (private)
 
-### Ground Truth (commit 25a5395) - LOCKED
-- [x] domain-A-ground-truth.md - 10/10 (8 fully verified, 2 partial - A01 CVSS discrepancy, A10 BSI PDF)
-- [x] domain-B-ground-truth.md - 10/10 (9 fully verified, 1 partial - B09 EDPB guideline ref)
-- [x] Status: LOCKED, pre-registered before any model runs
+### P1 - Ground Truth (commit 25a5395) - LOCKED
+- [x] domain-A-ground-truth.md - 10/10 verified (2 partial flags: A01 CVSS, A10 BSI)
+- [x] domain-B-ground-truth.md - 10/10 verified (1 partial flag: B09 EDPB ref)
+- [x] Both LOCKED before any model runs (pre-registration)
 
-### Runner (commit 764f98c + 350449d)
-- [x] src/runner/runner.py - full OpenClaw cron-based blind runner (Verified)
-  - Isolated cron session per model (strict blind isolation)
-  - Reads full response from session JSONL (no truncation)
-  - --dry-run, --pilot, --all, --skip-existing, --models filters
-  - Live tested: A01/M1 = 3227 tokens, 63s
+### P2 - Runner (commit 764f98c) - DONE
+- [x] src/runner/runner.py - OpenClaw cron-based blind isolated runner
+- [x] --skip-existing, --dry-run, --pilot, --all flags
+- [x] Live tested: A01/M1 = 3227 tokens
 
-### Pilot Run (commit ebd80d1) - DONE
+### P3 - Python Deps - DONE
+- [x] sentence-transformers, bert-score, scikit-learn, matplotlib, seaborn, numpy, pandas, tqdm
+- [x] All installed via pip --break-system-packages
+
+### P4 - Paper: Related Work (commit dafebe4) - DONE
+- [x] paper/sections/02-related-work.md - 8 works covered, clear positioning vs prior art
+
+### P5 - Pilot Run (commit ebd80d1) - DONE
 - [x] 25/25 runs OK (A01, A05, B01, B05, C01 x M1-M5)
-- [x] Raw outputs in experiments/raw-outputs/
+- [x] Token spread: 3.6x-6.5x per prompt; regulatory tightest
 
-**Pilot token spread:**
+### Paper Sections Written (commit dafebe4) - DONE
+- [x] paper/sections/00-abstract.md
+- [x] paper/sections/01-introduction.md - related work positioning
+- [x] paper/sections/02-related-work.md - Delphi, Self-Consistency, MoA, LLM-as-Judge, BERTScore, CAI, DBSCAN
+- [x] paper/sections/03-methodology.md - full protocol, metrics, hypotheses
+- [x] paper/sections/07-discussion-limitations.md - full discussion + limitations
+- [x] paper/sections/08-conclusion.md - contributions + practical takeaways
 
-| Prompt | Domain | M1 | M2 | M3 | M4 | M5 | Ratio |
-|---|---|---|---|---|---|---|---|
-| A01 | technical | 3227 | 674 | 523 | 3418 | 527 | 6.5x |
-| A05 | technical | 5741 | 2189 | 1899 | 3956 | 1286 | 4.5x |
-| B01 | regulatory | 1024 | 305 | 437 | 1106 | 374 | 3.6x |
-| B05 | regulatory | 933 | 317 | 397 | 1658 | 412 | 5.2x |
-| C01 | strategic | 1917 | 920 | 1145 | 2911 | 456 | 6.4x |
+### Automation Scripts (commit dafebe4) - READY
+- [x] scripts/watch_and_finish.sh - watching P6 PID 1811694, fires on completion
+- [x] scripts/finish_pipeline.sh - chains P7 -> P8 (sections 04-06) -> P9 -> docs -> commit -> WA notify
+- [x] src/metrics/run_pipeline.py - full metrics pipeline runner
+- [x] src/metrics/generate_figures.py - F1-F5 paper figures
+- [x] src/paper/generate_results_sections.py - auto-generates sections 04, 05, 06 from data
 
-**Early observations:**
-- Regulatory prompts show tightest spread (aligns with hypothesis)
-- M4 (Gemini 2.5-pro): consistently most verbose
-- M5 (Sonar): consistently most concise
-- M2 (Opus) shorter than M1 (Sonnet) despite being "larger" model
+---
+
+## In Progress
+
+### P6 - Full Experiment Run - IN PROGRESS (watcher PID 1816456)
+- Progress: ~41/150 (updated at time of write - check /tmp/bmas-fullrun.log)
+- Estimated completion: ~2-3 hours from start
+- All 30 prompts x 5 models (150 calls) running sequentially
+- Output: experiments/raw-outputs/<prompt>/<model>.json
+- Skip-existing enabled: pilot runs preserved
+
+---
+
+## Pending (will auto-complete via finish_pipeline.sh after P6)
+
+### P7 - Metric Pipeline - AUTO
+- Triggers: immediately after P6 exits
+- Runs: cosine similarity, BERTScore F1, Jaccard, DBSCAN outlier detection
+- Output: results/aggregate.json + results/aggregate.csv + results/<prompt>-metrics.json
+
+### P8 - Paper Sections 04-06 - AUTO
+- Triggers: after P7 completes
+- 04-results.md: experiment overview, domain stats, H1+H3 test results, per-model token table
+- 05-divergence-analysis.md: outlier detection results, H2 analysis, domain patterns
+- 06-synthesis-evaluation.md: S1/S2/S3 comparison, factual accuracy, synthesis vs. best model
+- Generated by: src/paper/generate_results_sections.py
+
+### P9 - Figures - AUTO
+- Triggers: after P7 completes
+- F1: similarity heatmaps by domain (3 subplots, NxN matrix)
+- F2: cosine similarity box plots by domain
+- F3: BERTScore F1 bars per prompt grouped by domain
+- F4: token ratio vs. semantic divergence scatter
+- F5: outlier detection rate by model
+
+### P10 - Final Commit + Push + Notify - AUTO
+- Triggers: after P8+P9
+- Git commit with full summary message
+- Push to origin main
+- WhatsApp to +4915170113694 with hypothesis results + key stats
+
+---
 
 ## Model Status
 
-| Model | Integration | Pilot Runs | Status |
+| Model | Integration | Pilot | Full Run |
 |---|---|---|---|
-| M1 (claude-sonnet-4-6) | Done | 5/5 | OK |
-| M2 (claude-opus-4-6) | Done | 5/5 | OK |
-| M3 (gpt-5.3-codex) | Done | 5/5 | OK |
-| M4 (gemini-2.5-pro) | Done | 5/5 | OK |
-| M5 (sonar-pro) | Done | 5/5 | OK |
+| M1 (claude-sonnet-4-6) | Done | 5/5 OK | In progress |
+| M2 (claude-opus-4-6) | Done | 5/5 OK | In progress |
+| M3 (gpt-5.3-codex) | Done | 5/5 OK | In progress |
+| M4 (gemini-2.5-pro) | Done | 5/5 OK | In progress |
+| M5 (sonar-pro) | Done | 5/5 OK | In progress |
 
-## What Is Next
+## Paper Status
 
-- [ ] **P6:** Full experiment (30 prompts x 5 = 150 calls) - awaiting Emre approval
-- [ ] **P7:** Metric pipeline (sentence-transformers + BERTScore + Jaccard + DBSCAN) - can start on pilot data
-- [ ] **P3:** Python env setup (pip install requirements.txt - needs venv or --break-system-packages)
-- [ ] **P4:** Paper section 02 - Related Work
-- [ ] **P8-P10:** Paper sections 03-07, figures, review, arXiv (blocked on P7)
+| Section | Title | Status |
+|---|---|---|
+| 00 | Abstract | Written |
+| 01 | Introduction | Written |
+| 02 | Related Work | Written |
+| 03 | Methodology | Written |
+| 04 | Results | Auto-generate after P7 |
+| 05 | Divergence Analysis | Auto-generate after P7 |
+| 06 | Synthesis Evaluation | Auto-generate after P7 |
+| 07 | Discussion & Limitations | Written |
+| 08 | Conclusion | Written |
 
-## Confidence Levels
+## Hypothesis Status (pending full metrics)
 
-- Experiment design: **(Verified)**
-- Prompts (all 30): **(Verified)**
-- Ground truth A+B: **(Verified, 3 partial flags)**
-- Runner: **(Verified - live tested)**
-- Pilot data: **(Verified - 25/25 real model responses)**
-- Hypothesis correctness: **(Unknown)** - semantic metrics needed to confirm
+| Hypothesis | Prediction | Status |
+|---|---|---|
+| H1: A+B cosine > 0.75 | Factual domains converge | Pending P7 |
+| H2: Outliers = lower accuracy | Divergence signals error | Pending P7 + annotation |
+| H3: Strategic < A+B | Domain effect on convergence | Pending P7 |
