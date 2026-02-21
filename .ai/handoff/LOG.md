@@ -73,3 +73,34 @@ Domain B: 9/10 fully verified, 1 partial (B09 EDPB guideline number needs confir
 ### Next Actions
 
 P2 (runner implementation) is in progress.
+
+---
+
+## 2026-02-22 00:35 - Pilot Run Complete (P5)
+
+**Phase:** Pilot experiment
+**Agent:** Akido (runner via background process)
+**Result:** 24/24 OK (25 total, 1 skipped - A01/M1 already existed)
+
+### Token counts per prompt/model
+
+| Prompt | Domain | M1 | M2 | M3 | M4 | M5 | Ratio |
+|---|---|---|---|---|---|---|---|
+| A01 | technical | 3227 | 674 | 523 | 3418 | 527 | 6.5x |
+| A05 | technical | 5741 | 2189 | 1899 | 3956 | 1286 | 4.5x |
+| B01 | regulatory | 1024 | 305 | 437 | 1106 | 374 | 3.6x |
+| B05 | regulatory | 933 | 317 | 397 | 1658 | 412 | 5.2x |
+| C01 | strategic | 1917 | 920 | 1145 | 2911 | 456 | 6.4x |
+
+### Early observations (token length only - semantic analysis pending)
+
+- M4 (Gemini 2.5-pro): consistently the most verbose across all domains
+- M5 (Sonar): consistently the most concise overall
+- M2 (Opus): most concise of the Anthropic models despite being the "larger" model
+- B01 has the tightest range (3.6x) - regulatory domain, simplest factual list prompt
+- C01 and A01 have the largest range (6.4x, 6.5x) - strategic/complex technical
+- B05 outlier: M4 at 1658 vs others 317-933 (GDPR breach notification - M4 went deep)
+
+### Next actions
+
+P5 complete. Next: P6 (full 30-prompt run) when Emre approves. P7 (metrics) can start on pilot data first.

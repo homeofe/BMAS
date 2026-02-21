@@ -9,7 +9,7 @@ Last updated: 2026-02-22
 | Runner API integration | P2 | **IN PROGRESS** | Yes | Akido/Sonnet |
 | Python env setup | P3 | Open | Yes | Sonnet |
 | Paper: Related Work (section 02) | P4 | Open | Yes | Sonar+Opus |
-| Pilot experiment (5 prompts) | P5 | Open | Blocked (P2) | Akido |
+| ~~Pilot experiment (5 prompts)~~ | P5 | **DONE** | - | Akido |
 | Full experiment (30x5) | P6 | Open | Blocked (P5) | Akido |
 | Metric pipeline | P7 | Open | Blocked (P6) | Sonnet |
 | Paper: sections 03-07 | P8 | Open | Blocked (P7) | Opus |
@@ -25,7 +25,7 @@ Last updated: 2026-02-22
 | Ground truth Domain B | 10/10 (LOCKED) |
 | Paper sections done | 2/8 (abstract, intro) |
 | Models integrated | 0/5 |
-| Experiment runs | 0/150 |
+| Experiment runs | 25/150 (pilot done) |
 | Partial verification flags | 3 (manual review needed) |
 
 ## Partial Verification Flags

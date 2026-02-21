@@ -14,6 +14,7 @@ Last updated: 2026-02-22
 - [x] **Paper: Introduction** - full section with related work positioning - commit 4772d04
 - [x] **Code: metrics/deviation.py** - cosine, BERTScore, Jaccard, DBSCAN - commit 4772d04
 - [x] **Code: synthesis/synthesizer.py** - S1, S2, S3 strategies - commit 4772d04
+- [x] **P5: Pilot experiment** - 25/25 runs OK (A01, A05, B01, B05, C01 x M1-M5) - 2026-02-22
 
 ---
 
@@ -38,19 +39,17 @@ Last updated: 2026-02-22
 **Who:** Sonar (research) + Opus (writing)
 **Effort:** Medium
 
-## [P5] Pilot experiment (5 prompts, all 5 models)
-**Blocked by:** P2 (runner must work first)
-**Scope:** A01, A05, B01, B05, C01
-**Purpose:** Validate runner, check output quality, estimate token costs before full 150-run experiment
-**Effort:** Low (once runner works)
+## ~~[P5] Pilot experiment~~ - DONE
+25/25 OK. Token spread: 3.6x-6.5x across prompts. M4 most verbose, M5 most concise.
+Raw outputs in experiments/raw-outputs/ (A01-C01, M1-M5).
 
 ## [P6] Full experiment run (30 prompts x 5 models)
-**Blocked by:** P5 (pilot must pass first)
+**Blocked by:** Emre approval (pilot passed, ready to go)
 **Output:** 150 JSON files in experiments/raw-outputs/
 **Effort:** Low execution, moderate cost (~300-500k tokens estimated)
 
 ## [P7] Metric pipeline execution
-**Blocked by:** P6
+**Blocked by:** P6 (for full results) - can run on pilot data now for validation
 **Output:** results/ folder with per-prompt metric reports + aggregate CSV
 **Effort:** Medium (compute time + validation)
 
