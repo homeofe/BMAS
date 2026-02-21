@@ -354,8 +354,10 @@ def main():
     parser.add_argument("--output-dir", default=str(RAW_OUTPUTS))
     parser.add_argument("--timeout",   type=int, default=120,
                         help="Per-model timeout in seconds (default: 120)")
-    parser.add_argument("--dry-run",   action="store_true",
+    parser.add_argument("--dry-run",      action="store_true",
                         help="Validate config without making API calls")
+    parser.add_argument("--skip-existing", action="store_true",
+                        help="Skip prompt/model pairs that already have a saved JSON result")
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)
@@ -395,11 +397,25 @@ def main():
     total_err = 0
 
     for prompt_id, domain, prompt_text in runs:
+        # Apply --skip-existing filter per model
+        model_ids_to_run = args.models
+        if args.skip_existing:
+            model_ids_to_run = [
+                mid for mid in args.models
+                if not (output_dir / prompt_id / f"{mid}.json").exists()
+            ]
+            skipped = set(args.models) - set(model_ids_to_run)
+            if skipped:
+                print(f"  [skip] {prompt_id}: {', '.join(sorted(skipped))} already done")
+            if not model_ids_to_run:
+                total_ok += len(skipped)
+                continue
+
         records = run_prompt_blind(
             prompt_id=prompt_id,
             prompt_text=prompt_text,
             domain=domain,
-            model_ids=args.models,
+            model_ids=model_ids_to_run,
             output_dir=output_dir,
             dry_run=args.dry_run,
             timeout_seconds=args.timeout,
