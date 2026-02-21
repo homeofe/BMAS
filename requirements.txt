@@ -1,0 +1,26 @@
+# BMAS Core Dependencies
+
+# Semantic similarity
+sentence-transformers>=2.7.0
+
+# BERTScore
+bert-score>=0.3.13
+
+# Clustering (outlier detection)
+scikit-learn>=1.4.0
+
+# Numerics
+numpy>=1.26.0
+
+# Progress bars
+tqdm>=4.66.0
+
+# Data handling
+pandas>=2.2.0
+
+# Visualization (figures for paper)
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# Optional: LaTeX export
+tabulate>=0.9.0
