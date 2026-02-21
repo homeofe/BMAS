@@ -1,65 +1,81 @@
 # BMAS Project Status
 
 **Last Updated:** 2026-02-22
-**Phase:** Runner Implementation (P2)
-**Build Health:** N/A (no experiments run yet)
+**Phase:** Pilot Complete - Full Run (P6) + Metrics (P7) Ready
+**Build Health:** Pilot 25/25 OK
 
 ---
 
-## What Exists (Verified)
+## Completed (Verified)
 
 ### Foundation (commit 4772d04)
-- [x] README.md - project overview, hypothesis, model table, domain overview (Verified)
-- [x] experiments/design.md - full experiment spec, 3 domains, 30 prompts, metrics, timeline (Verified)
-- [x] experiments/prompts/domain-A-technical.md - 10 prompts, A01-A10 (Verified)
-- [x] experiments/prompts/domain-B-regulatory.md - 10 prompts, B01-B10 (Verified)
-- [x] experiments/prompts/domain-C-strategic.md - 10 prompts, C01-C10 (Verified)
-- [x] paper/sections/00-abstract.md - draft abstract (Verified)
-- [x] paper/sections/01-introduction.md - full introduction with related work positioning (Verified)
-- [x] src/runner/runner.py - blind prompt runner structure (API call stub - not yet integrated) (Verified)
-- [x] src/metrics/deviation.py - cosine, BERTScore, Jaccard, DBSCAN outlier detection (Verified)
-- [x] src/synthesis/synthesizer.py - S1 majority-vote, S2 centroid, S3 LLM-as-Judge (Verified)
+- [x] README.md (Verified)
+- [x] experiments/design.md - 3 domains, 30 prompts, metrics, timeline (Verified)
+- [x] experiments/prompts/domain-A-technical.md - A01-A10 (Verified)
+- [x] experiments/prompts/domain-B-regulatory.md - B01-B10 (Verified)
+- [x] experiments/prompts/domain-C-strategic.md - C01-C10 (Verified)
+- [x] paper/sections/00-abstract.md (Verified)
+- [x] paper/sections/01-introduction.md - full with related work positioning (Verified)
+- [x] src/metrics/deviation.py - cosine, BERTScore, Jaccard, DBSCAN (Verified)
+- [x] src/synthesis/synthesizer.py - S1, S2, S3 (Verified)
 - [x] requirements.txt (Verified)
-- [x] GitHub repo: https://github.com/homeofe/BMAS (private) (Verified)
+- [x] GitHub: https://github.com/homeofe/BMAS (private)
 
 ### Ground Truth (commit 25a5395) - LOCKED
-- [x] experiments/prompts/domain-A-ground-truth.md - 10/10 prompts (Verified)
-  - 8/10 fully verified against primary sources
-  - 2/10 partial: A01 (CVSS 9.6 vs 9.8 discrepancy - needs manual check), A10 (BSI TR-03116-4 direct PDF not accessed)
-- [x] experiments/prompts/domain-B-ground-truth.md - 10/10 prompts (Verified)
-  - 9/10 fully verified against primary sources
-  - 1/10 partial: B09 (EDPB guideline number - WP248 vs 09/2022)
-- [x] Both files LOCKED - pre-registered before any model runs
+- [x] domain-A-ground-truth.md - 10/10 (8 fully verified, 2 partial - A01 CVSS discrepancy, A10 BSI PDF)
+- [x] domain-B-ground-truth.md - 10/10 (9 fully verified, 1 partial - B09 EDPB guideline ref)
+- [x] Status: LOCKED, pre-registered before any model runs
 
-## What Is In Progress
+### Runner (commit 764f98c + 350449d)
+- [x] src/runner/runner.py - full OpenClaw cron-based blind runner (Verified)
+  - Isolated cron session per model (strict blind isolation)
+  - Reads full response from session JSONL (no truncation)
+  - --dry-run, --pilot, --all, --skip-existing, --models filters
+  - Live tested: A01/M1 = 3227 tokens, 63s
 
-- [ ] **P2: runner.py API integration** - OpenClaw sessions_spawn or direct provider API (IN PROGRESS)
+### Pilot Run (commit ebd80d1) - DONE
+- [x] 25/25 runs OK (A01, A05, B01, B05, C01 x M1-M5)
+- [x] Raw outputs in experiments/raw-outputs/
 
-## What Is Missing (Next Steps)
+**Pilot token spread:**
 
-- [ ] requirements.txt Python env setup + install test
-- [ ] Paper sections 02-07
-- [ ] Figures
-- [ ] Experiment runs (30 prompts x 5 models = 150 API calls)
-- [ ] Metric pipeline run
-- [ ] Analysis + writing
+| Prompt | Domain | M1 | M2 | M3 | M4 | M5 | Ratio |
+|---|---|---|---|---|---|---|---|
+| A01 | technical | 3227 | 674 | 523 | 3418 | 527 | 6.5x |
+| A05 | technical | 5741 | 2189 | 1899 | 3956 | 1286 | 4.5x |
+| B01 | regulatory | 1024 | 305 | 437 | 1106 | 374 | 3.6x |
+| B05 | regulatory | 933 | 317 | 397 | 1658 | 412 | 5.2x |
+| C01 | strategic | 1917 | 920 | 1145 | 2911 | 456 | 6.4x |
+
+**Early observations:**
+- Regulatory prompts show tightest spread (aligns with hypothesis)
+- M4 (Gemini 2.5-pro): consistently most verbose
+- M5 (Sonar): consistently most concise
+- M2 (Opus) shorter than M1 (Sonnet) despite being "larger" model
 
 ## Model Status
 
-| Model | Integration | Test Run |
-|---|---|---|
-| M1 (claude-sonnet-4-6) | Pending | No |
-| M2 (claude-opus-4-6) | Pending | No |
-| M3 (gpt-5.3-codex) | Pending | No |
-| M4 (gemini-2.5-pro) | Pending | No |
-| M5 (sonar-pro) | Pending | No |
+| Model | Integration | Pilot Runs | Status |
+|---|---|---|---|
+| M1 (claude-sonnet-4-6) | Done | 5/5 | OK |
+| M2 (claude-opus-4-6) | Done | 5/5 | OK |
+| M3 (gpt-5.3-codex) | Done | 5/5 | OK |
+| M4 (gemini-2.5-pro) | Done | 5/5 | OK |
+| M5 (sonar-pro) | Done | 5/5 | OK |
+
+## What Is Next
+
+- [ ] **P6:** Full experiment (30 prompts x 5 = 150 calls) - awaiting Emre approval
+- [ ] **P7:** Metric pipeline (sentence-transformers + BERTScore + Jaccard + DBSCAN) - can start on pilot data
+- [ ] **P3:** Python env setup (pip install requirements.txt - needs venv or --break-system-packages)
+- [ ] **P4:** Paper section 02 - Related Work
+- [ ] **P8-P10:** Paper sections 03-07, figures, review, arXiv (blocked on P7)
 
 ## Confidence Levels
 
 - Experiment design: **(Verified)**
 - Prompts (all 30): **(Verified)**
-- Ground truth Domain A: **(Verified, 2 partial items flagged)**
-- Ground truth Domain B: **(Verified, 1 partial item flagged)**
-- Code structure (runner stub, metrics, synthesis): **(Verified)**
-- Paper positioning: **(Verified)**
-- Hypothesis correctness: **(Unknown)** - that is the experiment
+- Ground truth A+B: **(Verified, 3 partial flags)**
+- Runner: **(Verified - live tested)**
+- Pilot data: **(Verified - 25/25 real model responses)**
+- Hypothesis correctness: **(Unknown)** - semantic metrics needed to confirm
