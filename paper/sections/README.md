@@ -8,12 +8,12 @@ Full research paper in Markdown, organized by section and language.
 
 | Language | Directory | Sections |
 |---|---|---|
-| 🇬🇧 English (original) | `paper/sections/` | ✅ 00 01 02 03 07 08 &nbsp; ⏳ 04 05 06 |
-| 🇩🇪 Deutsch | [`paper/sections/de/`](de/README.md) | ✅ 00 01 02 03 07 08 &nbsp; ⏳ 04 05 06 |
-| 🇫🇷 Francais | [`paper/sections/fr/`](fr/README.md) | ✅ 00 01 02 03 07 08 &nbsp; ⏳ 04 05 06 |
-| 🇪🇸 Espanol | [`paper/sections/es/`](es/README.md) | ✅ 00 01 02 03 07 08 &nbsp; ⏳ 04 05 06 |
-| 🇮🇹 Italiano | [`paper/sections/it/`](it/README.md) | ✅ 00 01 02 03 07 08 &nbsp; ⏳ 04 05 06 |
-| 🇵🇱 Polski | [`paper/sections/pl/`](pl/README.md) | ✅ 00 01 02 03 07 08 &nbsp; ⏳ 04 05 06 |
+| 🇬🇧 English (original) | `paper/sections/` | ✅ All 9 sections complete |
+| 🇩🇪 Deutsch | [`paper/sections/de/`](de/README.md) | ✅ All 9 sections complete |
+| 🇫🇷 Français | [`paper/sections/fr/`](fr/README.md) | ✅ All 9 sections complete |
+| 🇪🇸 Español | [`paper/sections/es/`](es/README.md) | ✅ All 9 sections complete |
+| 🇮🇹 Italiano | [`paper/sections/it/`](it/README.md) | ✅ All 9 sections complete |
+| 🇵🇱 Polski | [`paper/sections/pl/`](pl/README.md) | ✅ All 9 sections complete |
 
 ---
 
@@ -25,9 +25,9 @@ Full research paper in Markdown, organized by section and language.
 | 01 | Introduction | [01-introduction.md](01-introduction.md) | ✅ Done |
 | 02 | Related Work | [02-related-work.md](02-related-work.md) | ✅ Done |
 | 03 | Methodology | [03-methodology.md](03-methodology.md) | ✅ Done |
-| 04 | Results | [04-results.md](04-results.md) | ⏳ Auto-generated after metrics |
-| 05 | Divergence Analysis | [05-divergence-analysis.md](05-divergence-analysis.md) | ⏳ Auto-generated after metrics |
-| 06 | Synthesis Evaluation | [06-synthesis-evaluation.md](06-synthesis-evaluation.md) | ⏳ Auto-generated after metrics |
+| 04 | Results | [04-results.md](04-results.md) | ✅ Done (auto-generated from data) |
+| 05 | Divergence Analysis | [05-divergence-analysis.md](05-divergence-analysis.md) | ✅ Done (auto-generated from data) |
+| 06 | Synthesis Evaluation | [06-synthesis-evaluation.md](06-synthesis-evaluation.md) | ✅ Done (auto-generated from data) |
 | 07 | Discussion & Limitations | [07-discussion-limitations.md](07-discussion-limitations.md) | ✅ Done |
 | 08 | Conclusion | [08-conclusion.md](08-conclusion.md) | ✅ Done |
 
@@ -41,11 +41,13 @@ Full research paper in Markdown, organized by section and language.
 | 01 Introduction | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 02 Related Work | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 03 Methodology | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 04 Results | ⏳ | ⏳ | ⏳ | ⏳ | ⏳ | ⏳ |
-| 05 Divergence Analysis | ⏳ | ⏳ | ⏳ | ⏳ | ⏳ | ⏳ |
-| 06 Synthesis Evaluation | ⏳ | ⏳ | ⏳ | ⏳ | ⏳ | ⏳ |
+| 04 Results | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 05 Divergence Analysis | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 06 Synthesis Evaluation | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 07 Discussion | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 08 Conclusion | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+**Total: 54 section files across 6 languages. All complete. ✅**
 
 ---
 
@@ -53,5 +55,6 @@ Full research paper in Markdown, organized by section and language.
 
 - Technical terms, model names, and formula notation are kept in English across all languages.
 - Citation author names and publication years are kept in their original form.
-- Sections 04-06 are auto-generated from experiment data (Python script). Once generated in English, they will be translated to all 5 languages.
-- The Polish translation (pl) includes additional paragraphs on the BMAS-AEGIS connection relevant to the Polish eIDAS 2.0 connector.
+- Sections 04-06 were auto-generated from experiment data (27 prompts, 135 model responses) using `src/paper/generate_results_sections.py`.
+- The Polish translation (pl) includes additional paragraphs connecting BMAS to the AEGIS project and Polish eIDAS 2.0 connector relevance.
+- All diacritics are correct in all languages (ö/ä/ü/ß for DE; ą/ę/ó/ś/ł/ź/ż/ć/ń for PL; accent marks for FR/ES/IT).

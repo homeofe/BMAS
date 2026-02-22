@@ -1,6 +1,6 @@
-# BMAS - Deutsche Ubersetzung
+# BMAS - Deutsche Übersetzung
 
-Vollstandige Ubersetzung der BMAS-Forschungsarbeit auf Deutsch.
+Vollständige Übersetzung des BMAS-Forschungsartikels ins Deutsche.
 
 | # | Titel | Datei | Status |
 |---|---|---|---|
@@ -8,10 +8,10 @@ Vollstandige Ubersetzung der BMAS-Forschungsarbeit auf Deutsch.
 | 01 | Einleitung | [01-introduction.md](01-introduction.md) | ✅ Fertig |
 | 02 | Verwandte Arbeiten | [02-related-work.md](02-related-work.md) | ✅ Fertig |
 | 03 | Methodik | [03-methodology.md](03-methodology.md) | ✅ Fertig |
-| 04 | Ergebnisse | 04-results.md | ⏳ Nach Experiment (auto-generiert) |
-| 05 | Divergenzanalyse | 05-divergence-analysis.md | ⏳ Nach Experiment (auto-generiert) |
-| 06 | Syntheseevaluation | 06-synthesis-evaluation.md | ⏳ Nach Experiment (auto-generiert) |
-| 07 | Diskussion und Einschrankungen | [07-discussion-limitations.md](07-discussion-limitations.md) | ✅ Fertig |
-| 08 | Fazit | [08-conclusion.md](08-conclusion.md) | ✅ Fertig |
+| 04 | Ergebnisse | [04-results.md](04-results.md) | ✅ Fertig |
+| 05 | Divergenzanalyse | [05-divergence-analysis.md](05-divergence-analysis.md) | ✅ Fertig |
+| 06 | Synthesebewertung | [06-synthesis-evaluation.md](06-synthesis-evaluation.md) | ✅ Fertig |
+| 07 | Diskussion und Limitierungen | [07-discussion-limitations.md](07-discussion-limitations.md) | ✅ Fertig |
+| 08 | Schlussfolgerung | [08-conclusion.md](08-conclusion.md) | ✅ Fertig |
 
-[Zuruck zur englischen Version](../README.md) | [Zur franzosischen Version](../fr/README.md)
+[Zurück zur englischen Version](../README.md) | [Französische Version](../fr/README.md) | [Spanische Version](../es/README.md) | [Italienische Version](../it/README.md) | [Polnische Version](../pl/README.md)

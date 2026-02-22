@@ -2,7 +2,7 @@
 
 ## 6.1 Strategy Overview
 
-We evaluated three synthesis strategies (S1 majority-vote, S2 semantic centroid, S3 LLM-as-Judge) across all 17 prompts. Synthesis quality was assessed by measuring the resulting text's factual accuracy against ground truth for Domains A and B, and by expert rubric scoring for Domain C.
+We evaluated three synthesis strategies (S1 majority-vote, S2 semantic centroid, S3 LLM-as-Judge) across all 27 prompts. Synthesis quality was assessed by measuring the resulting text's factual accuracy against ground truth for Domains A and B, and by expert rubric scoring for Domain C.
 
 The rubric for Domain C assessed four dimensions (0-3 points each, max 12):
 - **Completeness:** Does the synthesis address all key aspects of the question?
