@@ -1,31 +1,31 @@
 # 8. Wnioski
 
-Niniejsza praca przedstawila **Blind Multi-Agent Synthesis (BMAS)**, metodologie elicytacji, porownania i syntezy odpowiedzi wielu duzych modeli jezykowych w scislej izolacji, oraz zaprezentowala wyniki empiryczne eksperymentu obejmujacego 150 uruchomien na pieciu modelach frontier i trzech poziomach dziedzinowych.
+Niniejsza praca przedstawiła **Blind Multi-Agent Synthesis (BMAS)**, metodologię elicytacji, porównania i syntezy odpowiedzi wielu dużych modeli językowych w ścisłej izolacji, oraz zaprezentowała wyniki empiryczne eksperymentu obejmującego 150 uruchomień na pięciu modelach frontier i trzech poziomach dziedzinowych.
 
-## 8.1 Podsumowanie wkladu naukowego
+## 8.1 Podsumowanie wkładu naukowego
 
-Wykazalismy, ze:
+Wykazaliśmy, że:
 
-1. **Konwergencja jest zalezna od dziedziny i mierzalna.** Na 30 promptach dziedziny A i B (techniczna i regulacyjna) wykazaly systematycznie wyzsza miedzymodelowa podobnosc semantyczna niz dziedzina C (prompty strategiczne i nieokreslone). [Patrz sekcja 4 po dokladne wartosci.]
+1. **Konwergencja jest zależna od dziedziny i mierzalna.** Na 30 promptach dziedziny A i B (techniczna i regulacyjna) wykazały systematycznie wyższą międzymodelową podobność semantyczną niż dziedzina C (prompty strategiczne i nieokreślone). [Patrz sekcja 4 po dokładne wartości.]
 
-2. **Dywergencja sygnalizuje blad w dziedzinach faktycznych.** Modele zidentyfikowane jako semantyczne wartosci odstajace wykazaly nizsza dokladnosc faktyczna wzgledem pre-rejestrowanych odpowiedzi referencyjnych niz modele nieodstajace, wspierajac hipoteze H2.
+2. **Dywergencja sygnalizuje błąd w dziedzinach faktycznych.** Modele zidentyfikowane jako semantyczne wartości odstające wykazały niższą dokładność faktyczną względem pre-rejestrowanych odpowiedzi referencyjnych niż modele nieodstające, wspierając hipotezę H2.
 
-3. **Jakosc syntezy rozni sie w zaleznosci od strategii i dziedziny.** Synteza LLM-as-Judge (S3) osiagnela najwyzsza dokladnosc faktyczna w dziedzinach A i B, podczas gdy glosowanie wiekszosciowe (S1) zapewnilo najbardziej wyczerpujace pokrycie. Zaden model nie zdominowal we wszystkich typach promptow.
+3. **Jakość syntezy różni się w zależności od strategii i dziedziny.** Synteza LLM-as-Judge (S3) osiągnęła najwyższą dokładność faktyczną w dziedzinach A i B, podczas gdy głosowanie większościowe (S1) zapewniło najbardziej wyczerpujące pokrycie. Żaden model nie zdominował we wszystkich typach promptów.
 
-4. **Dlugosc tokenow nie jest wskaznikiem jakosci.** Obserwowalismy znaczna wariancje w liczbie tokenow odpowiedzi miedzy modelami na identycznych promptach (do 6,5-krotnosci dla niektorych promptow), bez konsekwentnej korelacji z dokladnoscia faktyczna.
+4. **Długość tokenów nie jest wskaźnikiem jakości.** Obserwowaliśmy znaczną wariancję w liczbie tokenów odpowiedzi między modelami na identycznych promptach (do 6,5-krotności dla niektórych promptów), bez konsekwentnej korelacji z dokładnością faktyczną.
 
 ## 8.2 Praktyczne wnioski
 
-Dla praktycy wdrazajacych LLM w srodowiskach regulowanych lub wysokiego ryzyka, BMAS sugeruje praktyczna architekture: uruchamianie promptow na wielu niezaleznych dostawcach modeli, mierzenie konwergencji semantycznej i kierowanie odpowiedzi o niskiej pewnosci (wysokiej dywergencji) do przegladu ludzkiego. Protokol pre-rejestracji zastosowany w niniejszym badaniu jest przekazywalny do kazdego wysilku ewaluacji wielomodelowej i zapobiega uprzedzeniu potwierdzenia.
+Dla praktyków wdrażających LLM w środowiskach regulowanych lub wysokiego ryzyka, BMAS sugeruje praktyczną architekturę: uruchamianie promptów na wielu niezależnych dostawcach modeli, mierzenie konwergencji semantycznej i kierowanie odpowiedzi o niskiej pewności (wysokiej dywergencji) do przeglądu ludzkiego. Protokół pre-rejestracji zastosowany w niniejszym badaniu jest przekazywalny do każdego wysiłku ewaluacji wielomodelowej i zapobiega uprzedzeniu potwierdzenia.
 
-## 8.3 Zwiazek z AEGIS, AAHP i failprompt
+## 8.3 Związek z AEGIS, AAHP i failprompt
 
-BMAS zostal opracowany w kontekscie projektu AEGIS - transgranicznego systemu weryfikacji tozsamosci rzadowej UE obejmujacego lacza dla Niemiec, Austrii, Szwajcarii, Polski, Francji i innych krajow - AAHP (AI-to-AI Handoff Protocol), ustrukturyzowanego frameworku orkiestracji wieloagentowej dla produkcyjnych potoków AI, oraz failprompt, narzedzia CLI do walidacji odpowiedzi AI w srodowiskach CI/CD. Razem te trzy projekty tworza zintegrowany zestaw narzedzi do odpowiedzialnego wdrazania wielomodelowego AI: AAHP dostarcza warstwe orkiestracji, failprompt brame CI, a BMAS empiryczne podstawy do rozumienia kiedy i dlaczego konsensus wielomodelowy jest bardziej niezawodny niz wynik pojedynczego modelu.
+BMAS został opracowany w kontekście projektu AEGIS - transgranicznego systemu weryfikacji tożsamości rządowej UE obejmującego łącza dla Niemiec, Austrii, Szwajcarii, Polski, Francji i innych krajów - AAHP (AI-to-AI Handoff Protocol), ustrukturyzowanego frameworku orkiestracji wieloagentowej dla produkcyjnych potoków AI, oraz failprompt, narzędzia CLI do walidacji odpowiedzi AI w środowiskach CI/CD. Razem te trzy projekty tworzą zintegrowany zestaw narzędzi do odpowiedzialnego wdrażania wielomodelowego AI: AAHP dostarcza warstwę orkiestracji, failprompt bramę CI, a BMAS empiryczne podstawy do rozumienia kiedy i dlaczego konsensus wielomodelowy jest bardziej niezawodny niż wynik pojedynczego modelu.
 
-Dla projektu AEGIS w szczegolnosci BMAS dostarcza empirycznie uzasadnionej metodologii walidacji interpretacji regulacyjnych (RODO, eIDAS 2.0, NIS2, BSI C5) przez wiele modeli bez polegania na jednym modelu jako jedynym interpretatorem ram prawnych - co jest szczegolnie istotne w kontekscie wymogow zgodnosci Polski i innych krajow czlonkowskich UE.
+Dla projektu AEGIS w szczególności BMAS dostarcza empirycznie uzasadnionej metodologii walidacji interpretacji regulacyjnych (RODO, eIDAS 2.0, NIS2, BSI C5) przez wiele modeli bez polegania na jednym modelu jako jedynym interpretatorem ram prawnych - co jest szczególnie istotne w kontekście wymogów zgodności Polski i innych krajów członkowskich UE.
 
-Wszystkie kody, prompty, pre-rejestrowane odpowiedzi referencyjne i wyniki eksperymentow sa publikowane jako otwarte zbiory danych wspierajace replikacje i rozszerzenie niniejszej pracy.
+Wszystkie kody, prompty, pre-rejestrowane odpowiedzi referencyjne i wyniki eksperymentów są publikowane jako otwarte zbiory danych wspierające replikację i rozszerzenie niniejszej pracy.
 
 ---
 
-*Zbior danych BMAS, runner, potok metryk i kod syntezy sa dostepne pod adresem: https://github.com/homeofe/BMAS*
+*Zbiór danych BMAS, runner, potok metryk i kod syntezy są dostępne pod adresem: https://github.com/homeofe/BMAS*

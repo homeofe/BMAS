@@ -1,53 +1,53 @@
-# 1. Introduccion
+# 1. Introducción
 
-Los modelos de lenguaje grande han alcanzado un nivel de capacidad suficiente para ser desplegados en dominios donde la precision no es opcional: analisis juridico, diagnostico medico, cumplimiento regulatorio y sistemas de identidad gubernamentales. En estos dominios, una respuesta segura pero incorrecta de un modelo unico no es un inconveniente menor - es un fallo con consecuencias reales.
+Los modelos de lenguaje grande han alcanzado un nivel de capacidad suficiente para ser desplegados en dominios donde la precisión no es opcional: análisis jurídico, diagnóstico médico, cumplimiento regulatorio y sistemas de identidad gubernamentales. En estos dominios, una respuesta segura pero incorrecta de un modelo único no es un inconveniente menor - es un fallo con consecuencias reales.
 
-El enfoque dominante para mejorar la fiabilidad de los LLM es o bien un mejor entrenamiento (RLHF, Constitutional AI) o bien un mejor prompting (cadena de pensamiento, aumento por recuperacion). Ambos operan dentro de un paradigma de modelo unico: un modelo, una salida, una respuesta en la que confiar o no.
+El enfoque dominante para mejorar la fiabilidad de los LLM es o bien un mejor entrenamiento (RLHF, Constitutional AI) o bien un mejor prompting (cadena de pensamiento, aumento por recuperación). Ambos operan dentro de un paradigma de modelo único: un modelo, una salida, una respuesta en la que confiar o no.
 
-Este trabajo adopta un enfoque diferente. En lugar de preguntar "como hacemos un modelo mas fiable", preguntamos: **que podemos aprender del desacuerdo entre multiples modelos que no pueden influirse mutuamente?**
+Este trabajo adopta un enfoque diferente. En lugar de preguntar "cómo hacemos un modelo más fiable", preguntamos: **¿qué podemos aprender del desacuerdo entre múltiples modelos que no pueden influirse mutuamente?**
 
-## 1.1 La intuicion central
+## 1.1 La intuición central
 
-Cuando cinco expertos independientes responden a la misma pregunta sin consultarse entre si, y cuatro de ellos dan la misma respuesta mientras uno da una diferente, no concluimos que los cuatro estan equivocados. Examinamos la respuesta disidente con mas cuidado, pero confiamos en el consenso como punto de partida.
+Cuando cinco expertos independientes responden a la misma pregunta sin consultarse entre sí, y cuatro de ellos dan la misma respuesta mientras uno da una diferente, no concluimos que los cuatro están equivocados. Examinamos la respuesta disidente con más cuidado, pero confiamos en el consenso como punto de partida.
 
-Este es el metodo Delphi, aplicado desde 1963 a la prediccion experta. Su fortaleza es estructural: **el aislamiento previene el pensamiento grupal; el consenso emerge del razonamiento independiente, no de la presion social.**
+Este es el método Delphi, aplicado desde 1963 a la predicción experta. Su fortaleza es estructural: **el aislamiento previene el pensamiento grupal; el consenso emerge del razonamiento independiente, no de la presión social.**
 
-BMAS aplica esta logica a los LLMs. Cada modelo es un experto con una distribucion de entrenamiento particular, un horizonte de conocimiento y un conjunto de sesgos. Cuando se les aisla entre si y se les hace la misma pregunta, su convergencia o divergencia es en si misma informativa.
+BMAS aplica esta lógica a los LLMs. Cada modelo es un experto con una distribución de entrenamiento particular, un horizonte de conocimiento y un conjunto de sesgos. Cuando se les aísla entre sí y se les hace la misma pregunta, su convergencia o divergencia es en sí misma informativa.
 
-## 1.2 Que hay de nuevo
+## 1.2 Qué hay de nuevo
 
 Varios trabajos previos son relacionados pero distintos:
 
-**Self-Consistency** (Wang et al., 2022) genera multiples cadenas de razonamiento a partir de un *unico* modelo y usa votacion mayoritaria. BMAS utiliza modelos *diferentes* - esto prueba a traves de distribuciones de entrenamiento, no solo varianza de decodificacion.
+**Self-Consistency** (Wang et al., 2022) genera múltiples cadenas de razonamiento a partir de un *único* modelo y usa votación mayoritaria. BMAS utiliza modelos *diferentes* - esto prueba a través de distribuciones de entrenamiento, no solo varianza de decodificación.
 
-**Mixture of Agents** (Wang et al., 2024) permite a los modelos ver las salidas de los demas en rondas de agregacion. Esto produce refinamiento colaborativo, pero introduce el riesgo de propagacion de errores: si un modelo produce una alucinacion segura en la primera ronda, los modelos siguientes pueden anclarse a ella.
+**Mixture of Agents** (Wang et al., 2024) permite a los modelos ver las salidas de los demás en rondas de agregación. Esto produce refinamiento colaborativo, pero introduce el riesgo de propagación de errores: si un modelo produce una alucinación segura en la primera ronda, los modelos siguientes pueden anclarse a ella.
 
-**LLM-as-Judge** (Zheng et al., 2023) usa un modelo para evaluar a otro. BMAS usa un modelo para *sintetizar* las salidas de varios otros - el papel de juez se limita a la fase final de sintesis.
+**LLM-as-Judge** (Zheng et al., 2023) usa un modelo para evaluar a otro. BMAS usa un modelo para *sintetizar* las salidas de varios otros - el papel de juez se limita a la fase final de síntesis.
 
 BMAS es el primer framework que combina cuatro propiedades:
-1. Aislamiento ciego estricto (sin contaminacion cruzada)
+1. Aislamiento ciego estricto (sin contaminación cruzada)
 2. Diversidad de modelos (distintos proveedores, arquitecturas, distribuciones de entrenamiento)
-3. Analisis estratificado por dominio (factual, regulatorio, estrategico)
-4. Divergencia como senal (no como fallo)
+3. Análisis estratificado por dominio (factual, regulatorio, estratégico)
+4. Divergencia como señal (no como fallo)
 
-## 1.3 Motivacion practica
+## 1.3 Motivación práctica
 
-Esta investigacion surgio de la experiencia operativa construyendo AEGIS, un sistema de verificacion de identidad gubernamental transfronterizo de la UE, y AAHP (AI-to-AI Handoff Protocol), un framework estructurado de orquestacion multi-agente. En ambos sistemas, los pipelines multi-agente se utilizan para decisiones de arquitectura, analisis de cumplimiento y revision de implementaciones.
+Esta investigación surgió de la experiencia operativa construyendo AEGIS, un sistema de verificación de identidad gubernamental transfronterizo de la UE, y AAHP (AI-to-AI Handoff Protocol), un framework estructurado de orquestación multi-agente. En ambos sistemas, los pipelines multi-agente se utilizan para decisiones de arquitectura, análisis de cumplimiento y revisión de implementaciones.
 
-Surgio una pregunta practica: cuando se utilizan multiples LLMs como revisores independientes en un pipeline, cuanto difieren realmente sus salidas? Y cuando difieren, quien tiene razon?
+Surgió una pregunta práctica: cuando se utilizan múltiples LLMs como revisores independientes en un pipeline, ¿cuánto difieren realmente sus salidas? ¿Y cuando difieren, quién tiene razón?
 
 BMAS es la respuesta formal a esa pregunta.
 
 ## 1.4 Contribuciones
 
-Este trabajo realiza las siguientes contribuciones:
+Este trabajo aporta:
 
-1. **Metodologia BMAS:** Un protocolo formalizado de sintesis multi-agente ciega con restricciones de aislamiento, suite de metricas y estrategias de sintesis.
-2. **Estudio empirico:** Resultados de 30 prompts sobre 5 LLMs en 3 estratos de dominio, con respuestas de referencia pre-registradas para los dominios A y B.
-3. **Validacion de la hipotesis divergencia-como-senal:** Evidencia estadistica de que la divergencia inter-modelos predice la tasa de error factual.
-4. **Comparacion de estrategias de sintesis:** Evaluacion empirica del voto mayoritario, el centroide semantico y la sintesis LLM-as-Judge frente a respuestas de referencia.
-5. **Dataset abierto:** Todos los prompts, salidas brutas de los modelos y puntuaciones de metricas publicados como benchmark publico.
+1. **Metodología BMAS:** Un protocolo formalizado de síntesis ciega multi-agente con restricciones de aislamiento, conjunto de métricas y estrategias de síntesis.
+2. **Estudio empírico:** Resultados de 30 prompts para 5 LLMs en 3 estratos de dominio, con respuestas de referencia pre-registradas para los dominios A y B.
+3. **Validación de la hipótesis divergencia-como-señal:** Evidencia estadística de que la divergencia entre modelos predice la tasa de errores factuales.
+4. **Comparación de estrategias de síntesis:** Evaluación empírica del voto mayoritario, centroide semántico y síntesis LLM-as-Judge frente a respuestas de referencia.
+5. **Dataset abierto:** Todos los prompts, respuestas crudas de los modelos e indicadores de métricas publicados como benchmark público.
 
-## 1.5 Estructura del articulo
+## 1.5 Estructura del artículo
 
-La seccion 2 revisa los trabajos relacionados. La seccion 3 describe la metodologia BMAS y el diseno experimental. La seccion 4 presenta los resultados. La seccion 5 analiza la correlacion divergencia-alucinacion. La seccion 6 evalua las estrategias de sintesis. La seccion 7 discute implicaciones, limitaciones y trabajo futuro. La seccion 8 concluye.
+La sección 2 revisa trabajos relacionados. La sección 3 describe la metodología BMAS y el diseño experimental. La sección 4 presenta los resultados. La sección 5 analiza correlaciones divergencia-alucinación. La sección 6 evalúa las estrategias de síntesis. La sección 7 discute implicaciones, limitaciones y trabajos futuros. La sección 8 concluye.
