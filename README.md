@@ -88,6 +88,60 @@ All models receive identical prompts. No model sees another's output until the s
 
 ---
 
+## Compute Infrastructure
+
+### Hardware
+
+The metrics pipeline (BERTScore via `roberta-large`, semantic embeddings via `sentence-transformers`) was executed using a remote GPU bridge over the local network, rather than the workstation GPU available in the development machine.
+
+| | Local Workstation | GPU Bridge (remote) |
+|---|---|---|
+| **GPU** | NVIDIA Quadro M2000 | NVIDIA GeForce RTX 2080 Ti |
+| **Architecture** | Maxwell (GM206) | Turing (TU102) |
+| **Released** | February 2016 | September 2018 |
+| **CUDA Cores** | 768 | 4,352 |
+| **Tensor Cores** | — | 544 |
+| **VRAM** | 4 GB GDDR5 | 11 GB GDDR6 |
+| **Memory Bandwidth** | 106 GB/s | 616 GB/s |
+| **FP32 Throughput** | ~1.7 TFLOPS | ~13.6 TFLOPS |
+| **TDP** | 75 W | 260 W |
+| **CUDA Compute Capability** | 5.0 | 7.5 |
+
+The Quadro M2000 could not be used for inference at all: current versions of PyTorch (2.x) and `bert-score` require CUDA compute capability 6.0 or higher. Attempting to run the pipeline locally produced a hard failure (`cudaErrorNoKernelImageForDevice`) — not a performance degradation, but a complete incompatibility. A workstation GPU from 2016, less than a decade old, is already below the minimum requirements of modern ML frameworks.
+
+### Remote GPU Bridge
+
+The GPU bridge is a FastAPI service (`openclaw-gpu-bridge`) running on the RTX 2080 Ti machine and exposing a simple HTTP API (`/bertscore`, `/embed`). The BMAS metrics pipeline calls it via `GPU_BRIDGE_URL` environment variable and falls back gracefully to CPU if the bridge is unavailable.
+
+```
+Development machine (CPU only)
+        │
+        │  HTTP POST /bertscore  (LAN, ~1 ms RTT)
+        ▼
+GPU Bridge  (localhost:8765)
+  ├── roberta-large  (BERTScore)
+  └── all-MiniLM-L6-v2  (Embeddings / Cosine)
+        │
+        ▼
+  NVIDIA RTX 2080 Ti — 11 GB VRAM
+```
+
+### Performance
+
+Measured on the full BMAS dataset: 45 prompts × 12 models = 66 pairwise BERTScore comparisons per prompt.
+
+| Metric | CPU (estimated) | GPU Bridge (measured) | Speedup |
+|---|---|---|---|
+| BERTScore per prompt (66 pairs) | ~4 min | ~0.6 s | **~400x** |
+| Full pipeline (45 prompts) | ~3 h | ~5 min | **~36x** |
+| Embedding (12 texts) | ~30 s | ~0.1 s | **~300x** |
+
+The network overhead (HTTP over LAN) was negligible: round-trip latency was under 2 ms, and payload sizes were small enough that transfer time was not measurable against compute time.
+
+> **Note:** The speedup figures reflect the difference between CPU inference and GPU inference, not between the two specific GPU models. The local GPU would have failed regardless of compute time due to the architecture incompatibility described above. The comparison illustrates the practical impact of running compute-heavy ML workloads on hardware released within the supported CUDA compute capability range.
+
+---
+
 ## Connection to AAHP and failprompt
 
 BMAS is built on the [AAHP protocol](https://github.com/homeofe/AAHP) for agent orchestration.
