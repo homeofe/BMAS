@@ -2,7 +2,7 @@
 
 ## 4.1 Panoramica dell'esperimento
 
-L'esperimento BMAS completo comprendeva 27 prompt su tre strati di dominio, ognuno valutato da cinque modelli, producendo in totale 135 risposte di modelli. Tutte le risposte sono state ottenute sotto rigoroso isolamento cieco tramite il gateway OpenClaw.
+L'esperimento BMAS completo comprendeva 45 prompt su tre strati di dominio, ognuno valutato da dodici modelli, producendo in totale 540 risposte di modelli. Tutte le risposte sono state ottenute sotto rigoroso isolamento cieco tramite il gateway OpenClaw.
 
 **Tabella 1: Statistiche di risposta per dominio**
 
@@ -28,7 +28,7 @@ L'esperimento BMAS completo comprendeva 27 prompt su tre strati di dominio, ognu
 
 ## 4.4 Caratteristiche di risposta per modello
 
-**Tabella 2: Statistiche di token di risposta per modello (tutti i 27 prompt)**
+**Tabella 2: Statistiche di token di risposta per modello (tutti i 45 prompt)**
 
 | Modello | Token medi | Dev. std. | Tasso di anomalia |
 |---|---|---|---|

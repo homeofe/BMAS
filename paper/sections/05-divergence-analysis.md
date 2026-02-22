@@ -2,7 +2,7 @@
 
 ## 5.1 Outlier Detection Results
 
-Across all 27 prompts, 12 (44%) produced at least one semantic outlier model as identified by DBSCAN (eps=0.15, min_samples=2). Outlier frequency was highest in Domain C (strategic), consistent with the expectation that ambiguous questions produce more diverse response embeddings.
+Across all 45 prompts, 12 (44%) produced at least one semantic outlier model as identified by DBSCAN (eps=0.15, min_samples=2). Outlier frequency was highest in Domain C (strategic), consistent with the expectation that ambiguous questions produce more diverse response embeddings.
 
 **Table 3: Outlier frequency by domain**
 
@@ -12,17 +12,24 @@ Across all 27 prompts, 12 (44%) produced at least one semantic outlier model as 
 | Regulatory (B) | 4 | 10 | 40% |
 | Strategic (C) | 3 | 7 | 43% |
 
-**Table 4: Outlier rate by model (across all prompts)**
+**Table 4: Outlier rate by model (across all 45 prompts)**
 
 | Model | Outlier count | Outlier rate |
 |---|---|---|
-| M1 (Sonnet) | 4 | 0.15 (15%) |
-| M2 (Opus) | 4 | 0.15 (15%) |
-| M3 (GPT-5.3) | 3 | 0.11 (11%) |
-| M4 (Gemini-2.5) | 8 | 0.30 (30%) |
-| M5 (Sonar) | 2 | 0.07 (7%) |
+| M6 (Sonar Deep Research) | 30 | 0.67 (67%) |
+| M7 (Gemini 3 Pro Preview) | 29 | 0.64 (64%) |
+| M9 (Gemini 2.5 Flash) | 19 | 0.42 (42%) |
+| M8 (Gemini 3 Flash Preview) | 18 | 0.40 (40%) |
+| M10 (GPT-5.2) | 17 | 0.38 (38%) |
+| M11 (GPT-5.1) | 17 | 0.38 (38%) |
+| M1 (Claude Sonnet 4.6) | 16 | 0.36 (36%) |
+| M5 (Sonar Pro) | 16 | 0.36 (36%) |
+| M4 (Gemini 2.5 Pro) | 12 | 0.27 (27%) |
+| M3 (GPT-5.3 Codex) | 11 | 0.24 (24%) |
+| M2 (Claude Opus 4.6) | 10 | 0.22 (22%) |
+| M12 (Claude Sonnet 4.5) | 8 | 0.18 (18%) |
 
-Gemini-2.5 (M4) had the highest outlier rate at 0.30, while Sonar (M5) had the lowest at 0.07. A high outlier rate for a specific model does not necessarily indicate lower quality - it may reflect a more distinctive response style or a tendency toward more comprehensive coverage that moves its embedding away from the centroid.
+Sonar Deep Research (M6) had the highest outlier rate at 0.67, driven by its fundamentally different response style: the model conducts live web research and produces synthesis reports rather than direct answers, resulting in embeddings that consistently fall outside the consensus cluster. Gemini 3 Pro Preview (M7) was the second-highest outlier at 0.64. Claude Sonnet 4.5 (M12) was the most consensus-aligned model with an outlier rate of 0.18. A high outlier rate for a specific model does not necessarily indicate lower quality - it may reflect a more distinctive response style or a tendency toward more comprehensive coverage that moves its embedding away from the centroid.
 
 ## 5.2 Divergence-Hallucination Correlation (Hypothesis H2)
 

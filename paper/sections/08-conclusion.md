@@ -1,12 +1,12 @@
 # 8. Conclusion
 
-This paper introduced **Blind Multi-Agent Synthesis (BMAS)**, a methodology for eliciting, comparing, and synthesizing responses from multiple large language models in strict isolation, and presented empirical results from a 150-run experiment across five frontier LLMs and three domain strata.
+This paper introduced **Blind Multi-Agent Synthesis (BMAS)**, a methodology for eliciting, comparing, and synthesizing responses from multiple large language models in strict isolation, and presented empirical results from a 540-run experiment across twelve frontier LLMs and three domain strata.
 
 ## 8.1 Summary of Contributions
 
 We demonstrated that:
 
-1. **Convergence is domain-dependent and measurable.** Across 30 prompts, Models A and B (technical and regulatory domains) showed consistently higher inter-model semantic similarity than Domain C (strategic and ambiguous prompts). [See Section 4 for exact values.]
+1. **Convergence is domain-dependent and measurable.** Across 45 prompts, Models A and B (technical and regulatory domains) showed consistently higher inter-model semantic similarity than Domain C (strategic and ambiguous prompts). [See Section 4 for exact values.]
 
 2. **Divergence signals error in factual domains.** Models identified as semantic outliers by DBSCAN clustering showed lower factual accuracy against pre-registered ground truth than non-outlier models, supporting Hypothesis H2. This provides an empirical foundation for using divergence as a practical quality gate in AI-assisted decision systems.
 

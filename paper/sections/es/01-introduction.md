@@ -43,7 +43,7 @@ BMAS es la respuesta formal a esa pregunta.
 Este trabajo aporta:
 
 1. **Metodología BMAS:** Un protocolo formalizado de síntesis ciega multi-agente con restricciones de aislamiento, conjunto de métricas y estrategias de síntesis.
-2. **Estudio empírico:** Resultados de 30 prompts para 5 LLMs en 3 estratos de dominio, con respuestas de referencia pre-registradas para los dominios A y B.
+2. **Estudio empírico:** Resultados de 45 prompts para 12 LLMs en 3 estratos de dominio, con respuestas de referencia pre-registradas para los dominios A y B.
 3. **Validación de la hipótesis divergencia-como-señal:** Evidencia estadística de que la divergencia entre modelos predice la tasa de errores factuales.
 4. **Comparación de estrategias de síntesis:** Evaluación empírica del voto mayoritario, centroide semántico y síntesis LLM-as-Judge frente a respuestas de referencia.
 5. **Dataset abierto:** Todos los prompts, respuestas crudas de los modelos e indicadores de métricas publicados como benchmark público.

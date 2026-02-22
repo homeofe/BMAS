@@ -2,7 +2,7 @@
 
 ## 4.1 Überblick über das Experiment
 
-Das vollständige BMAS-Experiment umfasste 27 Prompts über drei Domänenschichten, die jeweils von fünf Modellen bewertet wurden, was insgesamt 135 Modellantworten ergibt. Alle Antworten wurden unter strikter blinder Isolation über das OpenClaw-Gateway erhoben.
+Das vollständige BMAS-Experiment umfasste 45 Prompts über drei Domänenschichten, die jeweils von fünf Modellen bewertet wurden, was insgesamt 540 Modellantworten ergibt. Alle Antworten wurden unter strikter blinder Isolation über das OpenClaw-Gateway erhoben.
 
 **Tabelle 1: Antwortstatistiken nach Domäne**
 
@@ -28,7 +28,7 @@ Das vollständige BMAS-Experiment umfasste 27 Prompts über drei Domänenschicht
 
 ## 4.4 Antwortcharakteristika pro Modell
 
-**Tabelle 2: Antwort-Token-Statistiken nach Modell (alle 27 Prompts)**
+**Tabelle 2: Antwort-Token-Statistiken nach Modell (alle 45 Prompts)**
 
 | Modell | Mittlere Token | Std | Ausreißerrate |
 |---|---|---|---|

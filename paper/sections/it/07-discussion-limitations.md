@@ -4,7 +4,7 @@
 
 L'affermazione centrale di BMAS è che la convergenza inter-modello è informativa: non solo come proprietà statistica dell'esperimento, ma come segnale pratico per le applicazioni a valle. I nostri risultati [vedi sezione 4] supportano questa affermazione per i domini fattuali, rivelando importanti sfumature.
 
-L'alta convergenza nei domini A e B valida l'intuizione che i modelli ben calibrati, addestrati sulle stesse fonti autorevoli, tendano verso le stesse risposte corrette quando le domande sono non ambigue. La bassa convergenza nel dominio C riflette la genuina difficoltà epistemica delle domande. Quando cinque sistemi esperti indipendenti non concordano su decisioni di architettura ottimali, il disaccordo stesso è significativo: segnala che la domanda non ha una risposta corretta dominante e merita deliberazione umana. BMAS funge così da **oracolo di complessità** oltre che da segnale di qualità.
+L'alta convergenza nei domini A e B valida l'intuizione che i modelli ben calibrati, addestrati sulle stesse fonti autorevoli, tendano verso le stesse risposte corrette quando le domande sono non ambigue. La bassa convergenza nel dominio C riflette la genuina difficoltà epistemica delle domande. Quando dodici sistemi esperti indipendenti non concordano su decisioni di architettura ottimali, il disaccordo stesso è significativo: segnala che la domanda non ha una risposta corretta dominante e merita deliberazione umana. BMAS funge così da **oracolo di complessità** oltre che da segnale di qualità.
 
 ## 7.2 La connessione divergenza-allucinazione
 
@@ -22,9 +22,9 @@ S3 (LLM-as-Judge) produce la maggiore accuratezza fattuale nei domini A e B ma i
 
 ## 7.4 Limitazioni
 
-**Dimensione del campione.** Con 30 prompt su tre domini, questo studio stabilisce prove iniziali ma non consente un'ampia generalizzazione statistica. Uno studio di follow-up con 100+ prompt per dominio rafforzerebbe sostanzialmente le affermazioni.
+**Dimensione del campione.** Con 45 prompt su tre domini, questo studio stabilisce prove iniziali ma non consente un'ampia generalizzazione statistica. Uno studio di follow-up con 100+ prompt per dominio rafforzerebbe sostanzialmente le affermazioni.
 
-**Selezione dei modelli.** I cinque modelli rappresentano un campione di convenienza. La composizione dei modelli influisce sulla distribuzione del consenso. I lavori futuri dovrebbero variare sistematicamente la composizione dei modelli.
+**Selezione dei modelli.** I dodici modelli rappresentano un campione di convenienza. La composizione dei modelli influisce sulla distribuzione del consenso. I lavori futuri dovrebbero variare sistematicamente la composizione dei modelli.
 
 **Qualità delle risposte di riferimento.** Tre elementi sono stati segnalati come necessitanti di verifica manuale (discrepanza CVSS di A01, fonte BSI di A10, riferimento EDPB di B09).
 

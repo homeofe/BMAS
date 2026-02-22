@@ -55,6 +55,6 @@ Full research paper in Markdown, organized by section and language.
 
 - Technical terms, model names, and formula notation are kept in English across all languages.
 - Citation author names and publication years are kept in their original form.
-- Sections 04-06 were auto-generated from experiment data (27 prompts, 135 model responses) using `src/paper/generate_results_sections.py`.
+- Sections 04-06 were auto-generated from experiment data (45 prompts, 540 model responses) using `src/paper/generate_results_sections.py`.
 - The Polish translation (pl) includes additional paragraphs connecting BMAS to the AEGIS project and Polish eIDAS 2.0 connector relevance.
 - All diacritics are correct in all languages (ö/ä/ü/ß for DE; ą/ę/ó/ś/ł/ź/ż/ć/ń for PL; accent marks for FR/ES/IT).

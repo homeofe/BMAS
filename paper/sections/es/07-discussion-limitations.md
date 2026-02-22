@@ -4,7 +4,7 @@
 
 La afirmación central de BMAS es que la convergencia inter-modelos es informativa: no solo como propiedad estadística del experimento, sino como señal práctica para aplicaciones posteriores. Nuestros resultados [véase la sección 4] apoyan esta afirmación para los dominios factuales mientras revelan matices importantes.
 
-La alta convergencia en los dominios A y B valida la intuición de que los modelos bien calibrados, entrenados con las mismas fuentes autorizadas, tienden hacia las mismas respuestas correctas cuando las preguntas son inequívocas. La baja convergencia en el dominio C refleja la genuina dificultad epistémica de las preguntas. Cuando cinco sistemas expertos independientes no están de acuerdo sobre decisiones de arquitectura óptimas, el desacuerdo en sí mismo es significativo: señaliza que la pregunta no tiene una respuesta correcta dominante y merece deliberación humana. BMAS actúa así como un **oráculo de complejidad** además de una señal de calidad.
+La alta convergencia en los dominios A y B valida la intuición de que los modelos bien calibrados, entrenados con las mismas fuentes autorizadas, tienden hacia las mismas respuestas correctas cuando las preguntas son inequívocas. La baja convergencia en el dominio C refleja la genuina dificultad epistémica de las preguntas. Cuando doce sistemas expertos independientes no están de acuerdo sobre decisiones de arquitectura óptimas, el desacuerdo en sí mismo es significativo: señaliza que la pregunta no tiene una respuesta correcta dominante y merece deliberación humana. BMAS actúa así como un **oráculo de complejidad** además de una señal de calidad.
 
 ## 7.2 La conexión divergencia-alucinación
 
@@ -22,9 +22,9 @@ S3 (LLM-as-Judge) produce la mayor precisión factual en los dominios A y B pero
 
 ## 7.4 Limitaciones
 
-**Tamaño de muestra.** Con 30 prompts en tres dominios, este estudio establece evidencia inicial pero no permite una generalización estadística amplia. Un estudio de seguimiento con 100+ prompts por dominio fortalecería sustancialmente las afirmaciones.
+**Tamaño de muestra.** Con 45 prompts en tres dominios, este estudio establece evidencia inicial pero no permite una generalización estadística amplia. Un estudio de seguimiento con 100+ prompts por dominio fortalecería sustancialmente las afirmaciones.
 
-**Selección de modelos.** Los cinco modelos representan una muestra de conveniencia. La composición de modelos afecta la distribución del consenso. Los trabajos futuros deberían variar sistemáticamente la composición de modelos.
+**Selección de modelos.** Los doce modelos representan una muestra de conveniencia. La composición de modelos afecta la distribución del consenso. Los trabajos futuros deberían variar sistemáticamente la composición de modelos.
 
 **Calidad de las respuestas de referencia.** Tres elementos se marcaron como que requieren verificación manual (discrepancia CVSS de A01, fuente BSI de A10, referencia EDPB de B09).
 

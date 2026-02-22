@@ -13,7 +13,7 @@ Das Protokoll erzwingt eine strikte **Kontaminationsfreiheitsregel**: Keine Mode
 
 ## 3.2 Modelle
 
-Wir evaluieren fünf modernste LLMs von vier verschiedenen Anbietern:
+Wir evaluieren zwölf modernste LLMs von vier verschiedenen Anbietern:
 
 | ID | Modell | Anbieter | Kontextfenster |
 |---|---|---|---|
@@ -35,7 +35,7 @@ Die Temperatur wird nicht überschrieben. Wir bewahren das Standard-Sampling-Ver
 
 ### 3.3.1 Domänenstruktur
 
-Wir haben 30 Prompts über drei Domänenstrata konstruiert:
+Wir haben 45 Prompts über drei Domänenstrata konstruiert:
 
 **Domäne A - Hochpräzise Technische Fragen (A01-A10):** Fragen mit objektiv richtigen Antworten, die gegen primäre autoritative Quellen verifizierbar sind (NIST-FIPS-Standards, NVD, IETF-RFCs, OpenID-Foundation-Spezifikationen). Beispiele: CVSS-Scoring-Begründung, PQC-Algorithmen-Schlüsselgrößen, TLS-1.3-Cipher-Suite-Enumeration.
 
@@ -88,11 +88,11 @@ Für jede Domäne-A- und -B-Antwort bewerten wir faktische Genauigkeit anhand de
 
 Wir evaluieren drei Synthesestrategien:
 
-**S1 - Mehrheitsvotum (Behauptungsebene):** Faktische Behauptungen werden aus allen Antworten extrahiert. Eine Behauptung wird in die Synthese aufgenommen, wenn sie in Antworten von mindestens 60 % der Modelle (drei von fünf) erscheint. Minderheitsbehauptungen (unterhalb der Schwelle) werden mit einem [MINORITY]-Marker angehängt.
+**S1 - Mehrheitsvotum (Behauptungsebene):** Faktische Behauptungen werden aus allen Antworten extrahiert. Eine Behauptung wird in die Synthese aufgenommen, wenn sie in Antworten von mindestens 60 % der Modelle (sieben von zwölf) erscheint. Minderheitsbehauptungen (unterhalb der Schwelle) werden mit einem [MINORITY]-Marker angehängt.
 
 **S2 - Semantischer Zentroid:** Die Antwort, deren Embedding dem Mittelwert aller Antwort-Embeddings am nächsten liegt, wird als Synthesebasis ausgewählt. Dies erfasst die "repräsentativste" einzelne Antwort. Es wird kein neuer Inhalt hinzugefügt.
 
-**S3 - LLM-as-Judge:** Alle fünf anonymisierten Antworten werden einer sechsten Modellinstanz (M2, claude-opus-4-6) mit der Anweisung präsentiert, eine einzige autoritative Synthese zu erstellen, wobei Minderheitsbehauptungen ([MINORITY]) und Widersprüche ([DISPUTED]) markiert werden. Das Richtermodell erhält keine Informationen darüber, welches Modell welche Antwort produziert hat.
+**S3 - LLM-as-Judge:** Alle zwölf anonymisierten Antworten werden einer sechsten Modellinstanz (M2, claude-opus-4-6) mit der Anweisung präsentiert, eine einzige autoritative Synthese zu erstellen, wobei Minderheitsbehauptungen ([MINORITY]) und Widersprüche ([DISPUTED]) markiert werden. Das Richtermodell erhält keine Informationen darüber, welches Modell welche Antwort produziert hat.
 
 Synthesequalität wird durch Messung der faktischen Genauigkeit des resultierenden Texts gegen die vorregistrierten Korrektantworten (Domänen A und B) und durch Experten-Rubrik-Scoring (Domäne C) evaluiert.
 
@@ -108,4 +108,4 @@ Wir testen drei vorregistrierte Hypothesen:
 
 ## 3.7 Experimentelles Setup
 
-Alle Modellläufe wurden über das OpenClaw-Gateway ausgeführt, das unabhängig zu den APIs jedes Anbieters routet. Jeder Prompt läuft in einer separaten isolierten Session ohne gemeinsamen Zustand. Laufausgaben werden als strukturiertes JSON mit Prompt-ID, Modell-ID, Antworttext, Token-Anzahl und Latenz gespeichert. Der vollständige Datensatz von 150 Läufen (30 Prompts x 5 Modelle) wird zusammen mit diesem Beitrag veröffentlicht.
+Alle Modellläufe wurden über das OpenClaw-Gateway ausgeführt, das unabhängig zu den APIs jedes Anbieters routet. Jeder Prompt läuft in einer separaten isolierten Session ohne gemeinsamen Zustand. Laufausgaben werden als strukturiertes JSON mit Prompt-ID, Modell-ID, Antworttext, Token-Anzahl und Latenz gespeichert. Der vollständige Datensatz von 540 Läufen (45 Prompts x 5 Modelle) wird zusammen mit diesem Beitrag veröffentlicht.

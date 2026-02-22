@@ -16,7 +16,7 @@ Wang et al. (2024) wprowadzili framework Mixture-of-Agents (MoA), w którym wiel
 
 ## 2.4 LLM-as-Judge
 
-Zheng et al. (2023) zbadali użycie dużych modeli językowych jako oceniających wyniki innych modeli, wprowadzając benchmarki MT-Bench i Chatbot Arena. Ich praca wykazała, że silne LLM mogą służyć jako skalowalne proxy dla oceny ludzkiej. W BMAS rola sędziego jest ograniczona do jednej z trzech strategii syntezy (S3): szósty model syntezuje pięć ślepych odpowiedzi w jeden wynik, ale poprawność jest mierzona względem pre-rejestrowanych odpowiedzi referencyjnych, nie preferencji sędziego.
+Zheng et al. (2023) zbadali użycie dużych modeli językowych jako oceniających wyniki innych modeli, wprowadzając benchmarki MT-Bench i Chatbot Arena. Ich praca wykazała, że silne LLM mogą służyć jako skalowalne proxy dla oceny ludzkiej. W BMAS rola sędziego jest ograniczona do jednej z trzech strategii syntezy (S3): trzynasty model syntezuje dwanaście ślepych odpowiedzi w jeden wynik, ale poprawność jest mierzona względem pre-rejestrowanych odpowiedzi referencyjnych, nie preferencji sędziego.
 
 ## 2.5 BERTScore
 

@@ -2,7 +2,7 @@
 
 ## 5.1 Ausreißererkennung
 
-Über alle 27 Prompts hinweg produzierten 12 (44 %) mindestens ein semantisches Ausreißermodell, wie von DBSCAN identifiziert (eps=0,15, min_samples=2). Die Ausreißerhäufigkeit war in Domäne C (strategisch) am höchsten, konsistent mit der Erwartung, dass mehrdeutige Fragen vielfältigere Antwort-Embeddings erzeugen.
+Über alle 45 Prompts hinweg produzierten 12 (44 %) mindestens ein semantisches Ausreißermodell, wie von DBSCAN identifiziert (eps=0,15, min_samples=2). Die Ausreißerhäufigkeit war in Domäne C (strategisch) am höchsten, konsistent mit der Erwartung, dass mehrdeutige Fragen vielfältigere Antwort-Embeddings erzeugen.
 
 **Tabelle 3: Ausreißerhäufigkeit nach Domäne**
 

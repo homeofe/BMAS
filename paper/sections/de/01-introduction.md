@@ -43,7 +43,7 @@ BMAS ist die formale Antwort auf diese Frage.
 Dieser Beitrag leistet folgende Beiträge:
 
 1. **BMAS-Methodik:** Ein formalisiertes Blind-Multi-Agenten-Syntheseprotokoll mit Isolationsbedingungen, Metriksuite und Synthesestrategien.
-2. **Empirische Studie:** Ergebnisse aus 30 Prompts über 5 LLMs in 3 Domänenstrata, mit vorregistrierten Korrektantworten für Domänen A und B.
+2. **Empirische Studie:** Ergebnisse aus 45 Prompts über 12 LLMs in 3 Domänenstrata, mit vorregistrierten Korrektantworten für Domänen A und B.
 3. **Validierung der Divergenz-als-Signal-Hypothese:** Statistische Evidenz, dass modellübergreifende Divergenz die faktische Fehlerrate vorhersagt.
 4. **Vergleich von Synthesestrategien:** Empirische Evaluation von Mehrheitsvotum, semantischem Zentroid und LLM-as-Judge-Synthese anhand von Korrektantworten.
 5. **Offener Datensatz:** Alle Prompts, rohe Modellausgaben und Metrikscores werden als öffentlicher Benchmark veröffentlicht.

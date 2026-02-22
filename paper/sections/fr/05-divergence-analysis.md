@@ -2,7 +2,7 @@
 
 ## 5.1 Résultats de la détection des anomalies
 
-Sur les 27 prompts, 12 (44 %) ont produit au moins un modèle sémantiquement anomal identifié par DBSCAN (eps=0,15, min_samples=2). La fréquence des anomalies était la plus élevée dans le domaine C (stratégique), conformément à l'attente que les questions ambiguës produisent des embeddings de réponse plus diversifiés.
+Sur les 45 prompts, 12 (44 %) ont produit au moins un modèle sémantiquement anomal identifié par DBSCAN (eps=0,15, min_samples=2). La fréquence des anomalies était la plus élevée dans le domaine C (stratégique), conformément à l'attente que les questions ambiguës produisent des embeddings de réponse plus diversifiés.
 
 **Tableau 3 : Fréquence des anomalies par domaine**
 
@@ -22,7 +22,7 @@ Sur les 27 prompts, 12 (44 %) ont produit au moins un modèle sémantiquement an
 | M4 (Gemini-2.5) | 8 | 0,30 (30 %) |
 | M5 (Sonar) | 2 | 0,07 (7 %) |
 
-Gemini-2.5 (M4) avait le taux d'anomalie le plus élevé à 0,30, tandis que Sonar (M5) avait le plus bas à 0,07. Un taux d'anomalie élevé pour un modèle spécifique n'indique pas nécessairement une qualité inférieure - cela peut refléter un style de réponse plus distinctif ou une tendance à une couverture plus complète qui éloigne son embedding du centroïde.
+Sonar Deep Research (M6) avait le taux d'anomalie le plus élevé à 0,11, tandis que Claude Sonnet (M1), GPT-5.3 (M3), Gemini 2.5 Pro (M4), Gemini 2.5 Flash (M9), GPT-5.2 (M10) et Claude Sonnet 4.5 (M12) n'avaient aucune anomalie. Un taux d'anomalie élevé pour un modèle spécifique n'indique pas nécessairement une qualité inférieure - cela peut refléter un style de réponse plus distinctif ou une tendance à une couverture plus complète qui éloigne son embedding du centroïde.
 
 ## 5.2 Corrélation divergence-hallucination (Hypothèse H2)
 

@@ -2,7 +2,7 @@
 
 ## 6.1 Panoramica delle strategie
 
-Abbiamo valutato tre strategie di sintesi (S1 voto di maggioranza, S2 centroide semantico, S3 LLM-as-Judge) su tutti i 27 prompt. La qualità della sintesi è stata valutata misurando l'accuratezza fattuale del testo risultante rispetto alla ground truth per i domini A e B, e tramite punteggio rubrica esperti per il dominio C.
+Abbiamo valutato tre strategie di sintesi (S1 voto di maggioranza, S2 centroide semantico, S3 LLM-as-Judge) su tutti i 45 prompt. La qualità della sintesi è stata valutata misurando l'accuratezza fattuale del testo risultante rispetto alla ground truth per i domini A e B, e tramite punteggio rubrica esperti per il dominio C.
 
 La rubrica per il dominio C valutava quattro dimensioni (0-3 punti ciascuna, max 12):
 - **Completezza:** La sintesi affronta tutti gli aspetti chiave della domanda?
@@ -43,4 +43,4 @@ Per il dominio C, il confronto è meno netto. Le sintesi S3 ottenevano punteggi 
 
 ## 6.5 Latenza della sintesi
 
-S3 richiede una chiamata LLM aggiuntiva dopo le N chiamate parallele iniziali. Ciò aggiunge circa 30-90 secondi di latenza a un'esecuzione completa del pipeline BMAS con 5 modelli. Per decisioni non sensibili al tempo (revisione della conformità, pianificazione architettuale, interpretazione normativa), questo overhead è trascurabile. Per le applicazioni in tempo reale, S2 (centroide semantico) offre la latenza più bassa poiché non richiede chiamate di modello aggiuntive.
+S3 richiede una chiamata LLM aggiuntiva dopo le N chiamate parallele iniziali. Ciò aggiunge circa 30-90 secondi di latenza a un'esecuzione completa del pipeline BMAS con 12 modelli. Per decisioni non sensibili al tempo (revisione della conformità, pianificazione architettuale, interpretazione normativa), questo overhead è trascurabile. Per le applicazioni in tempo reale, S2 (centroide semantico) offre la latenza più bassa poiché non richiede chiamate di modello aggiuntive.

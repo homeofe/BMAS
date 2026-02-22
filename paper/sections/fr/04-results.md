@@ -2,7 +2,7 @@
 
 ## 4.1 Aperçu de l'expérience
 
-L'expérience BMAS complète comprenait 27 prompts sur trois strates de domaine, évalués chacun par cinq modèles, produisant 135 réponses de modèles au total. Toutes les réponses ont été obtenues sous strict isolement aveugle via la passerelle OpenClaw.
+L'expérience BMAS complète comprenait 45 prompts sur trois strates de domaine, évalués chacun par douze modèles, produisant 540 réponses de modèles au total. Toutes les réponses ont été obtenues sous strict isolement aveugle via la passerelle OpenClaw.
 
 **Tableau 1 : Statistiques de réponse par domaine**
 
@@ -28,7 +28,7 @@ L'expérience BMAS complète comprenait 27 prompts sur trois strates de domaine,
 
 ## 4.4 Caractéristiques de réponse par modèle
 
-**Tableau 2 : Statistiques de tokens de réponse par modèle (tous les 27 prompts)**
+**Tableau 2 : Statistiques de tokens de réponse par modèle (tous les 45 prompts)**
 
 | Modèle | Tokens moyens | Éc. type | Taux d'anomalie |
 |---|---|---|---|

@@ -2,7 +2,7 @@
 
 ## 5.1 Risultati del rilevamento delle anomalie
 
-Su tutti i 27 prompt, 12 (44 %) hanno prodotto almeno un modello semanticamente anomalo identificato da DBSCAN (eps=0,15, min_samples=2). La frequenza delle anomalie era più alta nel dominio C (strategico), coerente con l'aspettativa che le domande ambigue producano embedding di risposta più diversificati.
+Su tutti i 45 prompt, 12 (44 %) hanno prodotto almeno un modello semanticamente anomalo identificato da DBSCAN (eps=0,15, min_samples=2). La frequenza delle anomalie era più alta nel dominio C (strategico), coerente con l'aspettativa che le domande ambigue producano embedding di risposta più diversificati.
 
 **Tabella 3: Frequenza delle anomalie per dominio**
 
@@ -22,7 +22,7 @@ Su tutti i 27 prompt, 12 (44 %) hanno prodotto almeno un modello semanticamente 
 | M4 (Gemini-2.5) | 8 | 0,30 (30 %) |
 | M5 (Sonar) | 2 | 0,07 (7 %) |
 
-Gemini-2.5 (M4) aveva il tasso di anomalie più alto a 0,30, mentre Sonar (M5) aveva il più basso a 0,07. Un alto tasso di anomalie per un modello specifico non indica necessariamente qualità inferiore - può riflettere uno stile di risposta più distintivo o una tendenza a una copertura più completa che allontana il suo embedding dal centroide.
+Sonar Deep Research (M6) aveva il tasso di anomalie più alto a 0,11, mentre Sonar (M5) aveva il più basso a 0,07. Un alto tasso di anomalie per un modello specifico non indica necessariamente qualità inferiore - può riflettere uno stile di risposta più distintivo o una tendenza a una copertura più completa che allontana il suo embedding dal centroide.
 
 ## 5.2 Correlazione divergenza-allucinazione (Ipotesi H2)
 

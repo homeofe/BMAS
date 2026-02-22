@@ -6,7 +6,7 @@ L'affirmation centrale de BMAS est que la convergence inter-modèles est informa
 
 Une forte convergence dans les domaines A et B valide l'intuition selon laquelle des modèles bien calibrés, entraînés sur les mêmes sources faisant autorité, tendent vers les mêmes réponses correctes lorsque les questions sont sans ambiguité. Ce n'est pas un résultat trivial : il suggère que pour la vérification de conformité, l'interprétation réglementaire et la citation des normes techniques, un consensus de plusieurs modèles indépendants peut substituer - ou au moins augmenter - la revue par un seul expert dans des contextes critiques en temps.
 
-Une faible convergence dans le domaine C (prompts stratégiques et ambigus) est également informative. Plutôt que de représenter un échec des modèles, elle reflète la difficulté épistémique réelle des questions. Lorsque cinq systèmes experts indépendants ne s'accordent pas sur des décisions d'architecture optimales ou des arbitrages d'investissements de sécurité, le désaccord lui-même est significatif - il signale que la question n'a pas de réponse correcte dominante et mérite une délibération humaine. BMAS sert ainsi d'**oracle de complexité** en plus d'un signal de qualité.
+Une faible convergence dans le domaine C (prompts stratégiques et ambigus) est également informative. Plutôt que de représenter un échec des modèles, elle reflète la difficulté épistémique réelle des questions. Lorsque douze systèmes experts indépendants ne s'accordent pas sur des décisions d'architecture optimales ou des arbitrages d'investissements de sécurité, le désaccord lui-même est significatif - il signale que la question n'a pas de réponse correcte dominante et mérite une délibération humaine. BMAS sert ainsi d'**oracle de complexité** en plus d'un signal de qualité.
 
 ## 7.2 Le lien divergence-hallucination
 
@@ -28,9 +28,9 @@ S3 (LLM-as-Judge) produit la précision factuelle la plus élevée pour les doma
 
 ## 7.4 Limites
 
-**Taille de l'échantillon.** Avec 30 prompts sur trois domaines, cette étude établit des preuves initiales pour la méthodologie BMAS mais ne permet pas une généralisation statistique large. Une étude de suivi avec 100+ prompts par domaine renforcerait substantiellement les affirmations.
+**Taille de l'échantillon.** Avec 45 prompts sur trois domaines, cette étude établit des preuves initiales pour la méthodologie BMAS mais ne permet pas une généralisation statistique large. Une étude de suivi avec 100+ prompts par domaine renforcerait substantiellement les affirmations.
 
-**Sélection des modèles.** Les cinq modèles utilisés représentent un échantillon de commodité de modèles frontier accessibles au moment de l'étude. La composition des modèles affecte la distribution du consensus : une étude utilisant cinq modèles Anthropic montrerait des caractéristiques de variance différentes d'une étude inter-fournisseurs. Les travaux futurs devraient faire varier systématiquement la composition des modèles.
+**Sélection des modèles.** Les douze modèles utilisés représentent un échantillon de commodité de modèles frontier accessibles au moment de l'étude. La composition des modèles affecte la distribution du consensus : une étude utilisant douze modèles Anthropic montrerait des caractéristiques de variance différentes d'une étude inter-fournisseurs. Les travaux futurs devraient faire varier systématiquement la composition des modèles.
 
 **Qualité des réponses de référence.** Les réponses de référence pour les domaines A et B ont été compilées par recherche sur le web par rapport à des sources primaires. Trois items ont été signalés comme nécessitant une vérification manuelle (discordance CVSS de A01, accès à la source BSI de A10, référence aux directives EDPB de B09). Ces items sont notés dans le jeu de données mais peuvent introduire de légères inexactitudes de scoring.
 

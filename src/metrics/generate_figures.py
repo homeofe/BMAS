@@ -495,7 +495,7 @@ def figure_outlier_frequency(reports: list[dict]) -> None:
         outlier_list = _outlier_list(r)
         # Only count prompts that have outlier data
         out = r.get("outliers", {})
-        if not isinstance(out, dict) or "outliers" not in out:
+        if not isinstance(out, dict) or ("outlier_models" not in out and "outliers" not in out):
             continue
         total_by_domain[domain] += 1
         for m in outlier_list:

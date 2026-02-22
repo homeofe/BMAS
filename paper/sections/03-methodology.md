@@ -13,7 +13,7 @@ The protocol enforces a strict **no-contamination rule**: no model response is m
 
 ## 3.2 Models
 
-We evaluate five state-of-the-art LLMs from four distinct providers:
+We evaluate twelve state-of-the-art LLMs from four distinct providers (Anthropic, OpenAI, Google, Perplexity):
 
 | ID | Model | Provider | Context window |
 |---|---|---|---|
@@ -35,7 +35,7 @@ Temperature is not overridden. We deliberately preserve each model's default sam
 
 ### 3.3.1 Domain Structure
 
-We constructed 30 prompts across three domain strata:
+We constructed 45 prompts across three domain strata:
 
 **Domain A - High-Precision Technical (A01-A10):** Questions with objectively correct answers verifiable against primary authoritative sources (NIST FIPS standards, NVD, IETF RFCs, OpenID Foundation specifications). Examples: CVSS scoring rationale, PQC algorithm key sizes, TLS 1.3 cipher suite enumeration.
 
@@ -88,11 +88,11 @@ For each Domain A and B response, we score factual accuracy against the pre-regi
 
 We evaluate three synthesis strategies:
 
-**S1 - Majority-Vote (claim-level):** Factual claims are extracted from all responses. A claim is accepted into the synthesis if it appears in responses from at least 60% of models (three of five). Minority claims (below threshold) are appended with a [MINORITY] marker.
+**S1 - Majority-Vote (claim-level):** Factual claims are extracted from all responses. A claim is accepted into the synthesis if it appears in responses from at least 58% of models (seven of twelve). Minority claims (below threshold) are appended with a [MINORITY] marker.
 
 **S2 - Semantic Centroid:** The response whose embedding is closest to the mean of all response embeddings is selected as the synthesis base. This captures the "most representative" single response. No new content is added.
 
-**S3 - LLM-as-Judge:** All five anonymized responses are presented to a sixth model instance (M2, claude-opus-4-6) with the instruction to produce a single authoritative synthesis, marking minority claims ([MINORITY]) and contradictions ([DISPUTED]). The judge model receives no information identifying which model produced which response.
+**S3 - LLM-as-Judge:** All twelve anonymized responses are presented to a thirteenth model instance (M2, claude-opus-4-6) with the instruction to produce a single authoritative synthesis, marking minority claims ([MINORITY]) and contradictions ([DISPUTED]). The judge model receives no information identifying which model produced which response.
 
 Synthesis quality is evaluated by measuring the resulting text's factual accuracy against the pre-registered ground truth (Domains A and B) and by expert rubric scoring (Domain C).
 
@@ -108,4 +108,4 @@ We test three pre-registered hypotheses:
 
 ## 3.7 Experimental Setup
 
-All model runs were executed via the OpenClaw gateway, which routes to each provider's API independently. Each prompt runs in a separate isolated session with no shared state. Run outputs are stored as structured JSON with prompt ID, model ID, response text, token counts, and latency. The full dataset of 150 runs (30 prompts x 5 models) is released alongside this paper.
+All model runs were executed via the OpenClaw gateway, which routes to each provider's API independently. Each prompt runs in a separate isolated session with no shared state. Run outputs are stored as structured JSON with prompt ID, model ID, response text, token counts, and latency. The full dataset of 540 runs (45 prompts x 5 models) is released alongside this paper.

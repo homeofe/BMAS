@@ -16,7 +16,7 @@ Wang et al. (2024) ont introduit le cadre Mixture-of-Agents (MoA), dans lequel p
 
 ## 2.4 LLM-as-Judge
 
-Zheng et al. (2023) ont étudié l'utilisation de grands modèles de langage comme évaluateurs des sorties d'autres modèles, introduisant les benchmarks MT-Bench et Chatbot Arena. Leur travail a montré que des LLMs puissants pouvaient servir de proxys évolutifs pour l'évaluation humaine, atteignant un fort accord avec des annotateurs experts sur des jugements de préférence par paires. Dans BMAS, en revanche, le rôle de juge est limité à l'une des trois stratégies de synthèse (S3) : un sixième modèle synthétise les cinq réponses aveugles en une seule sortie, mais la correction est finalement mesurée par rapport à des réponses de référence pré-enregistrées, et non par rapport aux préférences du juge.
+Zheng et al. (2023) ont étudié l'utilisation de grands modèles de langage comme évaluateurs des sorties d'autres modèles, introduisant les benchmarks MT-Bench et Chatbot Arena. Leur travail a montré que des LLMs puissants pouvaient servir de proxys évolutifs pour l'évaluation humaine, atteignant un fort accord avec des annotateurs experts sur des jugements de préférence par paires. Dans BMAS, en revanche, le rôle de juge est limité à l'une des trois stratégies de synthèse (S3) : un treizième modèle synthétise les douze réponses aveugles en une seule sortie, mais la correction est finalement mesurée par rapport à des réponses de référence pré-enregistrées, et non par rapport aux préférences du juge.
 
 ## 2.5 BERTScore
 

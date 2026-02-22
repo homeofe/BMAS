@@ -1,12 +1,12 @@
 # 8. Wnioski
 
-Niniejsza praca przedstawiła **Blind Multi-Agent Synthesis (BMAS)**, metodologię elicytacji, porównania i syntezy odpowiedzi wielu dużych modeli językowych w ścisłej izolacji, oraz zaprezentowała wyniki empiryczne eksperymentu obejmującego 150 uruchomień na pięciu modelach frontier i trzech poziomach dziedzinowych.
+Niniejsza praca przedstawiła **Blind Multi-Agent Synthesis (BMAS)**, metodologię elicytacji, porównania i syntezy odpowiedzi wielu dużych modeli językowych w ścisłej izolacji, oraz zaprezentowała wyniki empiryczne eksperymentu obejmującego 540 uruchomień na pięciu modelach frontier i trzech poziomach dziedzinowych.
 
 ## 8.1 Podsumowanie wkładu naukowego
 
 Wykazaliśmy, że:
 
-1. **Konwergencja jest zależna od dziedziny i mierzalna.** Na 30 promptach dziedziny A i B (techniczna i regulacyjna) wykazały systematycznie wyższą międzymodelową podobność semantyczną niż dziedzina C (prompty strategiczne i nieokreślone). [Patrz sekcja 4 po dokładne wartości.]
+1. **Konwergencja jest zależna od dziedziny i mierzalna.** Na 45 promptach dziedziny A i B (techniczna i regulacyjna) wykazały systematycznie wyższą międzymodelową podobność semantyczną niż dziedzina C (prompty strategiczne i nieokreślone). [Patrz sekcja 4 po dokładne wartości.]
 
 2. **Dywergencja sygnalizuje błąd w dziedzinach faktycznych.** Modele zidentyfikowane jako semantyczne wartości odstające wykazały niższą dokładność faktyczną względem pre-rejestrowanych odpowiedzi referencyjnych niż modele nieodstające, wspierając hipotezę H2.
 

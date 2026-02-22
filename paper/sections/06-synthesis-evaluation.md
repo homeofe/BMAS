@@ -2,7 +2,7 @@
 
 ## 6.1 Strategy Overview
 
-We evaluated three synthesis strategies (S1 majority-vote, S2 semantic centroid, S3 LLM-as-Judge) across all 27 prompts. Synthesis quality was assessed by measuring the resulting text's factual accuracy against ground truth for Domains A and B, and by expert rubric scoring for Domain C.
+We evaluated three synthesis strategies (S1 majority-vote, S2 semantic centroid, S3 LLM-as-Judge) across all 45 prompts. Synthesis quality was assessed by measuring the resulting text's factual accuracy against ground truth for Domains A and B, and by expert rubric scoring for Domain C.
 
 The rubric for Domain C assessed four dimensions (0-3 points each, max 12):
 - **Completeness:** Does the synthesis address all key aspects of the question?
@@ -45,4 +45,4 @@ For Domain C, the comparison is less clear-cut. S3 synthesis scored higher on co
 
 ## 6.5 Synthesis Latency
 
-A practical consideration for production deployment is that S3 requires an additional LLM call after the initial N parallel calls. This adds roughly 30-90 seconds of latency for a complete BMAS pipeline run with 5 models. For time-insensitive decisions (compliance review, architecture planning, regulatory interpretation), this overhead is negligible. For real-time applications, S2 (semantic centroid) offers the lowest latency as it requires no additional model call.
+A practical consideration for production deployment is that S3 requires an additional LLM call after the initial 12 parallel calls. This adds roughly 30-90 seconds of latency for a complete BMAS pipeline run with 12 models. For time-insensitive decisions (compliance review, architecture planning, regulatory interpretation), this overhead is negligible. For real-time applications, S2 (semantic centroid) offers the lowest latency as it requires no additional model call.

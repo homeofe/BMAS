@@ -2,7 +2,7 @@
 
 ## 6.1 Strategieübersicht
 
-Wir evaluierten drei Synthesestrategien (S1 Mehrheitsvotum, S2 semantischer Zentroid, S3 LLM-as-Judge) über alle 27 Prompts. Die Synthesequalität wurde gemessen durch die faktische Genauigkeit des resultierenden Textes gegenüber der Ground Truth für Domänen A und B sowie durch Expertenrubrik-Bewertung für Domäne C.
+Wir evaluierten drei Synthesestrategien (S1 Mehrheitsvotum, S2 semantischer Zentroid, S3 LLM-as-Judge) über alle 45 Prompts. Die Synthesequalität wurde gemessen durch die faktische Genauigkeit des resultierenden Textes gegenüber der Ground Truth für Domänen A und B sowie durch Expertenrubrik-Bewertung für Domäne C.
 
 Die Rubrik für Domäne C bewertete vier Dimensionen (0-3 Punkte je, max. 12):
 - **Vollständigkeit:** Adressiert die Synthese alle wichtigen Aspekte der Frage?

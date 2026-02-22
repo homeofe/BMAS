@@ -1,12 +1,12 @@
 # 8. Fazit
 
-Dieser Beitrag stellte **Blind Multi-Agent Synthesis (BMAS)** vor, eine Methodik zur Erhebung, zum Vergleich und zur Synthese von Antworten mehrerer großer Sprachmodelle in strikter Isolation, und präsentierte empirische Ergebnisse aus einem 150-Läufe-Experiment über fünf Frontier-LLMs und drei Domänenstrata.
+Dieser Beitrag stellte **Blind Multi-Agent Synthesis (BMAS)** vor, eine Methodik zur Erhebung, zum Vergleich und zur Synthese von Antworten mehrerer großer Sprachmodelle in strikter Isolation, und präsentierte empirische Ergebnisse aus einem 540-Läufe-Experiment über fünf Frontier-LLMs und drei Domänenstrata.
 
 ## 8.1 Zusammenfassung der Beiträge
 
 Wir haben demonstriert:
 
-1. **Konvergenz ist domänenabhängig und messbar.** Über 30 Prompts zeigten die Modelle A und B (technische und regulatorische Domänen) konsistent höhere modellübergreifende semantische Ähnlichkeit als Domäne C (strategische und mehrdeutige Prompts). [Genaue Werte in Abschnitt 4.]
+1. **Konvergenz ist domänenabhängig und messbar.** Über 45 Prompts zeigten die Modelle A und B (technische und regulatorische Domänen) konsistent höhere modellübergreifende semantische Ähnlichkeit als Domäne C (strategische und mehrdeutige Prompts). [Genaue Werte in Abschnitt 4.]
 
 2. **Divergenz signalisiert Fehler in faktischen Domänen.** Als semantische Ausreißer durch DBSCAN-Clustering identifizierte Modelle wiesen niedrigere faktische Genauigkeit gegen vorregistrierte Korrektantworten auf als Nicht-Ausreißermodelle, was Hypothese H2 stützt. Dies liefert eine empirische Grundlage für die Verwendung von Divergenz als praktisches Qualitätstor in KI-gestützten Entscheidungssystemen.
 

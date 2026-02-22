@@ -16,7 +16,7 @@ Wang et al. (2024) führten das Mixture-of-Agents (MoA)-Framework ein, in dem me
 
 ## 2.4 LLM-as-Judge
 
-Zheng et al. (2023) untersuchten den Einsatz großer Sprachmodelle als Evaluatoren anderer Modellausgaben und führten die MT-Bench- und Chatbot-Arena-Benchmarks ein. Ihre Arbeit zeigte, dass starke LLMs als skalierbare Proxys für menschliche Evaluation dienen können und hohe Übereinstimmung mit Expertengutachtern bei paarweisen Präferenzurteilen erzielten. In BMAS ist die Richterrolle dagegen auf eine von drei Synthesestrategien beschränkt (S3): Ein sechstes Modell synthetisiert die fünf blinden Antworten zu einer einzigen Ausgabe, aber Korrektheit wird letztlich anhand vorregistrierter Korrektantworten gemessen, nicht anhand der Präferenzen des Richters.
+Zheng et al. (2023) untersuchten den Einsatz großer Sprachmodelle als Evaluatoren anderer Modellausgaben und führten die MT-Bench- und Chatbot-Arena-Benchmarks ein. Ihre Arbeit zeigte, dass starke LLMs als skalierbare Proxys für menschliche Evaluation dienen können und hohe Übereinstimmung mit Expertengutachtern bei paarweisen Präferenzurteilen erzielten. In BMAS ist die Richterrolle dagegen auf eine von drei Synthesestrategien beschränkt (S3): Ein sechstes Modell synthetisiert die zwölf blinden Antworten zu einer einzigen Ausgabe, aber Korrektheit wird letztlich anhand vorregistrierter Korrektantworten gemessen, nicht anhand der Präferenzen des Richters.
 
 ## 2.5 BERTScore
 

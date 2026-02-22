@@ -43,7 +43,7 @@ BMAS est la réponse formelle à cette question.
 Ce travail apporte les contributions suivantes :
 
 1. **Méthodologie BMAS :** Un protocole formalisé de synthèse multi-agents aveugle avec contraintes d'isolation, suite de métriques et stratégies de synthèse.
-2. **Etude empirique :** Résultats de 30 prompts sur 5 LLMs dans 3 strates de domaines, avec des réponses de référence pré-enregistrées pour les domaines A et B.
+2. **Etude empirique :** Résultats de 45 prompts sur 12 LLMs dans 3 strates de domaines, avec des réponses de référence pré-enregistrées pour les domaines A et B.
 3. **Validation de l'hypothèse divergence-comme-signal :** Données statistiques montrant que la divergence inter-modèles prédit le taux d'erreur factuelle.
 4. **Comparaison des stratégies de synthèse :** Evaluation empirique du vote majoritaire, du centroïde sémantique et de la synthèse LLM-as-Judge par rapport aux réponses de référence.
 5. **Jeu de données ouvert :** Tous les prompts, les sorties brutes des modèles et les scores de métriques sont publiés en tant que benchmark public.

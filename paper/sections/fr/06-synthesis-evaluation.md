@@ -2,7 +2,7 @@
 
 ## 6.1 Aperçu des stratégies
 
-Nous avons évalué trois stratégies de synthèse (S1 vote majoritaire, S2 centroïde sémantique, S3 LLM-as-Judge) sur les 27 prompts. La qualité de la synthèse a été évaluée en mesurant la précision factuelle du texte résultant par rapport à la vérité terrain pour les domaines A et B, et par notation rubrique expert pour le domaine C.
+Nous avons évalué trois stratégies de synthèse (S1 vote majoritaire, S2 centroïde sémantique, S3 LLM-as-Judge) sur les 45 prompts. La qualité de la synthèse a été évaluée en mesurant la précision factuelle du texte résultant par rapport à la vérité terrain pour les domaines A et B, et par notation rubrique expert pour le domaine C.
 
 La rubrique pour le domaine C évaluait quatre dimensions (0-3 points chacune, max 12) :
 - **Complétude :** La synthèse aborde-t-elle tous les aspects clés de la question ?
@@ -43,4 +43,4 @@ Pour le domaine C, la comparaison est moins tranchée. Les synthèses S3 obtenai
 
 ## 6.5 Latence de synthèse
 
-S3 nécessite un appel LLM supplémentaire après les N appels parallèles initiaux. Cela ajoute environ 30-90 secondes de latence à une exécution complète du pipeline BMAS avec 5 modèles. Pour les décisions insensibles au temps (révision de conformité, planification architecturale, interprétation réglementaire), cet overhead est négligeable. Pour les applications en temps réel, S2 (centroïde sémantique) offre la latence la plus faible car aucun appel de modèle supplémentaire n'est requis.
+S3 nécessite un appel LLM supplémentaire après les 12 appels parallèles initiaux. Cela ajoute environ 30-90 secondes de latence à une exécution complète du pipeline BMAS avec 12 modèles. Pour les décisions insensibles au temps (révision de conformité, planification architecturale, interprétation réglementaire), cet overhead est négligeable. Pour les applications en temps réel, S2 (centroïde sémantique) offre la latence la plus faible car aucun appel de modèle supplémentaire n'est requis.

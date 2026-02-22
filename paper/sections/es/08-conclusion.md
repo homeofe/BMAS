@@ -1,12 +1,12 @@
 # 8. Conclusión
 
-Este artículo presentó **Blind Multi-Agent Synthesis (BMAS)**, una metodología para elicitar, comparar y sintetizar respuestas de múltiples modelos de lenguaje grande en estricto aislamiento, y presentó resultados empíricos de un experimento de 150 ejecuciones en cinco LLMs frontier y tres estratos de dominio.
+Este artículo presentó **Blind Multi-Agent Synthesis (BMAS)**, una metodología para elicitar, comparar y sintetizar respuestas de múltiples modelos de lenguaje grande en estricto aislamiento, y presentó resultados empíricos de un experimento de 540 ejecuciones en doce LLMs frontier y tres estratos de dominio.
 
 ## 8.1 Resumen de contribuciones
 
 Demostramos que:
 
-1. **La convergencia es dependiente del dominio y medible.** En 30 prompts, los dominios A y B (técnico y regulatorio) mostraron consistentemente mayor similitud semántica inter-modelos que el dominio C (prompts estratégicos y ambiguos). [Véase la sección 4 para valores exactos.]
+1. **La convergencia es dependiente del dominio y medible.** En 45 prompts, los dominios A y B (técnico y regulatorio) mostraron consistentemente mayor similitud semántica inter-modelos que el dominio C (prompts estratégicos y ambiguos). [Véase la sección 4 para valores exactos.]
 
 2. **La divergencia señaliza error en los dominios factuales.** Los modelos identificados como valores atípicos semánticos mostraron menor precisión factual frente a las respuestas de referencia pre-registradas que los modelos no atípicos, apoyando la hipótesis H2.
 

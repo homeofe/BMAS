@@ -6,7 +6,7 @@ The central claim of BMAS is that inter-model convergence is informative - not j
 
 High convergence in Domains A and B validates the intuition that well-calibrated models trained on the same authoritative sources tend toward the same correct answers when the questions are unambiguous. This is not a trivial finding: it suggests that for compliance verification, regulatory interpretation, and technical standard citation, a consensus of multiple independent models can substitute for - or at minimum augment - single-expert review in time-critical contexts.
 
-Low convergence in Domain C (strategic and ambiguous prompts) is equally informative. Rather than representing model failure, it reflects the genuine epistemic difficulty of the questions. When five independent expert systems disagree on optimal architecture decisions or security investment trade-offs, the disagreement itself is meaningful - it signals that the question has no dominant correct answer and deserves human deliberation. BMAS thus serves as a **complexity oracle** in addition to a quality signal.
+Low convergence in Domain C (strategic and ambiguous prompts) is equally informative. Rather than representing model failure, it reflects the genuine epistemic difficulty of the questions. When twelve independent expert systems disagree on optimal architecture decisions or security investment trade-offs, the disagreement itself is meaningful - it signals that the question has no dominant correct answer and deserves human deliberation. BMAS thus serves as a **complexity oracle** in addition to a quality signal.
 
 ## 7.2 The Divergence-Hallucination Connection
 
@@ -28,9 +28,9 @@ S3 (LLM-as-Judge) produces the highest factual accuracy on Domains A and B [see 
 
 ## 7.4 Limitations
 
-**Sample size.** With 30 prompts across three domains, this study establishes initial evidence for the BMAS methodology but does not permit broad statistical generalization. A follow-up study with 100+ prompts per domain would substantially strengthen the claims.
+**Sample size.** With 45 prompts across three domains, this study establishes initial evidence for the BMAS methodology but does not permit broad statistical generalization. A follow-up study with 100+ prompts per domain would substantially strengthen the claims.
 
-**Model selection.** The five models used represent a convenience sample of accessible frontier models at the time of study. Model composition affects the consensus distribution: a study using five Anthropic models would show different variance characteristics than a cross-provider study. Future work should systematically vary model composition.
+**Model selection.** The twelve models used represent a convenience sample of accessible frontier models at the time of study. Model composition affects the consensus distribution: a study using twelve Anthropic models would show different variance characteristics than a cross-provider study. Future work should systematically vary model composition.
 
 **Ground truth quality.** Domain A and B ground truth was compiled via web research against primary sources. Three items were flagged as requiring manual verification (A01 CVSS discrepancy, A10 BSI source access, B09 EDPB guideline reference). These items are noted in the dataset but may introduce minor scoring inaccuracies.
 

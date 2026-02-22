@@ -13,7 +13,7 @@ Il protocollo impone una rigorosa **regola di non contaminazione**: nessuna risp
 
 ## 3.2 Modelli
 
-Valutiamo cinque LLM all'avanguardia di quattro provider distinti:
+Valutiamo dodici LLM all'avanguardia di quattro provider distinti:
 
 | ID | Modello | Provider | Finestra di contesto |
 |---|---|---|---|
@@ -35,7 +35,7 @@ La temperatura non viene modificata. Preserviamo deliberatamente il comportament
 
 ### 3.3.1 Struttura dei domini
 
-Costruiamo 30 prompt su tre strati di dominio:
+Costruiamo 45 prompt su tre strati di dominio:
 
 **Dominio A - Tecnico ad alta precisione (A01-A10):** Domande con risposte oggettivamente corrette verificabili rispetto a fonti primarie autorevoli (standard NIST FIPS, NVD, RFC IETF, specifiche OpenID Foundation). Esempi: giustificazione del punteggio CVSS, dimensioni delle chiavi degli algoritmi PQC, enumerazione delle suite di cifratura TLS 1.3.
 
@@ -86,7 +86,7 @@ Per ogni risposta dei domini A e B, valutiamo l'accuratezza fattuale rispetto al
 
 **S2 - Centroide semantico:** La risposta il cui embedding è più vicino alla media di tutti gli embedding viene selezionata come base di sintesi. Non viene aggiunto nuovo contenuto.
 
-**S3 - LLM-as-Judge:** Le cinque risposte anonimizzate vengono presentate a una sesta istanza del modello (M2, claude-opus-4-6) con l'istruzione di produrre una sintesi autorevole unica, marcando le affermazioni di minoranza ([MINORITY]) e le contraddizioni ([DISPUTED]).
+**S3 - LLM-as-Judge:** Le dodici risposte anonimizzate vengono presentate a una sesta istanza del modello (M2, claude-opus-4-6) con l'istruzione di produrre una sintesi autorevole unica, marcando le affermazioni di minoranza ([MINORITY]) e le contraddizioni ([DISPUTED]).
 
 ## 3.6 Ipotesi
 
@@ -98,4 +98,4 @@ Per ogni risposta dei domini A e B, valutiamo l'accuratezza fattuale rispetto al
 
 ## 3.7 Configurazione sperimentale
 
-Tutte le esecuzioni dei modelli sono state effettuate tramite il gateway OpenClaw, che instrada indipendentemente all'API di ciascun provider. Il dataset completo di 150 esecuzioni (30 prompt x 5 modelli) è pubblicato insieme a questo lavoro.
+Tutte le esecuzioni dei modelli sono state effettuate tramite il gateway OpenClaw, che instrada indipendentemente all'API di ciascun provider. Il dataset completo di 540 esecuzioni (45 prompt x 5 modelli) è pubblicato insieme a questo lavoro.

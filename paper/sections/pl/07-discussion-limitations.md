@@ -4,7 +4,7 @@
 
 Centralna teza BMAS głosi, że konwergencja międzymodelowa jest informacyjna: nie tylko jako właściwość statystyczna eksperymentu, ale jako praktyczny sygnał dla zastosowań w dalszym etapie łańcucha. Nasze wyniki [patrz sekcja 4] wspierają tę tezę dla dziedzin faktycznych, ujawniając jednocześnie ważne niuanse.
 
-Wysoka konwergencja w dziedzinach A i B potwierdza intuicję, że dobrze skalibrowane modele wytrenowane na tych samych autorytatywnych źródłach zmierzają ku tym samym prawidłowym odpowiedziom, gdy pytania są jednoznaczne. Niska konwergencja w dziedzinie C odzwierciedla rzeczywistą trudność epistemiczną pytań. Gdy pięć niezależnych systemów eksperckich nie zgadza się co do optymalnych decyzji architektonicznych, sama niezgodność jest znacząca: sygnalizuje, że pytanie nie ma dominującej prawidłowej odpowiedzi i wymaga ludzkiej deliberacji. BMAS pełni zatem rolę **wyroczni złożoności** obok sygnału jakości.
+Wysoka konwergencja w dziedzinach A i B potwierdza intuicję, że dobrze skalibrowane modele wytrenowane na tych samych autorytatywnych źródłach zmierzają ku tym samym prawidłowym odpowiedziom, gdy pytania są jednoznaczne. Niska konwergencja w dziedzinie C odzwierciedla rzeczywistą trudność epistemiczną pytań. Gdy dwanaście niezależnych systemów eksperckich nie zgadza się co do optymalnych decyzji architektonicznych, sama niezgodność jest znacząca: sygnalizuje, że pytanie nie ma dominującej prawidłowej odpowiedzi i wymaga ludzkiej deliberacji. BMAS pełni zatem rolę **wyroczni złożoności** obok sygnału jakości.
 
 ## 7.2 Związek dywergencji z halucynacją
 
@@ -22,9 +22,9 @@ S3 (LLM-as-Judge) produkuje najwyższą dokładność faktyczną w dziedzinach A
 
 ## 7.4 Ograniczenia
 
-**Wielkość próbki.** Przy 30 promptach w trzech dziedzinach badanie to ustanawia początkowe dowody, lecz nie pozwala na szeroką generalizację statystyczną. Badanie uzupełniające ze 100+ promptami na dziedzinę znacząco wzmocniłoby twierdzenia.
+**Wielkość próbki.** Przy 45 promptach w trzech dziedzinach badanie to ustanawia początkowe dowody, lecz nie pozwala na szeroką generalizację statystyczną. Badanie uzupełniające ze 100+ promptami na dziedzinę znacząco wzmocniłoby twierdzenia.
 
-**Dobór modeli.** Pięć modeli stanowi próbę wygodną. Skład modeli wpływa na rozkład konsensusu. Przyszłe prace powinny systematycznie zmieniać skład modeli.
+**Dobór modeli.** Dwanaście modeli stanowi próbę wygodną. Skład modeli wpływa na rozkład konsensusu. Przyszłe prace powinny systematycznie zmieniać skład modeli.
 
 **Jakość odpowiedzi referencyjnych.** Trzy elementy zostały oznaczone jako wymagające ręcznej weryfikacji (rozbieżność CVSS w A01, źródło BSI w A10, numer wytycznej EDPB w B09).
 

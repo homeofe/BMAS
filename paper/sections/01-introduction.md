@@ -43,7 +43,7 @@ BMAS is the formal answer to that question.
 This paper makes the following contributions:
 
 1. **BMAS methodology**: A formalized blind multi-agent synthesis protocol with isolation constraints, metric suite, and synthesis strategies.
-2. **Empirical study**: Results from 30 prompts across 5 LLMs in 3 domain strata, with pre-registered ground truth for Domains A and B.
+2. **Empirical study**: Results from 45 prompts across 12 LLMs in 3 domain strata, with pre-registered ground truth for Domains A and B.
 3. **Divergence-as-signal hypothesis validation**: Statistical evidence that inter-model divergence predicts factual error rate.
 4. **Synthesis strategy comparison**: Empirical evaluation of majority-vote, semantic centroid, and LLM-as-Judge synthesis against ground truth.
 5. **Open dataset**: All prompts, raw model outputs, and metric scores released as a public benchmark.

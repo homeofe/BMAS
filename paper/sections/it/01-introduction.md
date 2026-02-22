@@ -43,7 +43,7 @@ BMAS è la risposta formale a quella domanda.
 Questo lavoro apporta:
 
 1. **Metodologia BMAS:** Un protocollo formalizzato di sintesi cieca multi-agente con vincoli di isolamento, insieme di metriche e strategie di sintesi.
-2. **Studio empirico:** Risultati di 30 prompt per 5 LLM in 3 strati di dominio, con risposte di riferimento pre-registrate per i domini A e B.
+2. **Studio empirico:** Risultati di 45 prompt per 12 LLM in 3 strati di dominio, con risposte di riferimento pre-registrate per i domini A e B.
 3. **Validazione dell'ipotesi divergenza-come-segnale:** Evidenza statistica che la divergenza tra modelli predice il tasso di errori fattuali.
 4. **Confronto di strategie di sintesi:** Valutazione empirica del voto di maggioranza, del centroide semantico e della sintesi LLM-as-Judge rispetto alle risposte di riferimento.
 5. **Dataset aperto:** Tutti i prompt, le risposte grezze dei modelli e gli indicatori di metriche pubblicati come benchmark pubblico.

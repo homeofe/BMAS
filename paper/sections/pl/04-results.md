@@ -2,7 +2,7 @@
 
 ## 4.1 Przegląd eksperymentu
 
-Pełny eksperyment BMAS obejmował 27 promptów w trzech warstwach dziedzinowych, ocenianych każdy przez pięć modeli, co dało łącznie 135 odpowiedzi modeli. Wszystkie odpowiedzi uzyskano w warunkach ścisłej ślepej izolacji za pośrednictwem bramy OpenClaw.
+Pełny eksperyment BMAS obejmował 45 promptów w trzech warstwach dziedzinowych, ocenianych każdy przez dwanaście modeli, co dało łącznie 540 odpowiedzi modeli. Wszystkie odpowiedzi uzyskano w warunkach ścisłej ślepej izolacji za pośrednictwem bramy OpenClaw.
 
 **Tabela 1: Statystyki odpowiedzi według dziedziny**
 
@@ -28,7 +28,7 @@ Pełny eksperyment BMAS obejmował 27 promptów w trzech warstwach dziedzinowych
 
 ## 4.4 Charakterystyki odpowiedzi według modelu
 
-**Tabela 2: Statystyki tokenów odpowiedzi według modelu (wszystkie 27 promptów)**
+**Tabela 2: Statystyki tokenów odpowiedzi według modelu (wszystkie 45 promptów)**
 
 | Model | Średnie tokeny | Odch. std. | Wskaźnik anomalii |
 |---|---|---|---|

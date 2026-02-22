@@ -6,7 +6,7 @@ Die zentrale Behauptung von BMAS ist, dass modellübergreifende Konvergenz infor
 
 Hohe Konvergenz in den Domänen A und B validiert die Intuition, dass gut kalibrierte Modelle, die auf denselben autoritativen Quellen trainiert wurden, bei eindeutigen Fragen zur selben korrekten Antwort tendieren. Dies ist kein triviales Ergebnis: Es legt nahe, dass für Compliance-Verifikation, regulatorische Interpretation und technische Standardzitation ein Konsens mehrerer unabhängiger Modelle eine einzelne Expertenprüfung ersetzen - oder zumindest ergänzen - kann, wenn Zeitdruck herrscht.
 
-Geringe Konvergenz in Domäne C (strategische und mehrdeutige Prompts) ist gleichermaßen informativ. Statt ein Modellversagen darzustellen, spiegelt sie die genuine epistemische Schwierigkeit der Fragen wider. Wenn fünf unabhängige Expertensysteme bei optimalen Architekturentscheidungen oder Sicherheitsinvestitionsabwägungen uneins sind, ist die Uneinigkeit selbst bedeutsam - sie signalisiert, dass die Frage keine dominante richtige Antwort hat und menschliche Deliberation verdient. BMAS dient damit als **Komplexitätsorakel** zusätzlich zu einem Qualitätssignal.
+Geringe Konvergenz in Domäne C (strategische und mehrdeutige Prompts) ist gleichermaßen informativ. Statt ein Modellversagen darzustellen, spiegelt sie die genuine epistemische Schwierigkeit der Fragen wider. Wenn zwölf unabhängige Expertensysteme bei optimalen Architekturentscheidungen oder Sicherheitsinvestitionsabwägungen uneins sind, ist die Uneinigkeit selbst bedeutsam - sie signalisiert, dass die Frage keine dominante richtige Antwort hat und menschliche Deliberation verdient. BMAS dient damit als **Komplexitätsorakel** zusätzlich zu einem Qualitätssignal.
 
 ## 7.2 Der Divergenz-Halluzinations-Zusammenhang
 
@@ -28,9 +28,9 @@ S3 (LLM-as-Judge) erzeugt die höchste faktische Genauigkeit für Domänen A und
 
 ## 7.4 Einschränkungen
 
-**Stichprobengröße.** Mit 30 Prompts über drei Domänen etabliert diese Studie erste Evidenz für die BMAS-Methodik, erlaubt aber keine breite statistische Verallgemeinerung. Eine Folgestudie mit 100+ Prompts pro Domäne würde die Behauptungen substanziell stärken.
+**Stichprobengröße.** Mit 45 Prompts über drei Domänen etabliert diese Studie erste Evidenz für die BMAS-Methodik, erlaubt aber keine breite statistische Verallgemeinerung. Eine Folgestudie mit 100+ Prompts pro Domäne würde die Behauptungen substanziell stärken.
 
-**Modellauswahl.** Die fünf verwendeten Modelle stellen eine Opportunitätsstichprobe zugänglicher Frontier-Modelle zum Zeitpunkt der Studie dar. Die Modellzusammensetzung beeinflusst die Konsensverteilung: Eine Studie mit fünf Anthropic-Modellen würde andere Varianzeigenschaften zeigen als eine anbieterübergreifende Studie. Zukünftige Arbeiten sollten die Modellzusammensetzung systematisch variieren.
+**Modellauswahl.** Die fünf verwendeten Modelle stellen eine Opportunitätsstichprobe zugänglicher Frontier-Modelle zum Zeitpunkt der Studie dar. Die Modellzusammensetzung beeinflusst die Konsensverteilung: Eine Studie mit zwölf Anthropic-Modellen würde andere Varianzeigenschaften zeigen als eine anbieterübergreifende Studie. Zukünftige Arbeiten sollten die Modellzusammensetzung systematisch variieren.
 
 **Korrektantwortqualität.** Die Korrektantworten für Domänen A und B wurden durch Web-Recherche gegen primäre Quellen zusammengestellt. Drei Einträge wurden als manuell verifikationsbedürftig markiert (A01 CVSS-Diskrepanz, A10 BSI-Quellenaccess, B09 EDPB-Leitlinienreferenz). Diese Einträge werden im Datensatz vermerkt, können aber geringfügige Scoring-Ungenauigkeiten einbringen.
 

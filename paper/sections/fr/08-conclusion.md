@@ -1,12 +1,12 @@
 # 8. Conclusion
 
-Ce travail a introduit **Blind Multi-Agent Synthesis (BMAS)**, une méthodologie pour éliciter, comparer et synthétiser les réponses de plusieurs grands modèles de langage dans une isolation stricte, et a présenté des résultats empiriques d'une expérience de 150 lancements sur cinq LLMs frontier et trois strates de domaines.
+Ce travail a introduit **Blind Multi-Agent Synthesis (BMAS)**, une méthodologie pour éliciter, comparer et synthétiser les réponses de plusieurs grands modèles de langage dans une isolation stricte, et a présenté des résultats empiriques d'une expérience de 540 lancements sur douze LLMs frontier et trois strates de domaines.
 
 ## 8.1 Résumé des contributions
 
 Nous avons démontré que :
 
-1. **La convergence est dépendante du domaine et mesurable.** Sur 30 prompts, les domaines A et B (technique et réglementaire) ont montré une similarité sémantique inter-modèles systématiquement plus élevée que le domaine C (prompts stratégiques et ambigus). [Voir la section 4 pour les valeurs exactes.]
+1. **La convergence est dépendante du domaine et mesurable.** Sur 45 prompts, les domaines A et B (technique et réglementaire) ont montré une similarité sémantique inter-modèles systématiquement plus élevée que le domaine C (prompts stratégiques et ambigus). [Voir la section 4 pour les valeurs exactes.]
 
 2. **La divergence signale l'erreur dans les domaines factuels.** Les modèles identifiés comme valeurs aberrantes sémantiques par le clustering DBSCAN ont montré une précision factuelle plus faible par rapport aux réponses de référence pré-enregistrées que les modèles non-aberrants, soutenant l'hypothèse H2. Cela fournit une base empirique pour l'utilisation de la divergence comme portail de qualité pratique dans les systèmes de décision assistés par IA.
 

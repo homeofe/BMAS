@@ -13,7 +13,7 @@ Le protocole impose une stricte **règle de non-contamination** : aucune répons
 
 ## 3.2 Modèles
 
-Nous évaluons cinq LLMs de pointe de quatre fournisseurs distincts :
+Nous évaluons douze LLMs de pointe de quatre fournisseurs distincts :
 
 | ID | Modèle | Fournisseur | Fenêtre de contexte |
 |---|---|---|---|
@@ -35,7 +35,7 @@ La température n'est pas modifiée. Nous préservons délibérément le comport
 
 ### 3.3.1 Structure des domaines
 
-Nous avons construit 30 prompts sur trois strates de domaines :
+Nous avons construit 45 prompts sur trois strates de domaines :
 
 **Domaine A - Questions techniques de haute précision (A01-A10) :** Questions avec des réponses objectivement correctes vérifiables par rapport à des sources primaires faisant autorité (normes NIST FIPS, NVD, RFCs IETF, spécifications OpenID Foundation). Exemples : justification du scoring CVSS, tailles de clés des algorithmes PQC, énumération des suites de chiffrement TLS 1.3.
 
@@ -88,11 +88,11 @@ Pour chaque réponse des domaines A et B, nous évaluons la précision factuelle
 
 Nous évaluons trois stratégies de synthèse :
 
-**S1 - Vote majoritaire (niveau des affirmations) :** Les affirmations factuelles sont extraites de toutes les réponses. Une affirmation est acceptée dans la synthèse si elle apparaît dans les réponses d'au moins 60 % des modèles (trois sur cinq). Les affirmations minoritaires (sous le seuil) sont ajoutées avec un marqueur [MINORITY].
+**S1 - Vote majoritaire (niveau des affirmations) :** Les affirmations factuelles sont extraites de toutes les réponses. Une affirmation est acceptée dans la synthèse si elle apparaît dans les réponses d'au moins 58 % des modèles (sept sur douze). Les affirmations minoritaires (sous le seuil) sont ajoutées avec un marqueur [MINORITY].
 
 **S2 - Centroïde sémantique :** La réponse dont l'embedding est le plus proche de la moyenne de tous les embeddings de réponses est sélectionnée comme base de synthèse. Cela capture la réponse individuelle la plus "représentative". Aucun nouveau contenu n'est ajouté.
 
-**S3 - LLM-as-Judge :** Les cinq réponses anonymisées sont présentées à une sixième instance de modèle (M2, claude-opus-4-6) avec pour instruction de produire une synthèse faisant autorité unique, en marquant les affirmations minoritaires ([MINORITY]) et les contradictions ([DISPUTED]). Le modèle juge ne reçoit aucune information identifiant quel modèle a produit quelle réponse.
+**S3 - LLM-as-Judge :** Les douze réponses anonymisées sont présentées à une treizième instance de modèle (M2, claude-opus-4-6) avec pour instruction de produire une synthèse faisant autorité unique, en marquant les affirmations minoritaires ([MINORITY]) et les contradictions ([DISPUTED]). Le modèle juge ne reçoit aucune information identifiant quel modèle a produit quelle réponse.
 
 La qualité de la synthèse est évaluée en mesurant la précision factuelle du texte résultant par rapport aux réponses de référence pré-enregistrées (domaines A et B) et par scoring selon une rubrique d'expert (domaine C).
 
@@ -108,4 +108,4 @@ Nous testons trois hypothèses pré-enregistrées :
 
 ## 3.7 Configuration expérimentale
 
-Tous les lancements de modèles ont été exécutés via la passerelle OpenClaw, qui route indépendamment vers l'API de chaque fournisseur. Chaque prompt s'exécute dans une session isolée séparée sans état partagé. Les sorties des lancements sont stockées en JSON structuré avec l'ID du prompt, l'ID du modèle, le texte de la réponse, le nombre de tokens et la latence. Le jeu de données complet de 150 lancements (30 prompts x 5 modèles) est publié avec ce travail.
+Tous les lancements de modèles ont été exécutés via la passerelle OpenClaw, qui route indépendamment vers l'API de chaque fournisseur. Chaque prompt s'exécute dans une session isolée séparée sans état partagé. Les sorties des lancements sont stockées en JSON structuré avec l'ID du prompt, l'ID du modèle, le texte de la réponse, le nombre de tokens et la latence. Le jeu de données complet de 540 lancements (45 prompts x 5 modèles) est publié avec ce travail.

@@ -13,7 +13,7 @@ Protokół wymusza ścisłą **zasadę braku kontaminacji**: żadna odpowiedź m
 
 ## 3.2 Modele
 
-Oceniamy pięć najbardziej zaawansowanych LLM od czterech różnych dostawców:
+Oceniamy dwanaście najbardziej zaawansowanych LLM od czterech różnych dostawców:
 
 | ID | Model | Dostawca | Okno kontekstu |
 |---|---|---|---|
@@ -35,7 +35,7 @@ Temperatura nie jest modyfikowana. Celowo zachowujemy domyślne zachowanie prób
 
 ### 3.3.1 Struktura dziedzin
 
-Konstruujemy 30 promptów w trzech warstwach dziedzinowych:
+Konstruujemy 45 promptów w trzech warstwach dziedzinowych:
 
 **Dziedzina A - Techniczne wysokiej precyzji (A01-A10):** Pytania z obiektywnie prawidłowymi odpowiedziami weryfikowalnymi względem autorytatywnych źródeł pierwotnych (standardy NIST FIPS, NVD, RFC IETF, specyfikacje OpenID Foundation). Przykłady: uzasadnienie punktacji CVSS, rozmiary kluczy algorytmów PQC, wyliczenie zestawów szyfrów TLS 1.3.
 
@@ -98,4 +98,4 @@ Dla każdej odpowiedzi dziedzin A i B oceniamy dokładność faktyczną względe
 
 ## 3.7 Konfiguracja eksperymentalna
 
-Wszystkie uruchomienia modeli zostały wykonane za pośrednictwem bramy OpenClaw, która kieruje niezależnie do API każdego dostawcy. Kompletny zbiór danych 150 uruchomień (30 promptów x 5 modeli) jest publikowany razem z niniejszą pracą.
+Wszystkie uruchomienia modeli zostały wykonane za pośrednictwem bramy OpenClaw, która kieruje niezależnie do API każdego dostawcy. Kompletny zbiór danych 540 uruchomień (45 promptów x 5 modeli) jest publikowany razem z niniejszą pracą.

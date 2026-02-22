@@ -2,7 +2,7 @@
 
 ## 6.1 Przegląd strategii
 
-Oceniliśmy trzy strategie syntezy (S1 głosowanie większościowe, S2 centroid semantyczny, S3 LLM-as-Judge) na wszystkich 27 promptach. Jakość syntezy oceniano mierząc dokładność faktyczną wynikowego tekstu względem ground truth dla dziedzin A i B oraz za pomocą punktowania rubryką ekspercką dla dziedziny C.
+Oceniliśmy trzy strategie syntezy (S1 głosowanie większościowe, S2 centroid semantyczny, S3 LLM-as-Judge) na wszystkich 45 promptach. Jakość syntezy oceniano mierząc dokładność faktyczną wynikowego tekstu względem ground truth dla dziedzin A i B oraz za pomocą punktowania rubryką ekspercką dla dziedziny C.
 
 Rubryka dla dziedziny C oceniała cztery wymiary (0-3 punkty każdy, maks. 12):
 - **Kompletność:** Czy synteza adresuje wszystkie kluczowe aspekty pytania?

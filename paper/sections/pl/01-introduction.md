@@ -43,7 +43,7 @@ BMAS jest formalnym odpowiedzeniem na to pytanie.
 Niniejsza praca wnosi następujący wkład:
 
 1. **Metodologia BMAS:** Sformalizowany protokół ślepej syntezy wieloagentowej z ograniczeniami izolacji, zestawem metryk i strategiami syntezy.
-2. **Badanie empiryczne:** Wyniki 30 promptów dla 5 LLM w 3 warstwach dziedzinowych, z pre-rejestrowanymi odpowiedziami referencyjnymi dla dziedzin A i B.
+2. **Badanie empiryczne:** Wyniki 45 promptów dla 12 LLM w 3 warstwach dziedzinowych, z pre-rejestrowanymi odpowiedziami referencyjnymi dla dziedzin A i B.
 3. **Walidacja hipotezy dywergencji-jako-sygnału:** Dowody statystyczne, że dywergencja między modelami przewiduje wskaźnik błędów faktycznych.
 4. **Porównanie strategii syntezy:** Empiryczna ocena głosowania większościowego, centroidu semantycznego i syntezy LLM-as-Judge w odniesieniu do odpowiedzi referencyjnych.
 5. **Otwarty zbiór danych:** Wszystkie prompty, surowe wyniki modeli i wskaźniki metryk opublikowane jako publiczny benchmark.
