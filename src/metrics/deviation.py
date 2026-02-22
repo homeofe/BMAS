@@ -25,47 +25,81 @@ import numpy as np
 # Cosine Similarity (sentence-transformers)
 # --------------------------------------------------------------------------
 
-def compute_cosine_matrix(responses: dict[str, str], model_name: str = "all-mpnet-base-v2") -> dict[str, Any]:
+def compute_cosine_matrix(responses: dict[str, str], model_name: str = "all-MiniLM-L6-v2") -> dict[str, Any]:
     """
     Compute pairwise cosine similarity matrix across model responses.
 
+    Routing:
+      - GPU_BRIDGE_URL set -> use remote GPU bridge /embed endpoint (preferred)
+      - fallback -> local SentenceTransformer on CPU (no local GPU, ever)
+
     Args:
         responses: dict of model_id -> response_text
-        model_name: sentence-transformer model to use
+        model_name: sentence-transformer model name (used for local fallback;
+                    bridge always uses its configured model)
 
     Returns:
-        dict with 'matrix', 'model_ids', 'mean_similarity', 'min_similarity', 'embeddings'
+        dict with 'matrix', 'model_ids', 'mean', 'min', 'max', 'std', 'embeddings', 'pairs'
     """
-    try:
-        from sentence_transformers import SentenceTransformer
-    except ImportError:
-        raise ImportError("Run: pip install sentence-transformers")
+    import os, urllib.request, json as _json, warnings
 
     model_ids = sorted(responses.keys())
     texts = [responses[mid] for mid in model_ids]
+    gpu_bridge_url = os.environ.get("GPU_BRIDGE_URL", "http://localhost:8765")
 
-    # Force CPU for embeddings — local GPU (Quadro M2000, 4GB) runs OOM with roberta
-    model = SentenceTransformer(model_name, device="cpu")
-    embeddings = model.encode(texts, normalize_embeddings=True)
+    embeddings: np.ndarray | None = None
+
+    # --- Try GPU bridge first ---
+    try:
+        payload = _json.dumps({"texts": texts, "batch_size": 32}).encode()
+        req = urllib.request.Request(
+            f"{gpu_bridge_url}/embed",
+            data=payload,
+            headers={"Content-Type": "application/json"},
+        )
+        with urllib.request.urlopen(req, timeout=60) as r:
+            result = _json.loads(r.read())
+        embeddings = np.array(result["embeddings"])
+    except Exception as _e:
+        warnings.warn(f"GPU Bridge /embed unavailable ({_e}), falling back to local CPU")
+
+    # --- Fallback: local CPU only, never local GPU ---
+    if embeddings is None:
+        try:
+            from sentence_transformers import SentenceTransformer
+        except ImportError:
+            raise ImportError("Run: pip install sentence-transformers")
+        model = SentenceTransformer(model_name, device="cpu")
+        embeddings = model.encode(texts, convert_to_numpy=True)
+
+    # Normalize embeddings (L2)
+    norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
+    norms = np.where(norms == 0, 1.0, norms)
+    embeddings = embeddings / norms
 
     matrix = np.inner(embeddings, embeddings)
+    # Clip to [-1, 1] to avoid floating point noise in downstream distance math
+    matrix = np.clip(matrix, -1.0, 1.0)
 
-    # Extract upper triangle (excluding diagonal) for summary stats
     n = len(model_ids)
-    pairs = []
+    pair_list = []
+    pair_vals = []
     for i in range(n):
         for j in range(i + 1, n):
-            pairs.append(matrix[i][j])
+            sim = float(matrix[i][j])
+            pair_vals.append(sim)
+            pair_list.append({"model_a": model_ids[i], "model_b": model_ids[j], "cosine": sim})
 
     return {
         "model_ids": model_ids,
         "matrix": matrix.tolist(),
         "embeddings": embeddings.tolist(),
-        "mean_similarity": float(np.mean(pairs)),
-        "min_similarity": float(np.min(pairs)),
-        "max_similarity": float(np.max(pairs)),
-        "std_similarity": float(np.std(pairs)),
-        "pair_count": len(pairs),
+        "mean": float(np.mean(pair_vals)),
+        "min": float(np.min(pair_vals)),
+        "max": float(np.max(pair_vals)),
+        "std": float(np.std(pair_vals)),
+        "pair_count": len(pair_vals),
+        "pairs": pair_list,
     }
 
 
@@ -221,9 +255,11 @@ def detect_outliers(cosine_result: dict[str, Any], eps: float = 0.15, min_sample
     embeddings = np.array(cosine_result["embeddings"])
 
     # Convert cosine similarity matrix to distance matrix
-    sim_matrix = np.array(cosine_result["matrix"])
-    dist_matrix = 1 - sim_matrix
-    np.fill_diagonal(dist_matrix, 0)
+    # Clip to [0, 2] — floating point can push cosine slightly above 1.0
+    sim_matrix = np.clip(np.array(cosine_result["matrix"]), -1.0, 1.0)
+    dist_matrix = 1.0 - sim_matrix
+    dist_matrix = np.clip(dist_matrix, 0.0, 2.0)
+    np.fill_diagonal(dist_matrix, 0.0)
 
     clustering = DBSCAN(eps=eps, min_samples=min_samples, metric="precomputed")
     labels = clustering.fit_predict(dist_matrix)

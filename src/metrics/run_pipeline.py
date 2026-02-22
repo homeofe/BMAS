@@ -77,15 +77,17 @@ def run_metrics_for_prompt(prompt_id: str, responses: dict[str, str]) -> dict:
     try:
         cosine = compute_cosine_matrix(responses)
         report["cosine"] = {
-            "mean_similarity": cosine["mean_similarity"],
-            "min_similarity": cosine["min_similarity"],
-            "max_similarity": cosine["max_similarity"],
-            "std_similarity": cosine["std_similarity"],
+            "mean": cosine["mean"],
+            "min": cosine["min"],
+            "max": cosine["max"],
+            "std": cosine["std"],
             "matrix": cosine["matrix"],
             "model_ids": cosine["model_ids"],
             "embeddings": cosine["embeddings"],
+            "pair_count": cosine["pair_count"],
+            "pairs": cosine.get("pairs", []),
         }
-        print(f" {cosine['mean_similarity']:.3f}", end="", flush=True)
+        print(f" {cosine['mean']:.3f}", end="", flush=True)
     except Exception as e:
         report["cosine"] = {"error": str(e)}
         cosine = None
@@ -211,15 +213,17 @@ def _save_aggregate_csv(reports: list[dict]) -> None:
             "prompt_id": r["prompt_id"],
             "domain": r["domain"],
             "n_models": r["n_models"],
-            "cosine_mean":       r.get("cosine", {}).get("mean_similarity", ""),
-            "cosine_min":        r.get("cosine", {}).get("min_similarity", ""),
-            "cosine_std":        r.get("cosine", {}).get("std_similarity", ""),
+            "cosine_mean":       r.get("cosine", {}).get("mean", r.get("cosine", {}).get("mean_similarity", "")),
+            "cosine_min":        r.get("cosine", {}).get("min",  r.get("cosine", {}).get("min_similarity",  "")),
+            "cosine_std":        r.get("cosine", {}).get("std",  r.get("cosine", {}).get("std_similarity",  "")),
             "bertscore_mean_f1": r.get("bertscore", {}).get("mean_f1", ""),
             "bertscore_min_f1":  r.get("bertscore", {}).get("min_f1", ""),
             "jaccard_mean":      r.get("jaccard", {}).get("mean_jaccard", ""),
             "jaccard_min":       r.get("jaccard", {}).get("min_jaccard", ""),
             "n_outliers":        r.get("outliers", {}).get("n_outliers", ""),
-            "outlier_models":    ",".join(r.get("outliers", {}).get("outlier_models", [])),
+            "outlier_models":    ",".join(
+                r.get("outliers", {}).get("outlier_models",
+                r.get("outliers", {}).get("outliers", []))),
         }
         tokens = r.get("response_tokens", {})
         for m in ALL_MODEL_IDS_FOR_CSV:
