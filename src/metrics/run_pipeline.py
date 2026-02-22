@@ -32,15 +32,24 @@ RAW_OUTPUTS = ROOT / "experiments" / "raw-outputs"
 RESULTS_DIR = ROOT / "results"
 
 DOMAIN_MAP = {
+    # Technical (A01-A15)
     "A01": "technical", "A02": "technical", "A03": "technical", "A04": "technical",
     "A05": "technical", "A06": "technical", "A07": "technical", "A08": "technical",
     "A09": "technical", "A10": "technical",
+    "A11": "technical", "A12": "technical", "A13": "technical", "A14": "technical",
+    "A15": "technical",
+    # Regulatory (B01-B15)
     "B01": "regulatory", "B02": "regulatory", "B03": "regulatory", "B04": "regulatory",
     "B05": "regulatory", "B06": "regulatory", "B07": "regulatory", "B08": "regulatory",
     "B09": "regulatory", "B10": "regulatory",
+    "B11": "regulatory", "B12": "regulatory", "B13": "regulatory", "B14": "regulatory",
+    "B15": "regulatory",
+    # Strategic (C01-C15)
     "C01": "strategic", "C02": "strategic", "C03": "strategic", "C04": "strategic",
     "C05": "strategic", "C06": "strategic", "C07": "strategic", "C08": "strategic",
     "C09": "strategic", "C10": "strategic",
+    "C11": "strategic", "C12": "strategic", "C13": "strategic", "C14": "strategic",
+    "C15": "strategic",
 }
 
 
@@ -181,16 +190,20 @@ def run_all(prompt_ids: list[str] | None = None, min_models: int = 5) -> list[di
     return all_reports
 
 
+ALL_MODEL_IDS_FOR_CSV = ["M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8", "M9", "M10", "M11", "M12"]
+
+
 def _save_aggregate_csv(reports: list[dict]) -> None:
     """Save a flat CSV with one row per prompt for easy analysis."""
     csv_file = RESULTS_DIR / "aggregate.csv"
+    token_cols = [f"tokens_{m}" for m in ALL_MODEL_IDS_FOR_CSV]
     fields = [
         "prompt_id", "domain", "n_models",
         "cosine_mean", "cosine_min", "cosine_std",
         "bertscore_mean_f1", "bertscore_min_f1",
         "jaccard_mean", "jaccard_min",
         "n_outliers", "outlier_models",
-        "tokens_M1", "tokens_M2", "tokens_M3", "tokens_M4", "tokens_M5",
+        *token_cols,
     ]
     rows = []
     for r in reports:
@@ -198,18 +211,18 @@ def _save_aggregate_csv(reports: list[dict]) -> None:
             "prompt_id": r["prompt_id"],
             "domain": r["domain"],
             "n_models": r["n_models"],
-            "cosine_mean":    r.get("cosine", {}).get("mean_similarity", ""),
-            "cosine_min":     r.get("cosine", {}).get("min_similarity", ""),
-            "cosine_std":     r.get("cosine", {}).get("std_similarity", ""),
+            "cosine_mean":       r.get("cosine", {}).get("mean_similarity", ""),
+            "cosine_min":        r.get("cosine", {}).get("min_similarity", ""),
+            "cosine_std":        r.get("cosine", {}).get("std_similarity", ""),
             "bertscore_mean_f1": r.get("bertscore", {}).get("mean_f1", ""),
             "bertscore_min_f1":  r.get("bertscore", {}).get("min_f1", ""),
-            "jaccard_mean":   r.get("jaccard", {}).get("mean_jaccard", ""),
-            "jaccard_min":    r.get("jaccard", {}).get("min_jaccard", ""),
-            "n_outliers":     r.get("outliers", {}).get("n_outliers", ""),
-            "outlier_models": ",".join(r.get("outliers", {}).get("outlier_models", [])),
+            "jaccard_mean":      r.get("jaccard", {}).get("mean_jaccard", ""),
+            "jaccard_min":       r.get("jaccard", {}).get("min_jaccard", ""),
+            "n_outliers":        r.get("outliers", {}).get("n_outliers", ""),
+            "outlier_models":    ",".join(r.get("outliers", {}).get("outlier_models", [])),
         }
         tokens = r.get("response_tokens", {})
-        for m in ["M1", "M2", "M3", "M4", "M5"]:
+        for m in ALL_MODEL_IDS_FOR_CSV:
             row[f"tokens_{m}"] = tokens.get(m, "")
         rows.append(row)
 

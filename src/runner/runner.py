@@ -36,11 +36,20 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 
 MODELS = {
-    "M1": {"id": "M1", "name": "claude-sonnet-4-6",  "model_string": "anthropic/claude-sonnet-4-6"},
-    "M2": {"id": "M2", "name": "claude-opus-4-6",    "model_string": "anthropic/claude-opus-4-6"},
-    "M3": {"id": "M3", "name": "gpt-5.3-codex",      "model_string": "openai-codex/gpt-5.3-codex"},
-    "M4": {"id": "M4", "name": "gemini-2.5-pro",     "model_string": "google-gemini-cli/gemini-2.5-pro"},
-    "M5": {"id": "M5", "name": "sonar-pro",           "model_string": "perplexity/sonar-pro"},
+    # --- Original 5 models ---
+    "M1":  {"id": "M1",  "name": "claude-sonnet-4-6",       "model_string": "anthropic/claude-sonnet-4-6"},
+    "M2":  {"id": "M2",  "name": "claude-opus-4-6",         "model_string": "anthropic/claude-opus-4-6"},
+    "M3":  {"id": "M3",  "name": "gpt-5.3-codex",           "model_string": "openai-codex/gpt-5.3-codex"},
+    "M4":  {"id": "M4",  "name": "gemini-2.5-pro",          "model_string": "google-gemini-cli/gemini-2.5-pro"},
+    "M5":  {"id": "M5",  "name": "sonar-pro",               "model_string": "perplexity/sonar-pro"},
+    # --- Extended model set (all configured models) ---
+    "M6":  {"id": "M6",  "name": "sonar-deep-research",     "model_string": "perplexity/sonar-deep-research",     "timeout_override": 300},
+    "M7":  {"id": "M7",  "name": "gemini-3-pro-preview",   "model_string": "google-gemini-cli/gemini-3-pro-preview"},
+    "M8":  {"id": "M8",  "name": "gemini-3-flash-preview", "model_string": "google-gemini-cli/gemini-3-flash-preview"},
+    "M9":  {"id": "M9",  "name": "gemini-2.5-flash",        "model_string": "google-gemini-cli/gemini-2.5-flash"},
+    "M10": {"id": "M10", "name": "gpt-5.2",                 "model_string": "openai-codex/gpt-5.2"},
+    "M11": {"id": "M11", "name": "gpt-5.1",                 "model_string": "openai-codex/gpt-5.1"},
+    "M12": {"id": "M12", "name": "claude-sonnet-4-5",       "model_string": "anthropic/claude-sonnet-4-5"},
 }
 
 ALL_MODEL_IDS = list(MODELS.keys())
@@ -92,6 +101,8 @@ def _create_isolated_job(
 ) -> str:
     """Create an isolated cron job for one model. Returns job id."""
     model = MODELS[model_id]
+    # Per-model timeout override (e.g. sonar-deep-research needs more time)
+    effective_timeout = model.get("timeout_override", timeout_seconds)
     # Prepend isolation system prefix to the prompt
     full_message = f"{ISOLATION_SYSTEM_PREFIX}\n\n{prompt_text}"
 
@@ -102,7 +113,7 @@ def _create_isolated_job(
         "--model",   model["model_string"],
         "--message", full_message,
         "--no-deliver",
-        "--timeout-seconds", str(timeout_seconds),
+        "--timeout-seconds", str(effective_timeout),
         "--at",      "2m",
         "--delete-after-run",
         "--json",
@@ -224,9 +235,10 @@ def run_prompt_blind(
             continue
 
         try:
+            effective_timeout = model.get("timeout_override", timeout_seconds)
             job_id = _create_isolated_job(prompt_id, model_id, prompt_text, timeout_seconds)
-            _trigger_job(job_id)
-            run_entry = _wait_for_job(job_id, max_wait=float(timeout_seconds) + 30)
+            _trigger_job(job_id, timeout_ms=(effective_timeout + 60) * 1000)
+            run_entry = _wait_for_job(job_id, max_wait=float(effective_timeout) + 60)
 
             session_id = run_entry.get("sessionId", "")
             response = _get_full_response_from_session(session_id)
@@ -286,6 +298,7 @@ def _save_record(output_dir: Path, record: dict) -> Path:
 
 DOMAIN_A_PROMPTS = {
     "A01": ("technical", "What is the CVSS 3.1 base score for CVE-2024-21762 (Fortinet FortiOS out-of-bounds write vulnerability)? State the score, the vector string, and explain the rationale for each base metric component (AV, AC, PR, UI, S, C, I, A)."),
+
     "A02": ("technical", "Compare ML-KEM-768 and ML-DSA-65 (FIPS 203 and FIPS 204) on the following dimensions: (1) primary use case, (2) key sizes in bytes, (3) signature/ciphertext size, (4) security level in bits. Present results in a structured format."),
     "A03": ("technical", "For TLS 1.3, list all standardized cipher suites defined in RFC 8446. For each, state: the AEAD algorithm, the hash function, and the key exchange group(s) it is compatible with. Which of these is recommended for post-quantum readiness and why?"),
     "A04": ("technical", "SHA-3-256 and BLAKE3 are both modern cryptographic hash functions. Compare them on: (1) standardization status, (2) output size, (3) construction (sponge vs. Merkle-Damgard variant), (4) performance on modern CPUs, (5) known weaknesses or attack surface. Which is preferred for a new high-security application and why?"),
@@ -295,6 +308,12 @@ DOMAIN_A_PROMPTS = {
     "A08": ("technical", "CVSS v4.0 was released in November 2023. What are the three most significant structural changes compared to CVSS v3.1? For each change, explain the motivation and the practical impact on vulnerability scoring."),
     "A09": ("technical", "In the SD-JWT format (IETF RFC 9901), how does a holder selectively disclose claims to a verifier without revealing the full credential? Describe the cryptographic mechanism, including the role of salts, the disclosure objects, and the _sd array."),
     "A10": ("technical", "According to BSI Technical Guideline TR-03116 Part 4 (eCard-API), what are the currently approved symmetric encryption algorithms and minimum key lengths for protecting sensitive personal data in German government systems?"),
+    # --- Extended prompt set (v2 expansion) ---
+    "A11": ("technical", "Explain the DNSSEC validation chain from root to leaf. What is the role of the DNSKEY, RRSIG, DS, and NSEC/NSEC3 record types? Describe a zone-signing walk-through and identify the two most critical points of failure in a DNSSEC deployment."),
+    "A12": ("technical", "Describe the Kubernetes RBAC model: how do Roles, ClusterRoles, RoleBindings, and ClusterRoleBindings interact? List the top 5 RBAC misconfigurations that lead to privilege escalation, and explain the attack path for each."),
+    "A13": ("technical", "Describe the OAuth 2.0 Authorization Code Flow with PKCE (Proof Key for Code Exchange). What problem does PKCE solve compared to the original Authorization Code Flow? What are the exact cryptographic operations involved, and what attacks does it prevent?"),
+    "A14": ("technical", "Explain the FIDO2/WebAuthn credential creation and authentication ceremonies step by step. What cryptographic primitives are used? How does the authenticator attest to its identity, and what is the role of the AAGUID and attestation certificate?"),
+    "A15": ("technical", "Compare Fully Homomorphic Encryption (FHE) and Partially Homomorphic Encryption (PHE). What operations does each support? Name two production-ready FHE libraries and one real-world use case where FHE is currently deployed. What are the primary performance constraints preventing wider adoption?"),
 }
 
 DOMAIN_B_PROMPTS = {
@@ -308,6 +327,12 @@ DOMAIN_B_PROMPTS = {
     "B08": ("regulatory", "The NIS2 Directive (EU) 2022/2555 defines 'essential entities' and 'important entities.' What criteria determine whether an organization falls into each category? List the sectors explicitly named in Annexes I and II."),
     "B09": ("regulatory", "Under GDPR Article 35, when is a Data Protection Impact Assessment (DPIA) mandatory? List all conditions that trigger the DPIA requirement and cite any relevant EDPB guidance on high-risk processing."),
     "B10": ("regulatory", "Compare SOC 2 Type II and ISO 27001 on the following dimensions: (1) issuing body, (2) what is certified, (3) audit frequency, (4) public availability of the report, (5) geographic adoption. Which is more appropriate for a European cloud service provider targeting enterprise customers in the EU and US?"),
+    # --- Extended prompt set (v2 expansion) ---
+    "B11": ("regulatory", "DORA (Digital Operational Resilience Act, EU 2022/2554) applies to financial entities from January 2025. What are the five ICT risk management pillars defined in DORA? For each pillar, state the core obligation and name one specific technical or organizational control required."),
+    "B12": ("regulatory", "The EU AI Act (Regulation 2024/1689) defines four risk categories for AI systems. List all four, provide two examples of AI applications that fall into each category, and explain the compliance obligations for 'high-risk' systems specifically."),
+    "B13": ("regulatory", "PCI DSS v4.0 was released in March 2022 with a transition deadline of March 2024. What are the three most significant changes compared to PCI DSS v3.2.1? For each, describe the change and its practical impact on a cardholder data environment."),
+    "B14": ("regulatory", "An EU-based company processes health data for US clients under both GDPR and HIPAA. What are the three most critical structural differences between GDPR and HIPAA that affect this company's data processing agreements, breach notification timelines, and patient rights obligations?"),
+    "B15": ("regulatory", "The EU Cyber Resilience Act (CRA, proposed 2022, final 2024) introduces mandatory cybersecurity requirements for products with digital elements. What are the essential cybersecurity requirements manufacturers must meet? What are the reporting obligations for actively exploited vulnerabilities, and what are the market access consequences for non-compliance?"),
 }
 
 DOMAIN_C_PROMPTS = {
@@ -321,6 +346,12 @@ DOMAIN_C_PROMPTS = {
     "C08": ("strategic", "You are designing an identity federation for 5 European government agencies that need to accept each other's credentials. The options are: (A) centralized identity broker, (B) peer-to-peer federation using SAML/OIDC trust anchors, or (C) self-sovereign identity with verifiable credentials (eIDAS 2.0 EUDIW). Each agency has 50,000 citizens. Which architecture do you recommend and why? What are the top failure modes of your chosen approach?"),
     "C09": ("strategic", "An organization runs annual phishing simulations and security awareness training. The CISO argues this is ineffective and wants to redirect the budget (40,000 EUR/year) to technical controls (email filtering, browser isolation). The HR director argues training is a compliance requirement and builds culture. Who is right? Present both arguments and give your verdict with reasoning."),
     "C10": ("strategic", "Can open-source LLMs (e.g., Llama 3, Mistral) be deployed in a GDPR-compliant environment for processing personal data, assuming the model runs fully on-premises with no external API calls? What are the three key compliance requirements that must be addressed, and what is the most critical technical control needed?"),
+    # --- Extended prompt set (v2 expansion) ---
+    "C11": ("strategic", "A mid-sized European company is evaluating whether to migrate its remaining on-premises workloads to an EU-based sovereign cloud (e.g., OVHcloud, IONOS, T-Systems) or to a hyperscaler with EU data residency guarantees (e.g., AWS EU Sovereign Cloud, Microsoft EU Data Boundary). What are the top 3 decision criteria that should determine the choice, and what is the single biggest risk of each option?"),
+    "C12": ("strategic", "Should a security program be primarily risk-based or compliance-based? A CISO argues that chasing certifications (ISO 27001, TISAX) consumes resources without reducing actual risk. A CFO argues that certifications are required to win enterprise contracts. Present both sides and give your verdict: how should a mature security organization balance the two approaches?"),
+    "C13": ("strategic", "An organization with 50,000 endpoints and a 3-person patch management team receives 200 CVEs per month. They cannot patch everything immediately. Design a prioritization framework that goes beyond raw CVSS scores. What are the top 5 factors to consider, and how should they be weighted relative to each other?"),
+    "C14": ("strategic", "A 5,000-person organization is deciding between a centralized security team (one CISO, central SOC, central GRC) vs. a federated model (embedded security leads in each business unit, light central coordination). What are the top 3 advantages and disadvantages of each model? Which structure is more appropriate for a regulated industry (e.g., financial services), and why?"),
+    "C15": ("strategic", "A SOC manager needs to measure the effectiveness of their security operations center. Propose the 5 most meaningful KPIs, explaining what each measures, why it matters, and what a 'good' vs. 'bad' benchmark looks like. Avoid vanity metrics (e.g., total alerts processed) and focus on metrics that reflect actual risk reduction and operational quality."),
 }
 
 ALL_PROMPTS: dict[str, tuple[str, str]] = {

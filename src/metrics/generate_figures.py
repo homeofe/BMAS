@@ -36,12 +36,29 @@ DOMAIN_COLORS = {
 }
 
 MODEL_LABELS = {
-    "M1": "Sonnet",
-    "M2": "Opus",
-    "M3": "GPT-5.3",
-    "M4": "Gemini",
-    "M5": "Sonar",
+    "M1":  "Sonnet 4.6",
+    "M2":  "Opus 4.6",
+    "M3":  "GPT-5.3",
+    "M4":  "Gemini 2.5 Pro",
+    "M5":  "Sonar Pro",
+    "M6":  "Sonar Deep",
+    "M7":  "Gemini 3 Pro",
+    "M8":  "Gemini 3 Flash",
+    "M9":  "Gemini 2.5 Flash",
+    "M10": "GPT-5.2",
+    "M11": "GPT-5.1",
+    "M12": "Sonnet 4.5",
 }
+
+ALL_KNOWN_MODELS = list(MODEL_LABELS.keys())
+
+
+def _get_models_from_reports(reports: list[dict]) -> list[str]:
+    """Dynamically detect which models appear in the data."""
+    seen: set[str] = set()
+    for r in reports:
+        seen.update(r.get("model_ids", []))
+    return sorted(seen, key=lambda m: int(m[1:]))
 
 
 def load_aggregate() -> list[dict]:
@@ -67,8 +84,9 @@ def figure_similarity_heatmaps(reports: list[dict]) -> None:
     fig, axes = plt.subplots(1, 3, figsize=(15, 5))
     fig.suptitle("BMAS: Mean Pairwise Cosine Similarity by Domain", fontsize=14, y=1.02)
 
-    models = ["M1", "M2", "M3", "M4", "M5"]
-    labels = [MODEL_LABELS[m] for m in models]
+    models = _get_models_from_reports(reports)
+    labels = [MODEL_LABELS.get(m, m) for m in models]
+    n_models = len(models)
 
     for ax, domain in zip(axes, domains):
         domain_reports = [r for r in reports if r["domain"] == domain
@@ -77,14 +95,13 @@ def figure_similarity_heatmaps(reports: list[dict]) -> None:
             ax.set_title(f"{domain.capitalize()}\n(no data)")
             continue
 
-        # Average matrices across all prompts in domain
+        # Average matrices across all prompts in domain (only use reports with full matrix)
         matrices = []
         for r in domain_reports:
             cosine = r.get("cosine", {})
             if "matrix" in cosine and isinstance(cosine["matrix"], list):
-                m_ids = cosine.get("model_ids", models)
                 mat = np.array(cosine["matrix"])
-                if mat.shape == (len(models), len(models)):
+                if mat.shape == (n_models, n_models):
                     matrices.append(mat)
 
         if not matrices:
@@ -92,23 +109,25 @@ def figure_similarity_heatmaps(reports: list[dict]) -> None:
             continue
 
         avg_matrix = np.mean(matrices, axis=0)
+        triu_vals = [avg_matrix[i][j] for i in range(n_models) for j in range(i + 1, n_models)]
+        mean_val = float(np.mean(triu_vals)) if triu_vals else 0.0
 
         im = ax.imshow(avg_matrix, vmin=0.5, vmax=1.0, cmap="Blues")
         ax.set_xticks(range(len(labels)))
         ax.set_yticks(range(len(labels)))
-        ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=9)
-        ax.set_yticklabels(labels, fontsize=9)
+        fontsize = max(6, 9 - n_models // 4)
+        ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=fontsize)
+        ax.set_yticklabels(labels, fontsize=fontsize)
 
         # Annotate cells
-        for i in range(len(labels)):
-            for j in range(len(labels)):
+        for i in range(n_models):
+            for j in range(n_models):
                 val = avg_matrix[i, j]
                 color = "white" if val > 0.85 else "black"
                 ax.text(j, i, f"{val:.2f}", ha="center", va="center",
-                        fontsize=8, color=color)
+                        fontsize=max(5, 8 - n_models // 4), color=color)
 
         n = len(domain_reports)
-        mean_val = float(np.mean([avg_matrix[i][j] for i in range(5) for j in range(i+1, 5)]))
         ax.set_title(f"{domain.capitalize()}\n(n={n} prompts, mean={mean_val:.3f})", fontsize=11)
         plt.colorbar(im, ax=ax, shrink=0.8)
 
@@ -146,7 +165,8 @@ def figure_cosine_boxplot(reports: list[dict]) -> None:
 
     ax.set_ylabel("Mean Pairwise Cosine Similarity", fontsize=11)
     ax.set_xlabel("Domain", fontsize=11)
-    ax.set_title("BMAS: Response Convergence by Domain\n(cosine similarity, all 5 models)", fontsize=12)
+    n_models = len(_get_models_from_reports(reports))
+    ax.set_title(f"BMAS: Response Convergence by Domain\n(cosine similarity, {n_models} models)", fontsize=12)
     ax.set_ylim(0.4, 1.05)
     ax.axhline(0.75, color="gray", linestyle="--", alpha=0.5, label="H1 threshold (0.75)")
     ax.legend(fontsize=9)
@@ -248,7 +268,7 @@ def figure_token_vs_divergence(reports: list[dict]) -> None:
 # ---------------------------------------------------------------------------
 
 def figure_outlier_frequency(reports: list[dict]) -> None:
-    models = ["M1", "M2", "M3", "M4", "M5"]
+    models = _get_models_from_reports(reports)
     outlier_counts = {m: 0 for m in models}
     total_prompts = 0
 
@@ -265,16 +285,19 @@ def figure_outlier_frequency(reports: list[dict]) -> None:
         print("  F5: no outlier data")
         return
 
-    fig, ax = plt.subplots(figsize=(8, 4))
-    model_names = [MODEL_LABELS[m] for m in models]
+    fig_width = max(8, len(models) * 0.9)
+    fig, ax = plt.subplots(figsize=(fig_width, 4))
+    model_names = [MODEL_LABELS.get(m, m) for m in models]
     counts = [outlier_counts[m] for m in models]
     pcts = [c / total_prompts * 100 for c in counts]
+    max_pct = max(pcts) if pcts else 1
 
     bars = ax.bar(model_names, pcts, color="#7c3aed", alpha=0.75, edgecolor="white")
     ax.set_ylabel("Outlier Rate (%)", fontsize=11)
     ax.set_xlabel("Model", fontsize=11)
     ax.set_title(f"BMAS: Outlier Detection Rate by Model\n(n={total_prompts} prompts, DBSCAN eps=0.15)", fontsize=12)
-    ax.set_ylim(0, max(pcts) * 1.3 + 5)
+    ax.set_ylim(0, max_pct * 1.3 + 5)
+    ax.tick_params(axis="x", rotation=30)
 
     for bar, pct, cnt in zip(bars, pcts, counts):
         ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.5,
