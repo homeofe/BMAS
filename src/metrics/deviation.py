@@ -44,6 +44,7 @@ def compute_cosine_matrix(responses: dict[str, str], model_name: str = "all-mpne
     model_ids = sorted(responses.keys())
     texts = [responses[mid] for mid in model_ids]
 
+    # Force CPU for embeddings — local GPU (Quadro M2000, 4GB) runs OOM with roberta
     model = SentenceTransformer(model_name, device="cpu")
     embeddings = model.encode(texts, normalize_embeddings=True)
 
@@ -88,14 +89,38 @@ def compute_bertscore(responses: dict[str, str], lang: str = "en") -> dict[str, 
     texts = [responses[mid] for mid in model_ids]
     n = len(texts)
 
+    # Build all pairs upfront for batched GPU call
+    pair_indices = [(i, j) for i in range(n) for j in range(i + 1, n)]
+    all_cands = [texts[i] for i, j in pair_indices]
+    all_refs  = [texts[j] for i, j in pair_indices]
+
+    # Use GPU Bridge HTTP API if available, else fall back to local bert_score
+    import os, urllib.request, json as _json
+    gpu_bridge_url = os.environ.get("GPU_BRIDGE_URL", "http://localhost:8765")
+    f1_scores: list[float] = []
+
+    try:
+        payload = _json.dumps({"candidates": all_cands, "references": all_refs}).encode()
+        req = urllib.request.Request(
+            f"{gpu_bridge_url}/bertscore",
+            data=payload,
+            headers={"Content-Type": "application/json"},
+        )
+        with urllib.request.urlopen(req, timeout=120) as r:
+            result = _json.loads(r.read())
+        f1_scores = result["f1"]
+    except Exception as _e:
+        # Fallback to local CPU
+        import warnings
+        warnings.warn(f"GPU Bridge unavailable ({_e}), falling back to CPU bert_score")
+        for cand, ref in zip(all_cands, all_refs):
+            _, _, f1 = bert_score([cand], [ref], lang=lang, verbose=False, device="cpu")
+            f1_scores.append(float(f1[0].item()))
+
     pairs = []
-    for i in range(n):
-        for j in range(i + 1, n):
-            cands = [texts[i]]
-            refs = [texts[j]]
-            _, _, f1 = bert_score(cands, refs, lang=lang, verbose=False, device="cpu")
-            score = float(f1[0].item())
-            pairs.append({
+    for idx, (i, j) in enumerate(pair_indices):
+        score = f1_scores[idx]
+        pairs.append({
                 "model_a": model_ids[i],
                 "model_b": model_ids[j],
                 "bertscore_f1": score,
