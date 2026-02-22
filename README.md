@@ -98,3 +98,15 @@ The runner integrates with [failprompt](https://github.com/homeofe/failprompt) a
 ## Author
 
 **Emre Kohler** | [Elvatis](https://elvatis.com)
+
+---
+
+## Available Languages
+
+The paper is available in three languages. Sections 04-06 (Results, Divergence Analysis, Synthesis Evaluation) are auto-generated from experiment data and will be added to all language folders after the full experiment completes.
+
+| Language | Index | Sections available |
+|---|---|---|
+| English (original) | [paper/sections/README.md](paper/sections/README.md) | 00, 01, 02, 03, 07, 08 (04-06 pending data) |
+| Deutsch | [paper/sections/de/README.md](paper/sections/de/README.md) | 00, 01, 02, 03, 07, 08 (04-06 pending data) |
+| Francais | [paper/sections/fr/README.md](paper/sections/fr/README.md) | 00, 01, 02, 03, 07, 08 (04-06 pending data) |

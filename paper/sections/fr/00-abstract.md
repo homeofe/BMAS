@@ -1,0 +1,11 @@
+# Résumé
+
+Nous introduisons **Blind Multi-Agent Synthesis (BMAS)**, une méthodologie pour mesurer la convergence et la divergence de plusieurs grands modèles de langage (LLMs) répondant à des prompts identiques dans une isolation stricte. Inspiré par la méthode Delphi en prévision d'experts, BMAS impose une isolation complète des réponses par modèle : aucun modèle n'observe la sortie d'un autre modèle avant la phase de synthèse.
+
+Nous évaluons cinq LLMs de pointe sur trois strates de domaines : (A) des questions techniques de haute précision avec des réponses vérifiables, (B) des questions réglementaires et de conformité avec des sources juridiques faisant autorité, et (C) des questions stratégiques et architecturales avec des désaccords légitimes entre experts. En utilisant des métriques de similarité sémantique (BERTScore, distance cosinus sur embeddings), la précision factuelle comparée à des réponses de référence pré-enregistrées, et la détection de valeurs aberrantes via le clustering DBSCAN, nous quantifions la déviation inter-modèles et sa relation avec le type de domaine et le taux d'hallucination.
+
+Notre hypothèse centrale est que dans les domaines factuels bien contraints, les réponses des LLMs convergent suffisamment pour que le **consensus serve de signal de qualité** : un fort accord inter-modèles prédit la correction factuelle, tandis qu'une divergence significative signale soit une hallucination du modèle, soit une question insuffisamment spécifiée. Nous évaluons en outre trois stratégies de synthèse - agrégation par vote majoritaire, sélection du centroïde sémantique et synthèse LLM-as-Judge - par rapport aux réponses de référence pré-enregistrées.
+
+BMAS a des implications pratiques directes pour les déploiements d'IA à enjeux élevés dans les administrations publiques, les systèmes de santé et les systèmes juridiques, où aucune sortie de modèle unique ne peut être inconditionnellement fiable. En traitant la **divergence comme un signal d'anomalie** plutôt que comme un échec de coordination, BMAS fournit une couche d'assurance qualité pratique pour les systèmes LLM en production.
+
+**Mots-clés :** grands modèles de langage, systèmes multi-agents, consensus, détection des hallucinations, méthode Delphi, similarité sémantique, assurance qualité IA
