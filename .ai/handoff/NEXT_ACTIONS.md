@@ -1,67 +1,63 @@
 # BMAS Next Actions
 
-Last updated: 2026-02-22 00:50
-Priority order: top = most critical.
+Last updated: 2026-02-22 01:00
+Priority: top = most critical.
 
 ---
 
-## DONE
+## ✅ Done
 
-- [x] **Foundation** - README, design, 30 prompts, code scaffolding - commit 4772d04
-- [x] **P1: Ground truth A+B** - 20 prompts pre-registered - commit 25a5395 (LOCKED)
-- [x] **P2: Runner** - OpenClaw cron blind runner, live tested - commit 764f98c
-- [x] **P3: Python deps** - all installed (sentence-transformers, bert-score, sklearn, matplotlib, etc.)
-- [x] **P4: Paper related work** - 02-related-work.md - commit dafebe4
-- [x] **P5: Pilot run** - 25/25 OK - commit ebd80d1
-- [x] **Paper 00+01** - abstract + introduction - commit 4772d04
-- [x] **Paper 03** - methodology (protocol, models, prompts, metrics, hypotheses) - commit dafebe4
-- [x] **Paper 07** - discussion + limitations - commit dafebe4
-- [x] **Paper 08** - conclusion - commit dafebe4
-- [x] **Scripts** - finish_pipeline.sh + watch_and_finish.sh - commit dafebe4
-- [x] **Metrics pipeline** - run_pipeline.py - commit dafebe4
-- [x] **Figures generator** - generate_figures.py (F1-F5) - commit dafebe4
-- [x] **Results sections generator** - generate_results_sections.py (auto-writes 04-06) - commit dafebe4
+- ✅ Foundation - README, design, 30 prompts, code scaffolding - commit 4772d04
+- ✅ P1: Ground truth A+B - 20 prompts pre-registered - commit 25a5395 (🔒 LOCKED)
+- ✅ P2: Runner - OpenClaw cron blind runner, live tested - commit 764f98c
+- ✅ P3: Python deps - sentence-transformers, bert-score, sklearn, matplotlib all installed
+- ✅ P4: Paper related work - 02-related-work.md - commit dafebe4
+- ✅ P5: Pilot run - 25/25 OK - commit ebd80d1
+- ✅ Paper 00 + 01 - abstract + introduction - commit 4772d04
+- ✅ Paper 03 - methodology (protocol, models, prompts, metrics, hypotheses) - commit dafebe4
+- ✅ Paper 07 - discussion + limitations - commit dafebe4
+- ✅ Paper 08 - conclusion - commit dafebe4
+- ✅ Automation scripts - finish_pipeline.sh + watch_and_finish.sh - commit dafebe4
+- ✅ Metrics pipeline - run_pipeline.py - commit dafebe4
+- ✅ Figures generator - generate_figures.py (F1-F5) - commit dafebe4
+- ✅ Results sections generator - generate_results_sections.py (auto-writes 04-06) - commit dafebe4
+- ✅ German translations - paper/sections/de/ (6 sections) - commit 4e0cd61
+- ✅ French translations - paper/sections/fr/ (6 sections) - commit 4e0cd61
+- ✅ Language index - paper/sections/README.md with EN/DE/FR links - commit 4e0cd61
 
 ---
 
-## IN PROGRESS (automated)
+## 🔄 In Progress (automated)
 
 ### P6 - Full experiment run (PID 1811694, watcher PID 1816456)
-- 41/150 done at time of write
+- ~72/150 done at time of write
 - Running: `python3 src/runner/runner.py --all --skip-existing --timeout 150`
 - Log: /tmp/bmas-fullrun.log
-- ETA: ~2-3 hours from start
-
-### After P6 exits - fires automatically via watch_and_finish.sh:
-
-**P7 - Metric pipeline**
-- cosine similarity (all-mpnet-base-v2), BERTScore F1, Jaccard, DBSCAN outliers
-- Output: results/aggregate.json + aggregate.csv
-
-**P8 - Paper sections 04, 05, 06**
-- Auto-generated from results data
-- 04-results.md: stats tables, H1+H3 test results
-- 05-divergence-analysis.md: outlier rates, H2 analysis
-- 06-synthesis-evaluation.md: S1/S2/S3 comparison
-
-**P9 - Figures (F1-F5)**
-- F1: domain similarity heatmaps
-- F2: cosine box plots by domain
-- F3: BERTScore bars per prompt
-- F4: token ratio vs divergence scatter
-- F5: outlier rate by model
-
-**P10 - Final docs + commit + push + WhatsApp**
-- STATUS.md, DASHBOARD.md updated
-- Git commit with full summary
-- Push to origin main
-- WA notification to +4915170113694
 
 ---
 
-## REMAINING AFTER AUTOMATION (needs Emre)
+## ⏳ Auto-fires when P6 exits (watch_and_finish.sh)
 
-- **Review paper sections 04-08** - data-driven, needs domain expert validation
-- **Annotate ground truth scoring** - manual check of A01 CVSS, A10 BSI, B09 EDPB
-- **arXiv LaTeX conversion** - Markdown -> LaTeX (P10: can be done after review)
-- **Make repo public** - when Emre approves paper content
+- ⏳ **P7** - Metric pipeline (cosine, BERTScore, Jaccard, DBSCAN)
+  - Output: results/aggregate.json + aggregate.csv
+- ⏳ **P8** - Paper sections 04, 05, 06 (auto-generated from results data)
+  - 04-results.md, 05-divergence-analysis.md, 06-synthesis-evaluation.md
+- ⏳ **P9** - Figures F1-F5 (paper/figures/)
+- ⏳ **P10** - Final docs update + git commit + push + WhatsApp notification
+
+---
+
+## 👤 Needs Emre (after P10)
+
+- 👤 Review paper sections 04-08 (data-driven, needs domain expert validation)
+- 👤 Annotate ground truth scoring for 3 flagged items (A01, A10, B09)
+- 👤 Decide: arXiv submission timing
+- 👤 Decide: make repo public
+
+---
+
+## ⏳ Pending (after Emre review)
+
+- ⏳ Translate sections 04-06 to German + French (after English versions are final)
+- ⏳ arXiv LaTeX conversion (Markdown -> LaTeX)
+- ⏳ arXiv submission
