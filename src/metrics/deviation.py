@@ -44,7 +44,7 @@ def compute_cosine_matrix(responses: dict[str, str], model_name: str = "all-mpne
     model_ids = sorted(responses.keys())
     texts = [responses[mid] for mid in model_ids]
 
-    model = SentenceTransformer(model_name)
+    model = SentenceTransformer(model_name, device="cpu")
     embeddings = model.encode(texts, normalize_embeddings=True)
 
     matrix = np.inner(embeddings, embeddings)
@@ -93,7 +93,7 @@ def compute_bertscore(responses: dict[str, str], lang: str = "en") -> dict[str, 
         for j in range(i + 1, n):
             cands = [texts[i]]
             refs = [texts[j]]
-            _, _, f1 = bert_score(cands, refs, lang=lang, verbose=False)
+            _, _, f1 = bert_score(cands, refs, lang=lang, verbose=False, device="cpu")
             score = float(f1[0].item())
             pairs.append({
                 "model_a": model_ids[i],
