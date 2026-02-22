@@ -1,0 +1,11 @@
+# Streszczenie
+
+Przedstawiamy **Blind Multi-Agent Synthesis (BMAS)**, metodologie pomiaru konwergencji i dywergencji wielu duzych modeli jezykowych (LLM) odpowiadajacych na identyczne zapytania w scislej izolacji. Inspirowany metoda Delphi stosowana w prognozowaniu eksperckim, BMAS wymusza pelna izolacje odpowiedzi na poziomie modelu: zaden model nie obserwuje wynikow innego modelu przed faza syntezy.
+
+Oceniamy piec najbardziej zaawansowanych LLM na trzech poziomach dziedzinowych: (A) pytania techniczne wysokiej precyzji z weryfikowalnymi odpowiedziami, (B) pytania regulacyjne i dotyczace zgodnosci z autorytatywnymi zrodlami prawnymi oraz (C) pytania strategiczne i architektoniczne z uzasadnionymi rozbiez nosciami miedzy ekspertami. Stosujac metryki podobienstwa semantycznego (BERTScore, odleglosc cosinusowa na embeddingach), dokladnosc faktyczna w porownaniu z pre-rejestrowanymi odpowiedziami referencyjnymi oraz wykrywanie wartosci odstajacych za pomoca klasteryzacji DBSCAN, kwantyfikujemy odchylenia miedzy modelami i ich zwiazek z typem dziedziny oraz wskaznikiem halucynacji.
+
+Nasza centralna hipoteza glosi, ze w dobrze zdefiniowanych dziedzinach faktycznych odpowiedzi LLM konwerguja w stopniu umozliwiajacym traktowanie **konsensusu jako sygnalu jakosci**: wysoka zgodnosc miedzy modelami przewiduje poprawnosc faktyczna, natomiast znaczaca dywergencja sygnalizuje halucynacje modelu lub niewystarczajaco sprecyzowane pytanie. Oceniamy ponadto trzy strategie syntezy - agregacje przez glosowanie wiekszosciowe, wybor centroidu semantycznego oraz synteze LLM-as-Judge - w odniesieniu do pre-rejestrowanych odpowiedzi referencyjnych.
+
+BMAS ma bezposrednie implikacje praktyczne dla wysokiego ryzyka wdrozen AI w administracji publicznej, systemach ochrony zdrowia i systemach prawnych, gdzie zadnemu pojedynczemu modelowi nie mozna bezwarunkowo ufac. Traktujac **dywergencje jako sygnal anomalii** zamiast niepowodzenia koordynacji, BMAS dostarcza praktyczna warstwe zapewnienia jakosci dla systemow LLM w srodowisku produkcyjnym.
+
+**Slowa kluczowe:** duze modele jezykowe, systemy wieloagentowe, konsensus, wykrywanie halucynacji, metoda Delphi, podobienstwo semantyczne, zapewnienie jakosci AI

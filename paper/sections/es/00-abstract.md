@@ -1,0 +1,11 @@
+# Resumen
+
+Presentamos **Blind Multi-Agent Synthesis (BMAS)**, una metodologia para medir la convergencia y divergencia de multiples modelos de lenguaje grande (LLMs) que responden a prompts identicos en estricto aislamiento. Inspirado en el metodo Delphi de la prediccion experta, BMAS impone un aislamiento completo de las respuestas por modelo: ningun modelo observa la salida de otro modelo antes de la fase de sintesis.
+
+Evaluamos cinco LLMs de ultima generacion en tres estratos de dominio: (A) preguntas tecnicas de alta precision con respuestas verificables, (B) preguntas regulatorias y de cumplimiento con fuentes juridicas autorizadas, y (C) preguntas estrategicas y arquitectonicas con desacuerdos legitimos entre expertos. Mediante metricas de similitud semantica (BERTScore, distancia coseno sobre embeddings), precision factual comparada con respuestas de referencia pre-registradas y deteccion de valores atipicos mediante clustering DBSCAN, cuantificamos la desviacion entre modelos y su relacion con el tipo de dominio y la tasa de alucinacion.
+
+Nuestra hipotesis central es que en dominios factuales bien definidos, las respuestas de los LLMs convergen en tal medida que el **consenso sirve como senial de calidad**: un alto acuerdo entre modelos predice la correccion factual, mientras que una divergencia significativa senializa alucinaciones del modelo o una pregunta insuficientemente especificada. Ademas, evaluamos tres estrategias de sintesis - agregacion por voto mayoritario, seleccion del centroide semantico y sintesis LLM-as-Judge - frente a respuestas de referencia pre-registradas.
+
+BMAS tiene implicaciones practicas directas para despliegues de IA de alto riesgo en administraciones publicas, sistemas de salud y sistemas juridicos, donde ninguna salida de un modelo unico puede ser confiable incondicionalmente. Al tratar la **divergencia como senial de anomalia** en lugar de un fallo de coordinacion, BMAS proporciona una capa practica de aseguramiento de calidad para sistemas LLM en produccion.
+
+**Palabras clave:** modelos de lenguaje grande, sistemas multi-agente, consenso, deteccion de alucinaciones, metodo Delphi, similitud semantica, aseguramiento de calidad IA

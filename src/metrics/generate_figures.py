@@ -137,7 +137,7 @@ def figure_cosine_boxplot(reports: list[dict]) -> None:
 
     fig, ax = plt.subplots(figsize=(8, 5))
     bp_data = [data_by_domain[d] for d in domains]
-    bp = ax.boxplot(bp_data, labels=[d.capitalize() for d in domains],
+    bp = ax.boxplot(bp_data, tick_labels=[d.capitalize() for d in domains],
                     patch_artist=True, notch=False)
 
     for patch, domain in zip(bp["boxes"], domains):
