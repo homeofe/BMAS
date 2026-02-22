@@ -1,6 +1,6 @@
-# BMAS - Tlumaczenie Polskie
+# BMAS - Tlumaczenie na Jezyk Polski
 
-Pelne tlumaczenie artykulu badawczego BMAS na jezyk polski.
+Kompletne tlumaczenie artykulu badawczego BMAS na jezyk polski.
 
 | # | Tytul | Plik | Status |
 |---|---|---|---|
@@ -14,6 +14,8 @@ Pelne tlumaczenie artykulu badawczego BMAS na jezyk polski.
 | 07 | Dyskusja i ograniczenia | [07-discussion-limitations.md](07-discussion-limitations.md) | ✅ Gotowe |
 | 08 | Wnioski | [08-conclusion.md](08-conclusion.md) | ✅ Gotowe |
 
-Uwaga: Polskie tlumaczenie jest szczegolnie istotne w kontekscie projektu AEGIS, ktory obejmuje zlacze dla Polski (port 8094) i ktory dazy do automatyzacji transgranicznej weryfikacji tozsamosci obywateli UE.
+[Powrot do wersji angielskiej](../README.md) | [Wersja niemiecka](../de/README.md) | [Wersja francuska](../fr/README.md) | [Wersja hiszpanska](../es/README.md) | [Wersja wloska](../it/README.md)
 
-[Powrot do wersji angielskiej](../README.md)
+---
+
+Uwaga: Tlumaczenie polskie zawiera dodatkowe akapity w sekcjach 01, 07 i 08 podkreslajace zwiazek BMAS z projektem AEGIS i jego znaczenie dla polskiego zlacza eIDAS 2.0.
