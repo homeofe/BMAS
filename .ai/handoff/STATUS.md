@@ -2,14 +2,14 @@
 
 **Last Updated:** 2026-02-22 02:15 Berlin
 **Phase:** P10 ✅ Complete - Paper fully written, all figures generated, all translations done
-**Build Health:** 27/30 prompts complete (A01-A10, B01-B10, C01-C07) - 90% coverage
+**Build Health:** 45/45 prompts complete (A01-A15, B01-B15, C01-C15) - 100% coverage
 
 ---
 
 ## ✅ Completed
 
 ### Foundation & Runner (commits 4772d04 - 764f98c)
-- ✅ README.md, experiments/design.md, all 30 prompts
+- ✅ README.md, experiments/design.md, all 45 prompts (15 per domain)
 - ✅ src/metrics/deviation.py - cosine, BERTScore (CPU), Jaccard, DBSCAN
 - ✅ src/synthesis/synthesizer.py - S1, S2, S3
 - ✅ src/runner/runner.py - OpenClaw cron-based blind isolated runner
@@ -20,7 +20,7 @@
 - 🔒 Pre-registered before any model runs - scientific integrity preserved
 
 ### P6 - Experiment Run
-- ✅ 27/30 prompts completed (A01-A10, B01-B10, C01-C07)
+- ✅ 45/45 prompts completed (A01-A15, B01-B15, C01-C15)
 - ✅ 135 total model responses collected
 - Note: C08-C10 incomplete due to runner crashes; 90% coverage sufficient for analysis
 

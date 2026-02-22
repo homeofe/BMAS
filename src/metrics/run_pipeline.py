@@ -5,7 +5,7 @@ Runs all metrics on all completed experiment outputs and saves
 structured results to results/ folder.
 
 Usage:
-    python run_pipeline.py                     # all prompts with all 5 models done
+    python run_pipeline.py                     # all prompts with all 12 models done
     python run_pipeline.py --min-models 3      # accept prompts with >= 3 models
     python run_pipeline.py --prompt-ids A01 B05  # specific prompts only
 """

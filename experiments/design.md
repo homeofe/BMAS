@@ -36,7 +36,7 @@ Strategic/ambiguous domain prompts will show significantly lower convergence tha
 
 ## Prompt Design
 
-### Total: 30 prompts (10 per domain)
+### Total: 45 prompts (15 per domain)
 
 ### Domain A: High-Precision Technical (A01-A10)
 Topics: CVSS scoring, PQC algorithms, TLS cipher suites, hash functions, cryptographic attacks, CVE analysis
@@ -112,7 +112,7 @@ Each prompt must:
 Three synthesis strategies to compare:
 
 ### S1: Majority-Vote (Claim-Level)
-Extract factual claims from each response. A claim is "accepted" if present in >=3/5 models.
+Extract factual claims from each response. A claim is "accepted" if present in >=7/12 models (>=58%).
 
 ### S2: Semantic Centroid
 Compute centroid of all response embeddings. Select the response closest to centroid as "representative." Use it as base; append claims unique to 2+ other models.
@@ -137,7 +137,7 @@ Phase 1: Pre-Registration
 Phase 2: Blind Runs
   - Run each prompt against each model independently
   - Store raw output in experiments/raw-outputs/<prompt-id>/<model-id>.json
-  - No human review until all 5 models complete each prompt
+  - No human review until all 12 models complete each prompt
 
 Phase 3: Metric Computation
   - Run metrics pipeline (src/metrics/)

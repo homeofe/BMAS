@@ -8,7 +8,7 @@ Usage:
     # Dry run (validate config, no API calls)
     python runner.py --prompt-id A01 --domain technical --dry-run
 
-    # Run one prompt against all 5 models
+    # Run one prompt against all 12 models
     python runner.py --prompt-id A01 --domain technical \
         --prompt "What is the CVSS 3.1 base score for CVE-2024-21762?"
 
@@ -19,7 +19,7 @@ Usage:
     # Run full pilot (A01, A05, B01, B05, C01)
     python runner.py --pilot
 
-    # Run all 30 prompts
+    # Run all 45 prompts
     python runner.py --all
 """
 
@@ -374,14 +374,14 @@ def main():
     )
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--pilot",    action="store_true", help="Run pilot set (A01, A05, B01, B05, C01)")
-    mode.add_argument("--all",      action="store_true", help="Run all 30 prompts")
+    mode.add_argument("--all",      action="store_true", help="Run all 45 prompts")
     mode.add_argument("--prompt-id", help="Single prompt ID (e.g. A01, B05)")
 
     parser.add_argument("--prompt",    help="Prompt text (required with --prompt-id)")
     parser.add_argument("--domain",    choices=["technical", "regulatory", "strategic"],
                         help="Domain (required with --prompt-id)")
     parser.add_argument("--models",    nargs="+", default=ALL_MODEL_IDS,
-                        help="Model IDs (default: all M1-M5)")
+                        help="Model IDs (default: all M1-M12)")
     parser.add_argument("--output-dir", default=str(RAW_OUTPUTS))
     parser.add_argument("--timeout",   type=int, default=120,
                         help="Per-model timeout in seconds (default: 120)")

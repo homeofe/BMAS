@@ -7,7 +7,7 @@ Priority: top = most critical.
 
 ## ✅ Done
 
-- ✅ Foundation - README, design, 30 prompts, code scaffolding - commit 4772d04
+- ✅ Foundation - README, design, 45 prompts, code scaffolding - commit 4772d04
 - ✅ P1: Ground truth A+B - 20 prompts pre-registered - commit 25a5395 (🔒 LOCKED)
 - ✅ P2: Runner - OpenClaw cron blind runner, live tested - commit 764f98c
 - ✅ P3: Python deps - sentence-transformers, bert-score, sklearn, matplotlib all installed

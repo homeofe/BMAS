@@ -116,7 +116,7 @@ def write_section_04(reports: list[dict]) -> None:
 
 ## 4.1 Experiment Overview
 
-The full BMAS experiment comprised {n_prompts} prompts across three domain strata, each evaluated by five models, yielding {len(reports) * 5} total model responses. All responses were obtained under strict blind isolation via the OpenClaw gateway.
+The full BMAS experiment comprised {n_prompts} prompts across three domain strata, each evaluated by twelve models, yielding {len(reports) * 12} total model responses. All responses were obtained under strict blind isolation via the OpenClaw gateway.
 
 **Table 1: Response statistics by domain**
 
@@ -142,7 +142,7 @@ The full BMAS experiment comprised {n_prompts} prompts across three domain strat
 
 ## 4.4 Per-Model Response Characteristics
 
-**Table 2: Response token statistics by model (all 30 prompts)**
+**Table 2: Response token statistics by model (all 45 prompts)**
 
 | Model | Mean tokens | Std | Outlier rate |
 |---|---|---|---|
@@ -281,7 +281,7 @@ For Domain C, the comparison is less clear-cut. S3 synthesis scored higher on co
 
 ## 6.5 Synthesis Latency
 
-A practical consideration for production deployment is that S3 requires an additional LLM call after the initial N parallel calls. This adds roughly 30-90 seconds of latency for a complete BMAS pipeline run with 5 models. For time-insensitive decisions (compliance review, architecture planning, regulatory interpretation), this overhead is negligible. For real-time applications, S2 (semantic centroid) offers the lowest latency as it requires no additional model call.
+A practical consideration for production deployment is that S3 requires an additional LLM call after the initial N parallel calls. This adds roughly 30-90 seconds of latency for a complete BMAS pipeline run with 12 models. For time-insensitive decisions (compliance review, architecture planning, regulatory interpretation), this overhead is negligible. For real-time applications, S2 (semantic centroid) offers the lowest latency as it requires no additional model call.
 """
 
     out = PAPER / "06-synthesis-evaluation.md"

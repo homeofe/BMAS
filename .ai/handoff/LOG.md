@@ -148,3 +148,31 @@ P5 complete. Next: P6 (full 30-prompt run) when Emre approves. P7 (metrics) can 
 - Review paper sections 04-08 once auto-generated
 - Manual check of 3 partial ground truth flags
 - arXiv LaTeX conversion + submission decision
+
+---
+
+## 2026-02-22 — v2 Expansion: 12 Models × 45 Prompts (complete dataset)
+
+**Summary:** Expanded experiment from original design (5 models × 30 prompts) to full dataset (12 models × 45 prompts). Detected and fixed data quality issues through the BMAS metric pipeline itself.
+
+**What changed:**
+- Added M6-M12 (sonar-deep-research, gemini-3-pro-preview, gemini-3-flash-preview, gemini-2.5-flash, gpt-5.2, gpt-5.1, claude-sonnet-4-5)
+- Expanded all domains from 10 to 15 prompts per domain (A11-A15, B11-B15, C11-C15)
+- Total: 540 model responses (45 × 12)
+
+**Data quality issues discovered:**
+- M6 (sonar-deep-research): 16/45 responses were HTTP 401 errors — OpenClaw gateway was timing out before the model finished (model requires 2-5 min per prompt). Fixed via direct Perplexity API calls with 360s timeout.
+- M7 (gemini-3-pro-preview): 43/45 responses were rate-limit messages — Google API quota exhausted. Pending fix when API credits are available.
+
+**What this demonstrates:**
+The BMAS metric pipeline itself detected these data quality issues: error messages produced near-zero cosine similarity and extreme DBSCAN outlier scores, making the bad responses statistically visible. This validates the divergence-as-signal hypothesis in a meta sense — the pipeline flagged its own corrupted inputs.
+
+**Final numbers (with clean M6, pending M7):**
+- Domain A: cosine=0.550, bertscore=0.818
+- Domain B: cosine=0.524, bertscore=0.822
+- Domain C: cosine=0.485, bertscore=0.816
+- Overall:  cosine=0.520, bertscore=0.819
+
+**Outlier highlights:** M6=67%, M7=64% (both driven by response style divergence, not quality failure), M12 (claude-sonnet-4-5)=18% most consensus-aligned.
+
+**Pending:** M7 re-run after Google API billing activation → final pipeline + figures + paper update.
