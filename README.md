@@ -138,7 +138,7 @@ Development machine (CPU only)
         │
         │  HTTP POST /embed | /bertscore  (LAN, ~1 ms RTT)
         ▼
-openclaw-gpu-bridge  (localhost:8765)
+openclaw-gpu-bridge  (your-gpu-host:8765)
   ├── roberta-large         (BERTScore)
   └── all-MiniLM-L6-v2     (Cosine embeddings)
         │
