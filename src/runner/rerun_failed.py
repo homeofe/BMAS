@@ -62,8 +62,8 @@ MODEL_CONFIGS = {
         "name": "gemini-3-pro-preview",
         "model_string": "google-gemini-cli/gemini-3-pro-preview",
         "provider": "google",
-        "api_url": "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
-        "model_id_in_api": "gemini-2.0-pro-exp",  # preview model
+        "api_url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-preview:generateContent",
+        "model_id_in_api": "gemini-3-pro-preview",
         "timeout": 120,
     },
 }
@@ -156,34 +156,36 @@ def call_perplexity(prompt_text: str, config: dict, pplx_key: str) -> tuple[str,
 
 
 def call_google(prompt_text: str, config: dict, google_key: str) -> tuple[str, dict]:
-    """Call Google Generative AI API directly. Returns (response_text, usage_dict)."""
+    """Call Google Generative AI native API directly. Returns (response_text, usage_dict)."""
+    url = f"{config['api_url']}?key={google_key}"
     payload = json.dumps({
-        "model": config["model_id_in_api"],
-        "messages": [
-            {"role": "system", "content": ISOLATION_SYSTEM},
-            {"role": "user",   "content": prompt_text},
-        ],
-        "max_tokens": 8192,
+        "system_instruction": {"parts": [{"text": ISOLATION_SYSTEM}]},
+        "contents": [{"parts": [{"text": prompt_text}]}],
+        "generationConfig": {"maxOutputTokens": 8192},
     }).encode()
 
     req = urllib.request.Request(
-        config["api_url"],
+        url,
         data=payload,
-        headers={
-            "Authorization": f"Bearer {google_key}",
-            "Content-Type": "application/json",
-        },
+        headers={"Content-Type": "application/json"},
         method="POST",
     )
     with urllib.request.urlopen(req, timeout=config["timeout"]) as resp:
         body = json.loads(resp.read().decode())
 
-    if isinstance(body, list):
-        body = body[0]
+    # Extract text from native Gemini response
+    candidates = body.get("candidates", [])
+    content = ""
+    if candidates:
+        parts = candidates[0].get("content", {}).get("parts", [])
+        content = "".join(p.get("text", "") for p in parts)
 
-    choices = body.get("choices", [])
-    content = choices[0].get("message", {}).get("content", "") if choices else ""
-    usage   = body.get("usage", {})
+    # Extract usage metadata
+    um = body.get("usageMetadata", {})
+    usage = {
+        "prompt_tokens": um.get("promptTokenCount", 0),
+        "completion_tokens": um.get("candidatesTokenCount", 0),
+    }
     return content, usage
 
 
