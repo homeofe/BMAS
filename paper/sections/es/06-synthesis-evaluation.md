@@ -1,6 +1,6 @@
 # 6. Evaluación de la síntesis
 
-## 6.1 Resumen de estrategias
+## 📋 6.1 Resumen de estrategias
 
 Evaluamos tres estrategias de síntesis (S1 voto mayoritario, S2 centroide semántico, S3 LLM-as-Judge) en los 45 prompts. La calidad de la síntesis se evaluó midiendo la precisión factual del texto resultante contra la verdad terrain para los dominios A y B, y mediante puntuación por rúbrica experta para el dominio C.
 
@@ -10,7 +10,7 @@ La rúbrica para el dominio C evaluaba cuatro dimensiones (0-3 puntos cada una, 
 - **Precisión factual:** ¿Son correctas las afirmaciones específicas (estándares citados, protocolos nombrados)?
 - **Accionabilidad:** ¿Puede el lector actuar sobre la síntesis sin necesidad de mayor clarificación?
 
-## 6.2 Resultados cuantitativos (Dominios A y B)
+## 📊 6.2 Resultados cuantitativos (Dominios A y B)
 
 Para los dominios factuales, puntuamos cada síntesis contra las listas de verificación de verdad terrain pre-registradas. Los resultados se expresan como porcentaje de elementos de la lista satisfechos.
 

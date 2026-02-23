@@ -1,4 +1,4 @@
-# 4. Ergebnisse
+# 📊 4. Ergebnisse
 
 ## 4.1 Überblick über das Experiment
 

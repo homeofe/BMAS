@@ -1,6 +1,6 @@
-# 5. Analiza dywergencji
+# 🔍 5. Analiza dywergencji
 
-## 5.1 Wyniki wykrywania wartości odstających
+## 📊 5.1 Wyniki wykrywania wartości odstających
 
 Na wszystkich 45 promptach 12 (44%) wygenerowało co najmniej jeden semantycznie odstający model zidentyfikowany przez DBSCAN (eps=0,15, min_samples=2). Częstość wartości odstających była najwyższa w dziedzinie C (strategicznej), co jest zgodne z oczekiwaniem, że niejednoznaczne pytania generują bardziej zróżnicowane embeddingi odpowiedzi.
 

@@ -1,4 +1,4 @@
-# 7. Discussion
+# 💡 7. Discussion
 
 ## 7.1 Interpreting Convergence and Divergence
 
@@ -26,7 +26,7 @@ S2 (semantic centroid) reliably produces the most "average" response - informati
 
 S3 (LLM-as-Judge) produces the highest factual accuracy on Domains A and B [see Section 6] but introduces a new dependency - the judge model's own biases. When the judge model is itself an outlier on a given prompt, its synthesis may systematically under-represent the majority view. Using a held-out model (one that did not participate in the blind run) as judge mitigates this risk.
 
-## 7.4 Limitations
+## ⚠️ 7.4 Limitations
 
 **Sample size.** With 45 prompts across three domains, this study establishes initial evidence for the BMAS methodology but does not permit broad statistical generalization. A follow-up study with 100+ prompts per domain would substantially strengthen the claims.
 

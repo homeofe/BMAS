@@ -1,4 +1,4 @@
-# 2. Related Work
+# 📚 2. Related Work
 
 BMAS draws on structured expert consensus methods, multi-sample and multi-model LLM techniques, automated evaluation metrics, and density-based clustering. This section reviews each and clarifies how BMAS relates to prior work.
 

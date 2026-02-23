@@ -1,4 +1,4 @@
-# 1. Introducción
+# 📝 1. Introducción
 
 Los modelos de lenguaje grande han alcanzado un nivel de capacidad suficiente para ser desplegados en dominios donde la precisión no es opcional: análisis jurídico, diagnóstico médico, cumplimiento regulatorio y sistemas de identidad gubernamentales. En estos dominios, una respuesta segura pero incorrecta de un modelo único no es un inconveniente menor - es un fallo con consecuencias reales.
 

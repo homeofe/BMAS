@@ -1,4 +1,4 @@
-# 2. Travaux connexes
+# 📚 2. Travaux connexes
 
 BMAS s'appuie sur des méthodes de consensus expert structuré, des techniques LLM multi-échantillons et multi-modèles, des métriques d'évaluation automatisée et le clustering basé sur la densité. Cette section examine chacun de ces domaines et clarifie le positionnement de BMAS par rapport aux travaux antérieurs.
 

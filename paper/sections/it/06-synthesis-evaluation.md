@@ -10,7 +10,7 @@ La rubrica per il dominio C valutava quattro dimensioni (0-3 punti ciascuna, max
 - **Accuratezza fattuale:** Le affermazioni specifiche (standard citati, protocolli nominati) sono corrette?
 - **Azionabilità:** Il lettore può agire sulla base della sintesi senza ulteriori chiarimenti?
 
-## 6.2 Risultati quantitativi (Domini A e B)
+## 📊 6.2 Risultati quantitativi (Domini A e B)
 
 Per i domini fattuali, abbiamo valutato ogni sintesi rispetto alle checklist di ground truth pre-registrate. I risultati sono espressi come percentuale di elementi della lista soddisfatti.
 

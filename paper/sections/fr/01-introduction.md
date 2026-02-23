@@ -1,4 +1,4 @@
-# 1. Introduction
+# 📝 1. Introduction
 
 Les grands modèles de langage sont désormais suffisamment performants pour être déployés dans des domaines où la précision n'est pas optionnelle : analyse juridique, diagnostic médical, conformité réglementaire et systèmes d'identité gouvernementaux. Dans ces domaines, une réponse confiante mais erronée d'un modèle unique n'est pas un inconvénient mineur - c'est un échec aux conséquences réelles.
 

@@ -1,4 +1,4 @@
-# 3. Methodology
+# 🔬 3. Methodology
 
 ## 3.1 BMAS Protocol Overview
 

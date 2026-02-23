@@ -1,4 +1,4 @@
-# 2. Verwandte Arbeiten
+# 📚 2. Verwandte Arbeiten
 
 BMAS baut auf strukturierten Expertenkonsens-Methoden, Multi-Sample- und Multi-Modell-LLM-Techniken, automatisierten Evaluationsmetriken und dichtebasiertem Clustering auf. Dieser Abschnitt bespricht jeden Bereich und erläutert die Beziehung von BMAS zu früheren Arbeiten.
 

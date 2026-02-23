@@ -1,4 +1,4 @@
-# 1. Introduzione
+# 📝 1. Introduzione
 
 I grandi modelli linguistici hanno raggiunto un livello di capacità tale da essere impiegati in domini dove la precisione non è opzionale: analisi giuridica, diagnostica medica, conformità normativa e sistemi di identità governativi. In questi domini, una risposta sicura ma errata di un singolo modello non è un inconveniente minore - è un fallimento con conseguenze reali.
 

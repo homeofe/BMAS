@@ -1,4 +1,4 @@
-# 4. Risultati
+# 📊 4. Risultati
 
 ## 4.1 Panoramica dell'esperimento
 
@@ -20,7 +20,7 @@ L'esperimento BMAS completo comprendeva 45 prompt su tre strati di dominio, ognu
 
 **Dominio C (Strategico):** I prompt strategici hanno mostrato una similarità coseno media di 0,845 (DS = 0,037). La deviazione standard più elevata riflette la genuina diversità delle posizioni legittime degli esperti su questioni architetturali e strategiche, coerente con l'ipotesi H3.
 
-## 4.3 Risultati dei test delle ipotesi
+## 📊 4.3 Risultati dei test delle ipotesi
 
 **H1 (Convergenza nei domini fattuali):** La similarità coseno per coppie media sui prompt dei domini A e B era 0,851, che supera la soglia pre-registrata di 0,75. L'ipotesi H1 è quindi **CONFERMATA**.
 

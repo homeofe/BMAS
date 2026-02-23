@@ -1,4 +1,4 @@
-# 4. Results
+# 📊 4. Results
 
 ## 4.1 Experiment Overview
 
@@ -23,7 +23,7 @@ The full BMAS experiment comprised 45 prompts across three domain strata, each e
 
 **Domain C (Strategic):** Strategic prompts showed the lowest mean cosine similarity at 0.485 (SD = 0.069). The larger standard deviation reflects the genuine diversity of legitimate expert positions on architectural and strategic questions, consistent with Hypothesis H3.
 
-## 4.3 Hypothesis Test Results
+## 📊 4.3 Hypothesis Test Results
 
 **H1 (Convergence in factual domains):** The mean pairwise cosine similarity across Domain A and B prompts was 0.537 (mean of 0.550 and 0.524), which exceeds the pre-registered threshold of 0.75 at the BERTScore level (0.820 mean). At the cosine similarity level the threshold is not met, but BERTScore — measuring token-level semantic overlap — confirms substantial inter-model agreement. Hypothesis H1 is therefore **PARTIALLY SUPPORTED**.
 

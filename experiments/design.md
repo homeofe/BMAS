@@ -200,7 +200,7 @@ Phase 6: Paper
 
 ---
 
-## Related Work (to cite)
+## 📚 Related Work (to cite)
 
 - Delphi method (Dalkey & Helmer, 1963) - original blind expert consensus
 - Constitutional AI (Anthropic, 2022) - model self-critique

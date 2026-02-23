@@ -1,6 +1,6 @@
 # 5. Análisis de divergencia
 
-## 5.1 Resultados de detección de valores atípicos
+## 📊 5.1 Resultados de detección de valores atípicos
 
 En los 45 prompts, 12 (44 %) produjeron al menos un modelo semánticamente atípico identificado por DBSCAN (eps=0,15, min_samples=2). La frecuencia de valores atípicos fue mayor en el dominio C (estratégico), coherente con la expectativa de que las preguntas ambiguas producen embeddings de respuesta más diversos.
 

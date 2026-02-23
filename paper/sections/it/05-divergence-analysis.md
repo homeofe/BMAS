@@ -1,6 +1,6 @@
 # 5. Analisi della divergenza
 
-## 5.1 Risultati del rilevamento delle anomalie
+## 📊 5.1 Risultati del rilevamento delle anomalie
 
 Su tutti i 45 prompt, 12 (44 %) hanno prodotto almeno un modello semanticamente anomalo identificato da DBSCAN (eps=0,15, min_samples=2). La frequenza delle anomalie era più alta nel dominio C (strategico), coerente con l'aspettativa che le domande ambigue producano embedding di risposta più diversificati.
 

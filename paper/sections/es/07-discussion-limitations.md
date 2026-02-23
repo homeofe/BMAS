@@ -1,4 +1,4 @@
-# 7. Discusión
+# 💡 7. Discusión
 
 ## 7.1 Interpretación de convergencia y divergencia
 
@@ -20,7 +20,7 @@ S2 (centroide semántico) produce de forma fiable la respuesta más "promedio". 
 
 S3 (LLM-as-Judge) produce la mayor precisión factual en los dominios A y B pero introduce una nueva dependencia: los sesgos propios del modelo juez. El uso de un modelo reservado como juez mitiga este riesgo.
 
-## 7.4 Limitaciones
+## ⚠️ 7.4 Limitaciones
 
 **Tamaño de muestra.** Con 45 prompts en tres dominios, este estudio establece evidencia inicial pero no permite una generalización estadística amplia. Un estudio de seguimiento con 100+ prompts por dominio fortalecería sustancialmente las afirmaciones.
 

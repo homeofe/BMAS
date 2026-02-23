@@ -27,7 +27,7 @@
 - Wrote `src/metrics/deviation.py` - full metrics pipeline (cosine, BERTScore, Jaccard, DBSCAN)
 - Wrote `src/synthesis/synthesizer.py` - all 3 synthesis strategies implemented
 
-### Architecture Decisions
+### 🏗️ Architecture Decisions
 
 - **Isolation system prompt:** neutral expert assistant framing, no hints about study or other models
 - **Temperature:** not overridden - captures natural model behavior including decoding variance
@@ -36,7 +36,7 @@
 - **Embedding model:** `all-mpnet-base-v2` as default (best accuracy/speed tradeoff in sentence-transformers)
 - **DBSCAN eps=0.15:** distance threshold = 1-cosine_sim; eps=0.15 means sim<0.85 is "far"
 
-### Next Actions
+### 🚀 Next Actions
 
 See NEXT_ACTIONS.md - P1 (ground truth) and P2 (runner API) are the critical path.
 
@@ -64,13 +64,13 @@ See NEXT_ACTIONS.md - P1 (ground truth) and P2 (runner API) are the critical pat
 Domain A: 8/10 fully verified, 2 partial (A01 CVSS discrepancy, A10 BSI PDF not accessed directly)
 Domain B: 9/10 fully verified, 1 partial (B09 EDPB guideline number needs confirmation)
 
-### Architecture Decisions
+### 🏗️ Architecture Decisions
 
 - Ground truth pre-registration: done by Akido with web research, not by sub-agent
   - Lesson: sub-agents in "run" mode with Sonar model may produce simulation output; for file-writing tasks, main session is more reliable
 - Manual review flags: documented explicitly in ground truth files; experiment runs blocked until Emre reviews 3 flagged items (or accepts them as-is for pilot)
 
-### Next Actions
+### 🚀 Next Actions
 
 P2 (runner implementation) is in progress.
 
@@ -92,7 +92,7 @@ P2 (runner implementation) is in progress.
 | B05 | regulatory | 933 | 317 | 397 | 1658 | 412 | 5.2x |
 | C01 | strategic | 1917 | 920 | 1145 | 2911 | 456 | 6.4x |
 
-### Early observations (token length only - semantic analysis pending)
+### 🔍 Early observations (token length only - semantic analysis pending)
 
 - M4 (Gemini 2.5-pro): consistently the most verbose across all domains
 - M5 (Sonar): consistently the most concise overall
@@ -101,7 +101,7 @@ P2 (runner implementation) is in progress.
 - C01 and A01 have the largest range (6.4x, 6.5x) - strategic/complex technical
 - B05 outlier: M4 at 1658 vs others 317-933 (GDPR breach notification - M4 went deep)
 
-### Next actions
+### 🚀 Next actions
 
 P5 complete. Next: P6 (full 30-prompt run) when Emre approves. P7 (metrics) can start on pilot data first.
 
@@ -137,7 +137,7 @@ P5 complete. Next: P6 (full 30-prompt run) when Emre approves. P7 (metrics) can 
   5. Git commit + push
   6. WhatsApp notification to Emre with hypothesis results
 
-### Architecture Decisions
+### 🏗️ Architecture Decisions
 - Watcher uses `kill -0 PID` polling every 30s - minimal resource usage
 - finish_pipeline.sh uses --min-models 3 for metrics (accepts partial if some models failed)
 - Figures use Agg backend (no display required, headless server)

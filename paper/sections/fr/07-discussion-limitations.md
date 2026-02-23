@@ -1,4 +1,4 @@
-# 7. Discussion
+# 💡 7. Discussion
 
 ## 7.1 Interprétation de la convergence et de la divergence
 
@@ -26,7 +26,7 @@ S2 (centroïde sémantique) produit de manière fiable la réponse la plus "moye
 
 S3 (LLM-as-Judge) produit la précision factuelle la plus élevée pour les domaines A et B [voir section 6] mais introduit une nouvelle dépendance : les biais propres du modèle juge. Lorsque le modèle juge est lui-même une valeur aberrante sur un prompt donné, sa synthèse peut systématiquement sous-représenter le point de vue majoritaire. L'utilisation d'un modèle réservé (un qui n'a pas participé au run aveugle) comme juge atténue ce risque.
 
-## 7.4 Limites
+## ⚠️ 7.4 Limites
 
 **Taille de l'échantillon.** Avec 45 prompts sur trois domaines, cette étude établit des preuves initiales pour la méthodologie BMAS mais ne permet pas une généralisation statistique large. Une étude de suivi avec 100+ prompts par domaine renforcerait substantiellement les affirmations.
 

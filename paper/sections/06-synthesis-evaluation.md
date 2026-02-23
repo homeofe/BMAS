@@ -10,7 +10,7 @@ The rubric for Domain C assessed four dimensions (0-3 points each, max 12):
 - **Factual accuracy:** Are specific claims (standards cited, protocols named) correct?
 - **Actionability:** Can the reader act on the synthesis without further clarification?
 
-## 6.2 Quantitative Results (Domains A and B)
+## 📊 6.2 Quantitative Results (Domains A and B)
 
 For factual domains, we scored each synthesis against the pre-registered ground truth checklists. Results are expressed as percentage of checklist items satisfied.
 
@@ -25,7 +25,7 @@ For factual domains, we scored each synthesis against the pre-registered ground 
 
 > Note: Synthesis scoring requires running the synthesis pipeline (src/synthesis/synthesizer.py) with the judge model call. This is in progress and will be completed before final paper submission.
 
-## 6.3 Qualitative Analysis (Domain C)
+## 🔍 6.3 Qualitative Analysis (Domain C)
 
 For strategic prompts, expert rubric scoring revealed consistent patterns across synthesis strategies:
 

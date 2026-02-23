@@ -38,7 +38,7 @@ Practical applications:
 | **Total responses** | 540 (45 × 12) |
 | **Pairwise comparisons** | 66 per prompt × 45 = 2,970 total |
 
-### Key Results
+### 📊 Key Results
 
 | Metric | Overall Mean | Overall Min |
 |---|---|---|
@@ -100,16 +100,16 @@ BMAS/
 
 ## Paper Status
 
-- [x] Experiment design finalized
-- [x] Prompt set v1 — 45 prompts across 3 domains
-- [x] Blind runs complete — 540 model responses collected
-- [x] Metrics implementation (cosine, BERTScore, Jaccard, DBSCAN)
-- [x] Results analysis — all 45 prompts fully processed
-- [x] Figures generated (F1–F5)
-- [x] Paper draft — all 9 sections written (EN + 5 translations)
-- [ ] Internal review
-- [ ] arXiv preprint
-- [ ] Submission (workshop/conference TBD)
+- ✅ Experiment design finalized
+- ✅ Prompt set v1 — 45 prompts across 3 domains
+- ✅ Blind runs complete — 540 model responses collected
+- ✅ Metrics implementation (cosine, BERTScore, Jaccard, DBSCAN)
+- ✅ Results analysis — all 45 prompts fully processed
+- ✅ Figures generated (F1–F5)
+- ✅ Paper draft — all 9 sections written (EN + 5 translations)
+- ⬜ Internal review
+- ⬜ arXiv preprint
+- ⬜ Submission (workshop/conference TBD)
 
 ---
 

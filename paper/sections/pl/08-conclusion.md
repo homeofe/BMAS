@@ -1,4 +1,4 @@
-# 8. Wnioski
+# 🎯 8. Wnioski
 
 Niniejsza praca przedstawiła **Blind Multi-Agent Synthesis (BMAS)**, metodologię elicytacji, porównania i syntezy odpowiedzi wielu dużych modeli językowych w ścisłej izolacji, oraz zaprezentowała wyniki empiryczne eksperymentu obejmującego 540 uruchomień na pięciu modelach frontier i trzech poziomach dziedzinowych.
 
@@ -14,7 +14,7 @@ Wykazaliśmy, że:
 
 4. **Długość tokenów nie jest wskaźnikiem jakości.** Obserwowaliśmy znaczną wariancję w liczbie tokenów odpowiedzi między modelami na identycznych promptach (do 6,5-krotności dla niektórych promptów), bez konsekwentnej korelacji z dokładnością faktyczną.
 
-## 8.2 Praktyczne wnioski
+## 🎯 8.2 Praktyczne wnioski
 
 Dla praktyków wdrażających LLM w środowiskach regulowanych lub wysokiego ryzyka, BMAS sugeruje praktyczną architekturę: uruchamianie promptów na wielu niezależnych dostawcach modeli, mierzenie konwergencji semantycznej i kierowanie odpowiedzi o niskiej pewności (wysokiej dywergencji) do przeglądu ludzkiego. Protokół pre-rejestracji zastosowany w niniejszym badaniu jest przekazywalny do każdego wysiłku ewaluacji wielomodelowej i zapobiega uprzedzeniu potwierdzenia.
 

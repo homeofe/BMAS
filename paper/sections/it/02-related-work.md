@@ -1,4 +1,4 @@
-# 2. Lavori correlati
+# 📚 2. Lavori correlati
 
 BMAS si basa su metodi di consenso esperto strutturato, tecniche LLM multi-campione e multi-modello, metriche di valutazione automatizzata e clustering basato sulla densità. Questa sezione esamina ciascuna area e chiarisce il posizionamento di BMAS rispetto ai lavori precedenti.
 

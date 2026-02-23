@@ -1,4 +1,4 @@
-# 4. Wyniki
+# 📊 4. Wyniki
 
 ## 4.1 Przegląd eksperymentu
 
@@ -20,7 +20,7 @@ Pełny eksperyment BMAS obejmował 45 promptów w trzech warstwach dziedzinowych
 
 **Dziedzina C (Strategiczna):** Prompty strategiczne wykazały średnie podobieństwo cosinusowe wynoszące 0,845 (OD = 0,037). Wyższe odchylenie standardowe odzwierciedla rzeczywistą różnorodność uzasadnionych pozycji ekspertów w kwestiach architektonicznych i strategicznych, co jest zgodne z hipotezą H3.
 
-## 4.3 Wyniki testów hipotez
+## 📊 4.3 Wyniki testów hipotez
 
 **H1 (Konwergencja w dziedzinach faktycznych):** Średnie parowe podobieństwo cosinusowe dla promptów dziedzin A i B wynosiło 0,851, co przekracza pre-rejestrowany próg 0,75. Hipoteza H1 jest zatem **POTWIERDZONA**.
 

@@ -10,7 +10,7 @@ Rubryka dla dziedziny C oceniała cztery wymiary (0-3 punkty każdy, maks. 12):
 - **Dokładność faktyczna:** Czy konkretne twierdzenia (cytowane standardy, nazwane protokoły) są poprawne?
 - **Wykonalność:** Czy czytelnik może działać na podstawie syntezy bez dalszych wyjaśnień?
 
-## 6.2 Wyniki ilościowe (Dziedziny A i B)
+## 📊 6.2 Wyniki ilościowe (Dziedziny A i B)
 
 Dla dziedzin faktycznych punktowaliśmy każdą syntezę względem pre-rejestrowanych list kontrolnych ground truth. Wyniki wyrażono jako odsetek spełnionych elementów listy.
 
@@ -25,7 +25,7 @@ Dla dziedzin faktycznych punktowaliśmy każdą syntezę względem pre-rejestrow
 
 > Uwaga: Punktowanie syntezy wymaga uruchomienia pipeline'u syntezy (src/synthesis/synthesizer.py). Wyniki zostaną uzupełnione przed ostatecznym złożeniem artykułu.
 
-## 6.3 Analiza jakościowa (Dziedzina C)
+## 🔍 6.3 Analiza jakościowa (Dziedzina C)
 
 Dla promptów strategicznych punktowanie rubryką ekspercką ujawniło spójne wzorce między strategiami syntezy:
 

@@ -1,4 +1,4 @@
-# 1. Einleitung
+# 📝 1. Einleitung
 
 Große Sprachmodelle sind inzwischen leistungsfähig genug, dass sie in Domänen eingesetzt werden, in denen Genauigkeit keine Option, sondern eine Voraussetzung ist: Rechtsanalyse, medizinische Diagnostik, regulatorische Compliance und staatliche Identitätssysteme. In diesen Bereichen ist eine selbstsichere, aber falsche Antwort eines einzelnen Modells kein geringfügiges Ärgernis - sie ist ein Versagen mit realen Konsequenzen.
 

@@ -1,4 +1,4 @@
-# 3. Methodik
+# 🔬 3. Methodik
 
 ## 3.1 Überblick über das BMAS-Protokoll
 

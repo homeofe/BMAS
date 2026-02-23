@@ -1,4 +1,4 @@
-# 2. Trabajos relacionados
+# 📚 2. Trabajos relacionados
 
 BMAS se basa en métodos de consenso experto estructurado, técnicas LLM multi-muestra y multi-modelo, métricas de evaluación automatizada y clustering basado en densidad. Esta sección revisa cada área y clarifica el posicionamiento de BMAS respecto a trabajos previos.
 

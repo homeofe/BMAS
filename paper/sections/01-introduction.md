@@ -1,4 +1,4 @@
-# 1. Introduction
+# 📝 1. Introduction
 
 Large language models have become capable enough that they are being deployed in domains where accuracy is not optional: legal analysis, medical diagnostics, regulatory compliance, and government identity systems. In these domains, a single model's confident but wrong answer is not a minor inconvenience -- it is a failure with real consequences.
 

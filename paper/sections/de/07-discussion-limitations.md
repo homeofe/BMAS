@@ -1,4 +1,4 @@
-# 7. Diskussion
+# 💡 7. Diskussion
 
 ## 7.1 Interpretation von Konvergenz und Divergenz
 
@@ -26,7 +26,7 @@ S2 (semantischer Zentroid) erzeugt zuverlässig die "durchschnittlichste" Antwor
 
 S3 (LLM-as-Judge) erzeugt die höchste faktische Genauigkeit für Domänen A und B [siehe Abschnitt 6], führt aber eine neue Abhängigkeit ein - die eigenen Verzerrungen des Richtermodells. Wenn das Richtermodell selbst bei einem gegebenen Prompt ein Ausreißer ist, kann seine Synthese die Mehrheitsmeinung systematisch unterrepräsentieren. Die Verwendung eines zurückgehaltenen Modells (eines, das nicht am blinden Lauf teilgenommen hat) als Richter mildert dieses Risiko.
 
-## 7.4 Einschränkungen
+## ⚠️ 7.4 Einschränkungen
 
 **Stichprobengröße.** Mit 45 Prompts über drei Domänen etabliert diese Studie erste Evidenz für die BMAS-Methodik, erlaubt aber keine breite statistische Verallgemeinerung. Eine Folgestudie mit 100+ Prompts pro Domäne würde die Behauptungen substanziell stärken.
 

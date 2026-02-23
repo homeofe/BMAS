@@ -10,7 +10,7 @@ Die Rubrik für Domäne C bewertete vier Dimensionen (0-3 Punkte je, max. 12):
 - **Faktische Genauigkeit:** Sind spezifische Aussagen (zitierte Standards, genannte Protokolle) korrekt?
 - **Handlungsorientierung:** Kann der Leser auf Basis der Synthese handeln, ohne weitere Klärung zu benötigen?
 
-## 6.2 Quantitative Ergebnisse (Domänen A und B)
+## 📊 6.2 Quantitative Ergebnisse (Domänen A und B)
 
 Für faktische Domänen bewerteten wir jede Synthese gegen die vorregistrierten Ground-Truth-Checklisten. Ergebnisse werden als Prozentsatz erfüllter Checklistenpunkte ausgedrückt.
 
@@ -25,7 +25,7 @@ Für faktische Domänen bewerteten wir jede Synthese gegen die vorregistrierten 
 
 > Hinweis: Die Synthesebewertung erfordert das Ausführen der Synthesepipeline (src/synthesis/synthesizer.py). Die Ergebnisse werden vor der endgültigen Einreichung ergänzt.
 
-## 6.3 Qualitative Analyse (Domäne C)
+## 🔍 6.3 Qualitative Analyse (Domäne C)
 
 Für strategische Prompts zeigte die Expertenrubrik-Bewertung konsistente Muster über Synthesestrategien hinweg:
 

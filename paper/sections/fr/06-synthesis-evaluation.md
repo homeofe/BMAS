@@ -10,7 +10,7 @@ La rubrique pour le domaine C évaluait quatre dimensions (0-3 points chacune, m
 - **Précision factuelle :** Les affirmations spécifiques (standards cités, protocoles nommés) sont-elles correctes ?
 - **Actionnabilité :** Le lecteur peut-il agir sur la base de la synthèse sans clarification supplémentaire ?
 
-## 6.2 Résultats quantitatifs (Domaines A et B)
+## 📊 6.2 Résultats quantitatifs (Domaines A et B)
 
 Pour les domaines factuels, nous avons noté chaque synthèse par rapport aux listes de contrôle de vérité terrain pré-enregistrées. Les résultats sont exprimés en pourcentage d'éléments de liste satisfaits.
 
@@ -25,7 +25,7 @@ Pour les domaines factuels, nous avons noté chaque synthèse par rapport aux li
 
 > Remarque : La notation de synthèse nécessite l'exécution du pipeline de synthèse (src/synthesis/synthesizer.py). Les résultats seront complétés avant la soumission finale.
 
-## 6.3 Analyse qualitative (Domaine C)
+## 🔍 6.3 Analyse qualitative (Domaine C)
 
 Pour les prompts stratégiques, la notation rubrique expert a révélé des schémas cohérents entre les stratégies de synthèse :
 

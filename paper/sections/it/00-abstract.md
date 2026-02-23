@@ -1,4 +1,4 @@
-# Sommario
+# 📋 Sommario
 
 Presentiamo **Blind Multi-Agent Synthesis (BMAS)**, una metodologia per misurare la convergenza e la divergenza di più modelli linguistici di grandi dimensioni (LLM) che rispondono a prompt identici in rigoroso isolamento. Ispirato al metodo Delphi nella previsione degli esperti, BMAS impone un isolamento completo delle risposte per modello: nessun modello osserva l'output di un altro modello prima della fase di sintesi.
 

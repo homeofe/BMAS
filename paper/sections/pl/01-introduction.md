@@ -1,4 +1,4 @@
-# 1. Wprowadzenie
+# 📝 1. Wprowadzenie
 
 Duże modele językowe osiągnęły poziom możliwości wystarczający do wdrażania w domenach, gdzie dokładność nie jest opcjonalna: analiza prawna, diagnostyka medyczna, zgodność regulacyjna oraz rządowe systemy identyfikacji. W tych obszarach pewna, lecz błędna odpowiedź pojedynczego modelu nie jest drobną niedogodnością - jest niepowodzeniem o realnych konsekwencjach.
 

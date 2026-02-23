@@ -1,6 +1,6 @@
-# 4. Resultados
+# 📊 4. Resultados
 
-## 4.1 Resumen del experimento
+## 📋 4.1 Resumen del experimento
 
 El experimento BMAS completo comprendió 45 prompts en tres estratos de dominio, evaluados cada uno por doce modelos, produciendo 540 respuestas de modelos en total. Todas las respuestas se obtuvieron bajo estricto aislamiento ciego a través del gateway OpenClaw.
 
@@ -20,7 +20,7 @@ El experimento BMAS completo comprendió 45 prompts en tres estratos de dominio,
 
 **Dominio C (Estratégico):** Los prompts estratégicos mostraron una similitud coseno media de 0,845 (DE = 0,037). La mayor desviación estándar refleja la diversidad genuina de posiciones legítimas de expertos sobre preguntas arquitectónicas y estratégicas, coherente con la hipótesis H3.
 
-## 4.3 Resultados de los tests de hipótesis
+## 📊 4.3 Resultados de los tests de hipótesis
 
 **H1 (Convergencia en dominios factuales):** La similitud coseno por pares media en prompts de los dominios A y B fue de 0,851, que supera el umbral pre-registrado de 0,75. La hipótesis H1 queda por tanto **CONFIRMADA**.
 

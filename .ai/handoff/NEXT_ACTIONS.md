@@ -1,4 +1,4 @@
-# BMAS Next Actions
+# 🚀 BMAS Next Actions
 
 Last updated: 2026-02-22 01:00
 Priority: top = most critical.

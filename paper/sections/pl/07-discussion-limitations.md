@@ -1,4 +1,4 @@
-# 7. Dyskusja
+# 💡 7. Dyskusja
 
 ## 7.1 Interpretacja konwergencji i dywergencji
 
@@ -20,7 +20,7 @@ S2 (centroid semantyczny) niezawodnie produkuje najbardziej "przeciętną" odpow
 
 S3 (LLM-as-Judge) produkuje najwyższą dokładność faktyczną w dziedzinach A i B, lecz wprowadza nową zależność: własne uprzedzenia modelu sędziego. Użycie zarezerwowanego modelu jako sędziego łagodzi to ryzyko.
 
-## 7.4 Ograniczenia
+## ⚠️ 7.4 Ograniczenia
 
 **Wielkość próbki.** Przy 45 promptach w trzech dziedzinach badanie to ustanawia początkowe dowody, lecz nie pozwala na szeroką generalizację statystyczną. Badanie uzupełniające ze 100+ promptami na dziedzinę znacząco wzmocniłoby twierdzenia.
 

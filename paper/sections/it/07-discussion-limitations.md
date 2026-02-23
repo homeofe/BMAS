@@ -1,4 +1,4 @@
-# 7. Discussione
+# 💡 7. Discussione
 
 ## 7.1 Interpretazione della convergenza e della divergenza
 
@@ -20,7 +20,7 @@ S2 (centroide semantico) produce in modo affidabile la risposta più "media". Fu
 
 S3 (LLM-as-Judge) produce la maggiore accuratezza fattuale nei domini A e B ma introduce una nuova dipendenza: i bias del modello giudice. L'utilizzo di un modello riservato come giudice mitiga questo rischio.
 
-## 7.4 Limitazioni
+## ⚠️ 7.4 Limitazioni
 
 **Dimensione del campione.** Con 45 prompt su tre domini, questo studio stabilisce prove iniziali ma non consente un'ampia generalizzazione statistica. Uno studio di follow-up con 100+ prompt per dominio rafforzerebbe sostanzialmente le affermazioni.
 

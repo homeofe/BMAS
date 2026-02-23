@@ -6,7 +6,7 @@ Ground truth = "expert consensus after synthesis review."
 
 ---
 
-## C01 - Zero Trust Architecture Decision
+## 🏗️ C01 - Zero Trust Architecture Decision
 **Prompt:**
 For a zero-trust architecture handling cross-border EU government identity verification, should the orchestration layer be implemented as an event-driven microservice mesh or a stateless API gateway chain? The system processes ~10,000 identity verifications per day across 5 EU member states, with GDPR and eIDAS 2.0 compliance requirements. Justify your recommendation.
 
@@ -46,7 +46,7 @@ During a security incident, your threat intelligence indicates an attacker has e
 
 ---
 
-## C06 - AI in Security Operations
+## 🔒 C06 - AI in Security Operations
 **Prompt:**
 Should a Security Operations Center (SOC) with 5 analysts use AI/LLM-based tools for alert triage and first-line investigation? List the top 3 benefits and top 3 risks. Given those, what is your overall recommendation and what governance controls are mandatory before deployment?
 
@@ -54,7 +54,7 @@ Should a Security Operations Center (SOC) with 5 analysts use AI/LLM-based tools
 
 ---
 
-## C07 - Compliance vs. Security Investment
+## 🔒 C07 - Compliance vs. Security Investment
 **Prompt:**
 An IT leader has 200,000 EUR to invest in security for a mid-sized company. Option A: achieve ISO 27001 certification (estimated cost: 150,000 EUR including consultant + audit). Option B: invest the full amount in technical security controls (EDR, SIEM, PAM, vulnerability management). From a risk reduction perspective, which investment produces better outcomes in years 1-3? Justify with reasoning.
 
@@ -70,7 +70,7 @@ You are designing an identity federation for 5 European government agencies that
 
 ---
 
-## C09 - Security Awareness Training ROI
+## 🔒 C09 - Security Awareness Training ROI
 **Prompt:**
 An organization runs annual phishing simulations and security awareness training. The CISO argues this is ineffective and wants to redirect the budget (40,000 EUR/year) to technical controls (email filtering, browser isolation). The HR director argues training is a compliance requirement and builds culture. Who is right? Present both arguments and give your verdict with reasoning.
 

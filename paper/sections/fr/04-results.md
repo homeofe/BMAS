@@ -1,4 +1,4 @@
-# 4. Résultats
+# 📊 4. Résultats
 
 ## 4.1 Aperçu de l'expérience
 
@@ -20,7 +20,7 @@ L'expérience BMAS complète comprenait 45 prompts sur trois strates de domaine,
 
 **Domaine C (Stratégique) :** Les prompts stratégiques ont montré une similarité cosinus moyenne de 0,845 (ET = 0,037). L'écart-type plus élevé reflète la diversité réelle des positions d'experts légitimes sur les questions architecturales et stratégiques, conformément à l'hypothèse H3.
 
-## 4.3 Résultats des tests d'hypothèses
+## 📊 4.3 Résultats des tests d'hypothèses
 
 **H1 (Convergence dans les domaines factuels) :** La similarité cosinus pairée moyenne sur les prompts des domaines A et B était de 0,851, ce qui dépasse le seuil pré-enregistré de 0,75. L'hypothèse H1 est donc **CONFIRMÉE**.
 

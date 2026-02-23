@@ -1,6 +1,6 @@
-# 5. Divergence Analysis
+# 🔍 5. Divergence Analysis
 
-## 5.1 Outlier Detection Results
+## 📊 5.1 Outlier Detection Results
 
 Across all 45 prompts, 12 (44%) produced at least one semantic outlier model as identified by DBSCAN (eps=0.15, min_samples=2). Outlier frequency was highest in Domain C (strategic), consistent with the expectation that ambiguous questions produce more diverse response embeddings.
 

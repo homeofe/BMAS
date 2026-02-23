@@ -23,7 +23,7 @@ Compare ML-KEM-768 and ML-DSA-65 (FIPS 203 and FIPS 204) on the following dimens
 
 ---
 
-## A03 - TLS Cipher Suite Analysis
+## 🔍 A03 - TLS Cipher Suite Analysis
 **Prompt:**
 For TLS 1.3, list all standardized cipher suites defined in RFC 8446. For each, state: the AEAD algorithm, the hash function, and the key exchange group(s) it is compatible with. Which of these is recommended for post-quantum readiness and why?
 
@@ -50,7 +50,7 @@ Describe the complete OpenID for Verifiable Presentations (OID4VP) protocol flow
 
 ---
 
-## A06 - eIDAS 2.0 Wallet Architecture
+## 🏗️ A06 - eIDAS 2.0 Wallet Architecture
 **Prompt:**
 According to the EU eIDAS 2.0 regulation (Regulation 2024/1183), what are the mandatory components of an EU Digital Identity Wallet (EUDIW)? List the required technical functions and the assurance level requirements.
 
