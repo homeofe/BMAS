@@ -1,6 +1,6 @@
 # BMAS - Blind Multi-Agent Synthesis
 
-**Research Project** | Status: **COMPLETE — Paper ready for arXiv**
+**Research Project** | Status: **COMPLETE - Paper ready for arXiv**
 
 ---
 
@@ -19,7 +19,7 @@ This hypothesis is testable, falsifiable, and has direct practical implications 
 
 ## Why It Matters
 
-Most multi-agent AI research focuses on **cooperative** agents that communicate and coordinate. BMAS takes the opposite approach: **competitive isolation** — like independent peer review rather than a committee.
+Most multi-agent AI research focuses on **cooperative** agents that communicate and coordinate. BMAS takes the opposite approach: **competitive isolation** - like independent peer review rather than a committee.
 
 Practical applications:
 - Use **convergence** as a quality signal in compliance, medical, and legal AI systems
@@ -42,8 +42,8 @@ Practical applications:
 
 | Metric | Overall Mean | Overall Min |
 |---|---|---|
-| **Cosine similarity** (all-MiniLM-L6-v2) | **0.491** | — |
-| **BERTScore F1** (roberta-large) | **0.815** | — |
+| **Cosine similarity** (all-MiniLM-L6-v2) | **0.491** | - |
+| **BERTScore F1** (roberta-large) | **0.815** | - |
 
 - Convergence is highest in the **Technical domain** (precise, well-constrained prompts)
 - Divergence is highest in the **Strategic domain** (ambiguous, open-ended prompts)
@@ -92,21 +92,21 @@ BMAS/
 
 | Domain | Prompts | Description |
 |---|---|---|
-| **A — High-Precision Technical** | A01–A15 | CVSS scores, PQC standards, cryptographic primitives |
-| **B — Regulatory/Compliance** | B01–B15 | GDPR articles, eIDAS clauses, TISAX requirements |
-| **C — Strategic/Ambiguous** | C01–C15 | Architecture decisions, security trade-offs, design choices |
+| **A - High-Precision Technical** | A01–A15 | CVSS scores, PQC standards, cryptographic primitives |
+| **B - Regulatory/Compliance** | B01–B15 | GDPR articles, eIDAS clauses, TISAX requirements |
+| **C - Strategic/Ambiguous** | C01–C15 | Architecture decisions, security trade-offs, design choices |
 
 ---
 
 ## Paper Status
 
 - ✅ Experiment design finalized
-- ✅ Prompt set v1 — 45 prompts across 3 domains
-- ✅ Blind runs complete — 540 model responses collected
+- ✅ Prompt set v1 - 45 prompts across 3 domains
+- ✅ Blind runs complete - 540 model responses collected
 - ✅ Metrics implementation (cosine, BERTScore, Jaccard, DBSCAN)
-- ✅ Results analysis — all 45 prompts fully processed
+- ✅ Results analysis - all 45 prompts fully processed
 - ✅ Figures generated (F1–F5)
-- ✅ Paper draft — all 9 sections written (EN + 5 translations)
+- ✅ Paper draft - all 9 sections written (EN + 5 translations)
 - ⬜ Internal review
 - ⬜ arXiv preprint
 - ⬜ Submission (workshop/conference TBD)
@@ -127,7 +127,7 @@ The metrics pipeline (BERTScore via `roberta-large`, semantic embeddings via `al
 | **VRAM** | 4 GB GDDR5 | 11 GB GDDR6 |
 | **FP32 Throughput** | ~1.7 TFLOPS | ~13.6 TFLOPS |
 
-The local GPU (Quadro M2000) was unusable for inference: PyTorch 2.x requires CUDA compute capability ≥ 6.0. Any attempt to run the pipeline locally produced `cudaErrorNoKernelImageForDevice` — a hard failure, not a performance issue.
+The local GPU (Quadro M2000) was unusable for inference: PyTorch 2.x requires CUDA compute capability ≥ 6.0. Any attempt to run the pipeline locally produced `cudaErrorNoKernelImageForDevice` - a hard failure, not a performance issue.
 
 ### Remote GPU Bridge (`openclaw-gpu-bridge`)
 
@@ -143,7 +143,7 @@ openclaw-gpu-bridge  (your-gpu-host:8765)
   └── all-MiniLM-L6-v2     (Cosine embeddings)
         │
         ▼
-  NVIDIA RTX 2080 Ti — 11 GB VRAM, 4352 CUDA Cores, 544 Tensor Cores
+  NVIDIA RTX 2080 Ti - 11 GB VRAM, 4352 CUDA Cores, 544 Tensor Cores
 ```
 
 The metrics pipeline calls the bridge via `GPU_BRIDGE_URL` environment variable and falls back gracefully to CPU if the bridge is unavailable.

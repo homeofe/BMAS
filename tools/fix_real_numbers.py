@@ -44,12 +44,12 @@ METRIC_SUBS = {
         (r"cosine similarity of 0\.479", "cosine similarity of 0.550"),
         # Domain A BERTScore
         (r"BERTScore F1 mean was 0\.811", "BERTScore F1 mean was 0.818"),
-        # Domain B cosine (was "0.508" — previous interim)
+        # Domain B cosine (was "0.508" - previous interim)
         (r"mean cosine similarity of 0\.508", "mean cosine similarity of 0.524"),
         (r"cosine similarity of 0\.508", "cosine similarity of 0.524"),
         # Domain B BERTScore
         (r"BERTScore.*?0\.820", "BERTScore mean of 0.822"),
-        # Domain C cosine ("0.485" already correct — but may say 0.482)
+        # Domain C cosine ("0.485" already correct - but may say 0.482)
         (r"cosine similarity drops to 0\.485", "cosine similarity drops to 0.485"),
         (r"cosine similarity drops to 0\.482", "cosine similarity drops to 0.485"),
         # Overall cosine 0.491 → 0.520
@@ -172,9 +172,9 @@ NEW_RESULTS_OVERVIEW = """The full BMAS experiment comprised 45 prompts across t
 
 | Domain | Prompts | Cosine similarity (mean) | BERTScore F1 (mean) |
 |---|---|---|---|
-| A — Technical | 15 | 0.550 | 0.818 |
-| B — Regulatory | 15 | 0.524 | 0.822 |
-| C — Strategic | 15 | 0.485 | 0.816 |
+| A - Technical | 15 | 0.550 | 0.818 |
+| B - Regulatory | 15 | 0.524 | 0.822 |
+| C - Strategic | 15 | 0.485 | 0.816 |
 | **Overall** | **45** | **0.520** | **0.819** |"""
 
 

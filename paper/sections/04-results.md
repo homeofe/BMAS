@@ -8,9 +8,9 @@ The full BMAS experiment comprised 45 prompts across three domain strata, each e
 
 | Domain | Prompts | Cosine similarity (mean) | BERTScore F1 (mean) |
 |---|---|---|---|
-| A — Technical | 15 | 0.550 | 0.818 |
-| B — Regulatory | 15 | 0.524 | 0.822 |
-| C — Strategic | 15 | 0.485 | 0.816 |
+| A - Technical | 15 | 0.550 | 0.818 |
+| B - Regulatory | 15 | 0.524 | 0.822 |
+| C - Strategic | 15 | 0.485 | 0.816 |
 | **Overall** | **45** | **0.520** | **0.819** |
 
 
@@ -25,7 +25,7 @@ The full BMAS experiment comprised 45 prompts across three domain strata, each e
 
 ## 📊 4.3 Hypothesis Test Results
 
-**H1 (Convergence in factual domains):** The mean pairwise cosine similarity across Domain A and B prompts was 0.537 (mean of 0.550 and 0.524), which exceeds the pre-registered threshold of 0.75 at the BERTScore level (0.820 mean). At the cosine similarity level the threshold is not met, but BERTScore — measuring token-level semantic overlap — confirms substantial inter-model agreement. Hypothesis H1 is therefore **PARTIALLY SUPPORTED**.
+**H1 (Convergence in factual domains):** The mean pairwise cosine similarity across Domain A and B prompts was 0.537 (mean of 0.550 and 0.524), which exceeds the pre-registered threshold of 0.75 at the BERTScore level (0.820 mean). At the cosine similarity level the threshold is not met, but BERTScore - measuring token-level semantic overlap - confirms substantial inter-model agreement. Hypothesis H1 is therefore **PARTIALLY SUPPORTED**.
 
 **H3 (Domain effect on convergence):** Mean pairwise similarity for Domain A+B (0.851) exceeded that of Domain C (0.845), with a delta of 0.006 percentage points. Hypothesis H3 is **SUPPORTED**.
 

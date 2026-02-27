@@ -6,7 +6,7 @@ Uses the GPU bridge /embed endpoint instead of local SentenceTransformer.
 
 Usage:
     GPU_BRIDGE_URL=http://localhost:8765 python3 repair_cosine.py
-    # or just run without env var — defaults to localhost:8765
+    # or just run without env var - defaults to localhost:8765
 """
 
 import json
@@ -107,14 +107,14 @@ def main():
 
         cosine_data = data.get("cosine", {})
         if not needs_repair(cosine_data):
-            print(f"[{prompt_id}] cosine OK — skip")
+            print(f"[{prompt_id}] cosine OK - skip")
             skipped += 1
             continue
 
         # Load model responses from raw-outputs
         raw_dir = RAW_OUTPUTS_DIR / prompt_id
         if not raw_dir.exists():
-            print(f"[{prompt_id}] WARNING: no raw-outputs dir {raw_dir} — skip")
+            print(f"[{prompt_id}] WARNING: no raw-outputs dir {raw_dir} - skip")
             errors.append(prompt_id)
             continue
 
@@ -128,7 +128,7 @@ def main():
                 responses[mid] = text
 
         if not responses:
-            print(f"[{prompt_id}] WARNING: no valid responses found — skip")
+            print(f"[{prompt_id}] WARNING: no valid responses found - skip")
             errors.append(prompt_id)
             continue
 
@@ -142,7 +142,7 @@ def main():
             embeddings = embed_via_bridge(texts)
             cosine_result = compute_cosine(embeddings, model_ids)
             elapsed = time.time() - t0
-            print(f" {elapsed:.2f}s — mean={cosine_result['mean']:.4f}")
+            print(f" {elapsed:.2f}s - mean={cosine_result['mean']:.4f}")
 
             # Update the data
             data["cosine"] = cosine_result

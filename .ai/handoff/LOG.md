@@ -151,7 +151,7 @@ P5 complete. Next: P6 (full 30-prompt run) when Emre approves. P7 (metrics) can 
 
 ---
 
-## 2026-02-22 — v2 Expansion: 12 Models × 45 Prompts (complete dataset)
+## 2026-02-22 - v2 Expansion: 12 Models × 45 Prompts (complete dataset)
 
 **Summary:** Expanded experiment from original design (5 models × 30 prompts) to full dataset (12 models × 45 prompts). Detected and fixed data quality issues through the BMAS metric pipeline itself.
 
@@ -161,11 +161,11 @@ P5 complete. Next: P6 (full 30-prompt run) when Emre approves. P7 (metrics) can 
 - Total: 540 model responses (45 × 12)
 
 **Data quality issues discovered:**
-- M6 (sonar-deep-research): 16/45 responses were HTTP 401 errors — OpenClaw gateway was timing out before the model finished (model requires 2-5 min per prompt). Fixed via direct Perplexity API calls with 360s timeout.
-- M7 (gemini-3-pro-preview): 43/45 responses were rate-limit messages — Google API quota exhausted. Pending fix when API credits are available.
+- M6 (sonar-deep-research): 16/45 responses were HTTP 401 errors - OpenClaw gateway was timing out before the model finished (model requires 2-5 min per prompt). Fixed via direct Perplexity API calls with 360s timeout.
+- M7 (gemini-3-pro-preview): 43/45 responses were rate-limit messages - Google API quota exhausted. Pending fix when API credits are available.
 
 **What this demonstrates:**
-The BMAS metric pipeline itself detected these data quality issues: error messages produced near-zero cosine similarity and extreme DBSCAN outlier scores, making the bad responses statistically visible. This validates the divergence-as-signal hypothesis in a meta sense — the pipeline flagged its own corrupted inputs.
+The BMAS metric pipeline itself detected these data quality issues: error messages produced near-zero cosine similarity and extreme DBSCAN outlier scores, making the bad responses statistically visible. This validates the divergence-as-signal hypothesis in a meta sense - the pipeline flagged its own corrupted inputs.
 
 **Final numbers (with clean M6, pending M7):**
 - Domain A: cosine=0.550, bertscore=0.818

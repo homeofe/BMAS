@@ -255,7 +255,7 @@ def detect_outliers(cosine_result: dict[str, Any], eps: float = 0.15, min_sample
     embeddings = np.array(cosine_result["embeddings"])
 
     # Convert cosine similarity matrix to distance matrix
-    # Clip to [0, 2] — floating point can push cosine slightly above 1.0
+    # Clip to [0, 2] - floating point can push cosine slightly above 1.0
     sim_matrix = np.clip(np.array(cosine_result["matrix"]), -1.0, 1.0)
     dist_matrix = 1.0 - sim_matrix
     dist_matrix = np.clip(dist_matrix, 0.0, 2.0)

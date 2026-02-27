@@ -286,7 +286,7 @@ def main():
         if args.prompt_ids:
             failed = [p for p in failed if p in args.prompt_ids]
 
-        print(f"\n[{model_id}] {config['name']} — {len(failed)} prompts to re-run")
+        print(f"\n[{model_id}] {config['name']} - {len(failed)} prompts to re-run")
         if not failed:
             print("  Nothing to do.")
             continue
@@ -309,7 +309,7 @@ def main():
             if not args.dry_run:
                 time.sleep(2)
 
-        print(f"\n[{model_id}] Done — OK: {ok}, Errors: {err}")
+        print(f"\n[{model_id}] Done - OK: {ok}, Errors: {err}")
 
     print("\nRe-run complete. Next: run src/metrics/run_pipeline.py to recompute metrics.")
 

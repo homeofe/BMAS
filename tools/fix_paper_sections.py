@@ -18,7 +18,7 @@ SECTIONS_DIR = "/home/chef-linux/.openclaw/workspace/BMAS/paper/sections"
 
 # --------------------------------------------------------------------------
 # Language-specific substitution tables
-# Each entry: (pattern, replacement) — applied via re.sub
+# Each entry: (pattern, replacement) - applied via re.sub
 # --------------------------------------------------------------------------
 
 SUBSTITUTIONS = {
@@ -76,7 +76,7 @@ SUBSTITUTIONS = {
         (r"With 30 prompts across three domains", "With 45 prompts across three domains"),
         # Domain A size reference
         (r"10 prompts requiring", "15 prompts requiring"),
-        # Model table — description of providers
+        # Model table - description of providers
         (r"from four distinct providers:", "from four distinct providers (Anthropic, OpenAI, Google, Perplexity):"),
         # Results section: old pilot cosine/bertscore numbers
         (r"mean cosine similarity of 0\.832 \(SD = 0\.045\)", "mean cosine similarity of 0.479 (SD = 0.038)"),

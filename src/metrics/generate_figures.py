@@ -546,7 +546,7 @@ def figure_outlier_frequency(reports: list[dict]) -> None:
     ax.set_xticks(x)
     ax.set_xticklabels(sorted_names, rotation=30, ha="right", fontsize=10)
     ax.set_ylabel("Outlier Rate (%)", fontsize=11)
-    ax.set_title("Stacked by Domain — sorted by total frequency", fontsize=11)
+    ax.set_title("Stacked by Domain - sorted by total frequency", fontsize=11)
     ax.legend(fontsize=10, loc="upper right")
     ax.grid(axis="y", alpha=0.3)
 
