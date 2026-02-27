@@ -1,4 +1,4 @@
-# 🎯 8. Conclusion
+﻿# 🎯 8. Conclusion
 
 Ce travail a introduit **Blind Multi-Agent Synthesis (BMAS)**, une méthodologie pour éliciter, comparer et synthétiser les réponses de plusieurs grands modèles de langage dans une isolation stricte, et a présenté des résultats empiriques d'une expérience de 540 lancements sur douze LLMs frontier et trois strates de domaines.
 
@@ -28,4 +28,4 @@ Tous les codes, prompts, réponses de référence pré-enregistrées et résulta
 
 ---
 
-*Le jeu de données BMAS, le runner, le pipeline de métriques et le code de synthèse sont disponibles à l'adresse : https://github.com/homeofe/BMAS*
+*Le jeu de données BMAS, le runner, le pipeline de métriques et le code de synthèse sont disponibles à l'adresse : https://github.com/elvatis/BMAS*

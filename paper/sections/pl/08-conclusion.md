@@ -1,4 +1,4 @@
-# 🎯 8. Wnioski
+﻿# 🎯 8. Wnioski
 
 Niniejsza praca przedstawiła **Blind Multi-Agent Synthesis (BMAS)**, metodologię elicytacji, porównania i syntezy odpowiedzi wielu dużych modeli językowych w ścisłej izolacji, oraz zaprezentowała wyniki empiryczne eksperymentu obejmującego 540 uruchomień na pięciu modelach frontier i trzech poziomach dziedzinowych.
 
@@ -28,4 +28,4 @@ Wszystkie kody, prompty, pre-rejestrowane odpowiedzi referencyjne i wyniki ekspe
 
 ---
 
-*Zbiór danych BMAS, runner, potok metryk i kod syntezy są dostępne pod adresem: https://github.com/homeofe/BMAS*
+*Zbiór danych BMAS, runner, potok metryk i kod syntezy są dostępne pod adresem: https://github.com/elvatis/BMAS*

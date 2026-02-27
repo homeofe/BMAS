@@ -1,4 +1,4 @@
-# 🎯 8. Conclusion
+﻿# 🎯 8. Conclusion
 
 This paper introduced **Blind Multi-Agent Synthesis (BMAS)**, a methodology for eliciting, comparing, and synthesizing responses from multiple large language models in strict isolation, and presented empirical results from a 540-run experiment across twelve frontier LLMs and three domain strata.
 
@@ -28,4 +28,4 @@ All code, prompts, pre-registered ground truth, and experimental results are rel
 
 ---
 
-*The BMAS dataset, runner, metrics pipeline, and synthesis code are available at: https://github.com/homeofe/BMAS*
+*The BMAS dataset, runner, metrics pipeline, and synthesis code are available at: https://github.com/elvatis/BMAS*

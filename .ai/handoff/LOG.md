@@ -1,4 +1,4 @@
-# BMAS Project Log
+﻿# BMAS Project Log
 
 ---
 
@@ -10,7 +10,7 @@
 
 ### What Was Done
 
-- Cloned GitHub repo `homeofe/BMAS` (private) to workspace
+- Cloned GitHub repo `elvatis/BMAS` (private) to workspace
 - Created full project directory structure (experiments, paper, src, results, .ai/handoff)
 - Wrote `README.md` with full project overview, hypothesis, model table, domain table
 - Wrote `experiments/design.md` - complete pre-registered experiment specification:
