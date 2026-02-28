@@ -28,4 +28,4 @@ All code, prompts, pre-registered ground truth, and experimental results are rel
 
 ---
 
-*The BMAS dataset, runner, metrics pipeline, and synthesis code are available at: https://github.com/elvatis/BMAS*
+*The BMAS dataset, runner, metrics pipeline, and synthesis code are available at: https://github.com/homeofe/BMAS*

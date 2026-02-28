@@ -28,4 +28,4 @@ Wszystkie kody, prompty, pre-rejestrowane odpowiedzi referencyjne i wyniki ekspe
 
 ---
 
-*Zbiór danych BMAS, runner, potok metryk i kod syntezy są dostępne pod adresem: https://github.com/elvatis/BMAS*
+*Zbiór danych BMAS, runner, potok metryk i kod syntezy są dostępne pod adresem: https://github.com/homeofe/BMAS*

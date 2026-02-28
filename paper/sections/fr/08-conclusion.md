@@ -28,4 +28,4 @@ Tous les codes, prompts, réponses de référence pré-enregistrées et résulta
 
 ---
 
-*Le jeu de données BMAS, le runner, le pipeline de métriques et le code de synthèse sont disponibles à l'adresse : https://github.com/elvatis/BMAS*
+*Le jeu de données BMAS, le runner, le pipeline de métriques et le code de synthèse sont disponibles à l'adresse : https://github.com/homeofe/BMAS*

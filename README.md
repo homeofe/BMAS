@@ -179,7 +179,7 @@ Sections: `00-abstract`, `01-introduction`, `02-related-work`, `03-methodology`,
 
 ## Connection to AAHP and failprompt
 
-BMAS is built on the [AAHP protocol](https://github.com/elvatis/AAHP) for agent orchestration.
+BMAS is built on the [AAHP protocol](https://github.com/homeofe/AAHP) for agent orchestration.
 The runner integrates with [failprompt](https://github.com/elvatis/failprompt) as the CI/CD layer for automated experiment runs.
 
 ---

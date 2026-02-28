@@ -26,4 +26,4 @@ Tutti i codici, i prompt, le risposte di riferimento pre-registrate e i risultat
 
 ---
 
-*Il dataset BMAS, il runner, il pipeline di metriche e il codice di sintesi sono disponibili all'indirizzo: https://github.com/elvatis/BMAS*
+*Il dataset BMAS, il runner, il pipeline di metriche e il codice di sintesi sono disponibili all'indirizzo: https://github.com/homeofe/BMAS*

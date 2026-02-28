@@ -28,4 +28,4 @@ Alle Code-, Prompt-, vorregistrierten Korrektantwort- und Experimentergebnisse w
 
 ---
 
-*Der BMAS-Datensatz, Runner, die Metrik-Pipeline und der Synthesecode sind verfügbar unter: https://github.com/elvatis/BMAS*
+*Der BMAS-Datensatz, Runner, die Metrik-Pipeline und der Synthesecode sind verfügbar unter: https://github.com/homeofe/BMAS*
